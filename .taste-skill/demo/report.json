@@ -1,6 +1,6 @@
 {
  "url": "demo.html",
- "at": "2026-11-02T10:57:57.920Z",
+ "at": "2026-11-02T11:29:11.921Z",
  "allow": [],
  "viewports": [
   {
@@ -31,7 +31,7 @@
      "img": 0,
      "video": 0,
      "canvas": 0,
-     "svg": 0,
+     "svg": 1,
      "sections": 0,
      "horizontalOverflow": 0,
      "overflowCulprits": [],
@@ -266,7 +266,13 @@
      "cardRows": []
     },
     "heroMedia": [],
-    "nav": null,
+    "nav": {
+     "links": 0,
+     "fixed": false,
+     "height": 0,
+     "floatingPill": false,
+     "blur": false
+    },
     "fontsLoaded": [
      "switzer"
     ]
@@ -408,7 +414,7 @@
      "size": 32,
      "top": 149
     },
-    "colourShare": 0.002
+    "colourShare": 0.001
    },
    "consoleErrors": []
   },
@@ -418,7 +424,7 @@
    "load": "load",
    "screens": 1,
    "filled": [
-    0.4
+    0.45
    ],
    "motion": {
     "elements": 0,
@@ -436,11 +442,11 @@
     "page": {
      "height": 1024,
      "screens": 1,
-     "words": 56,
+     "words": 55,
      "img": 0,
      "video": 0,
      "canvas": 0,
-     "svg": 0,
+     "svg": 1,
      "sections": 0,
      "horizontalOverflow": 0,
      "overflowCulprits": [],
@@ -467,7 +473,7 @@
      "weight": 600,
      "tracking": -0.04,
      "leading": 1,
-     "top": 115,
+     "top": 171,
      "tag": "h1",
      "kind": "heading",
      "align": "left",
@@ -498,7 +504,7 @@
       "align": "left",
       "position": "center",
       "widthRatio": 0.94,
-      "top": 115,
+      "top": 171,
       "tag": "h1",
       "kind": "heading"
      }
@@ -564,7 +570,7 @@
       "mono": false,
       "pill": false,
       "size": 15,
-      "top": 40
+      "top": 96
      }
     ],
     "numbered": [],
@@ -589,33 +595,41 @@
      ],
      "textColors": [
       {
-       "color": "#222222",
-       "share": 0.38
+       "color": "#0a0a0a",
+       "share": 0.44
       },
       {
-       "color": "#0a0a0a",
-       "share": 0.38
+       "color": "#222222",
+       "share": 0.39
       },
       {
        "color": "#3a3a3a",
        "share": 0.17
-      },
-      {
-       "color": "#1f6b3a",
-       "share": 0.07
       }
      ],
-     "button": null,
+     "button": {
+      "bg": "#c3edce",
+      "hsl": {
+       "h": 136,
+       "s": 0.54,
+       "l": 0.85
+      },
+      "fg": "#0a0a0a"
+     },
      "lowContrast": []
     },
     "buttons": {
-     "count": 0,
-     "inHero": 0,
+     "count": 1,
+     "inHero": 1,
+     "radius": "pill",
+     "height": 40,
      "withShadow": 0,
      "withGradient": 0,
      "mono": 0,
      "upper": 0,
-     "heroLabels": []
+     "heroLabels": [
+      "Back to Landing Page"
+     ]
     },
     "surfaces": {
      "shadowStatic": 0,
@@ -639,7 +653,13 @@
      "cardRows": []
     },
     "heroMedia": [],
-    "nav": null,
+    "nav": {
+     "links": 1,
+     "fixed": false,
+     "height": 56,
+     "floatingPill": false,
+     "blur": false
+    },
     "fontsLoaded": [
      "switzer"
     ]
@@ -658,7 +678,7 @@
      {
       "sel": "button.role.role--mint",
       "tag": "button",
-      "top": 217,
+      "top": 273,
       "height": 180,
       "words": 17,
       "media": 0,
@@ -681,7 +701,7 @@
      {
       "sel": "button.role.role--pink",
       "tag": "button",
-      "top": 409,
+      "top": 465,
       "height": 180,
       "words": 18,
       "media": 0,
@@ -707,7 +727,7 @@
      {
       "text": "Who is using the app?",
       "size": 32,
-      "top": 115,
+      "top": 171,
       "firstScreen": true
      }
     ],
@@ -734,7 +754,9 @@
     "dark": false,
     "ground": "#f8f8f8",
     "sidebar": null,
-    "topbar": null,
+    "topbar": {
+     "h": 56
+    },
     "canvas": {
      "left": 22,
      "right": 22
@@ -750,7 +772,7 @@
      "weight": 600,
      "tracking": -0.04,
      "leading": 1,
-     "top": 115,
+     "top": 171,
      "tag": "h1",
      "kind": "heading",
      "align": "left",
@@ -811,9 +833,9 @@
     "title": {
      "text": "Who is using the app?",
      "size": 32,
-     "top": 115
+     "top": 171
     },
-    "colourShare": 0.003
+    "colourShare": 0.001
    },
    "consoleErrors": []
   },
@@ -823,7 +845,7 @@
    "load": "load",
    "screens": 1,
    "filled": [
-    0.45
+    0.49
    ],
    "motion": {
     "elements": 0,
@@ -841,11 +863,11 @@
     "page": {
      "height": 844,
      "screens": 1,
-     "words": 56,
+     "words": 55,
      "img": 0,
      "video": 0,
      "canvas": 0,
-     "svg": 0,
+     "svg": 1,
      "sections": 0,
      "horizontalOverflow": 0,
      "overflowCulprits": [],
@@ -872,7 +894,7 @@
      "weight": 600,
      "tracking": -0.04,
      "leading": 1,
-     "top": 115,
+     "top": 171,
      "tag": "h1",
      "kind": "heading",
      "align": "left",
@@ -903,7 +925,7 @@
       "align": "left",
       "position": "center",
       "widthRatio": 0.89,
-      "top": 115,
+      "top": 171,
       "tag": "h1",
       "kind": "heading"
      },
@@ -924,7 +946,7 @@
       "align": "left",
       "position": "center",
       "widthRatio": 0.77,
-      "top": 276,
+      "top": 332,
       "tag": "span",
       "kind": "heading"
      },
@@ -945,7 +967,7 @@
       "align": "left",
       "position": "center",
       "widthRatio": 0.77,
-      "top": 464,
+      "top": 520,
       "tag": "span",
       "kind": "heading"
      }
@@ -1011,7 +1033,7 @@
       "mono": false,
       "pill": false,
       "size": 15,
-      "top": 40
+      "top": 96
      }
     ],
     "numbered": [],
@@ -1036,33 +1058,41 @@
      ],
      "textColors": [
       {
-       "color": "#222222",
-       "share": 0.38
+       "color": "#0a0a0a",
+       "share": 0.44
       },
       {
-       "color": "#0a0a0a",
-       "share": 0.38
+       "color": "#222222",
+       "share": 0.39
       },
       {
        "color": "#3a3a3a",
        "share": 0.17
-      },
-      {
-       "color": "#1f6b3a",
-       "share": 0.07
       }
      ],
-     "button": null,
+     "button": {
+      "bg": "#c3edce",
+      "hsl": {
+       "h": 136,
+       "s": 0.54,
+       "l": 0.85
+      },
+      "fg": "#0a0a0a"
+     },
      "lowContrast": []
     },
     "buttons": {
-     "count": 0,
-     "inHero": 0,
+     "count": 1,
+     "inHero": 1,
+     "radius": "pill",
+     "height": 40,
      "withShadow": 0,
      "withGradient": 0,
      "mono": 0,
      "upper": 0,
-     "heroLabels": []
+     "heroLabels": [
+      "Back to Landing Page"
+     ]
     },
     "surfaces": {
      "shadowStatic": 0,
@@ -1086,7 +1116,13 @@
      "cardRows": []
     },
     "heroMedia": [],
-    "nav": null,
+    "nav": {
+     "links": 1,
+     "fixed": false,
+     "height": 56,
+     "floatingPill": false,
+     "blur": false
+    },
     "fontsLoaded": [
      "switzer"
     ]
@@ -1105,7 +1141,7 @@
      {
       "sel": "button.role.role--mint",
       "tag": "button",
-      "top": 240,
+      "top": 296,
       "height": 180,
       "words": 17,
       "media": 0,
@@ -1128,7 +1164,7 @@
      {
       "sel": "button.role.role--pink",
       "tag": "button",
-      "top": 432,
+      "top": 488,
       "height": 180,
       "words": 18,
       "media": 0,
@@ -1154,7 +1190,7 @@
      {
       "text": "Who is using the app?",
       "size": 32,
-      "top": 115,
+      "top": 171,
       "firstScreen": true
      }
     ],
@@ -1181,7 +1217,9 @@
     "dark": false,
     "ground": "#f8f8f8",
     "sidebar": null,
-    "topbar": null,
+    "topbar": {
+     "h": 56
+    },
     "canvas": {
      "left": 22,
      "right": 22
@@ -1197,7 +1235,7 @@
      "weight": 600,
      "tracking": -0.04,
      "leading": 1,
-     "top": 115,
+     "top": 171,
      "tag": "h1",
      "kind": "heading",
      "align": "left",
@@ -1257,7 +1295,7 @@
     "title": {
      "text": "Who is using the app?",
      "size": 32,
-     "top": 115
+     "top": 171
     },
     "colourShare": 0.001
    },

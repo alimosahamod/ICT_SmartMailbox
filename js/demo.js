@@ -96,18 +96,19 @@
   }
 
   let S;
+  // Demo data (parcels, codes, history) is kept between visits; the role never is.
+  // Every visit starts on the role choice.
   const load = () => {
     try { const raw = localStorage.getItem(KEY); if (raw) return JSON.parse(raw); } catch (e) { /* storage unavailable */ }
     return null;
   };
-  const save = () => { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) { /* storage unavailable */ } };
-  S = load() || seed();
-
-  const params = new URLSearchParams(location.search);
-  if (params.get('role') === 'caretaker' || params.get('role') === 'resident') {
-    S.role = params.get('role');
-    S.tab = S.role === 'caretaker' ? 'overview' : 'home';
-  }
+  const save = () => {
+    try {
+      const { role, tab, sheet, scan, filter, shelfSel, ...data } = S;
+      localStorage.setItem(KEY, JSON.stringify(data));
+    } catch (e) { /* storage unavailable */ }
+  };
+  S = Object.assign(load() || seed(), { role: null, tab: 'home', sheet: false, scan: null, filter: 'all', shelfSel: null });
 
   const log = (kind, text, who) => { S.log.unshift({ id: uid(), t: Date.now(), kind, text, who }); };
   const done = (task) => { if (!S.done[task]) { S.done[task] = Date.now(); } };
@@ -204,7 +205,6 @@
         '<span class="role__name">Property manager / caretaker</span><span class="role__who">Jonas Weber · whole building</span>' +
         '<span class="role__does">Scan oversized parcels into storage and alert residents.</span>' +
         '<span class="role__go" aria-hidden="true"></span></button>' +
-      '<a class="link pick__back" href="index.html">Back to the product page</a>' +
       '</div>';
   }
 

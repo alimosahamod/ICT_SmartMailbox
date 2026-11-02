@@ -52,6 +52,7 @@ body { background: var(--surface); overflow: hidden; }
 
 .device {
   position: relative;
+  display: flex; flex-direction: column;
   width: 400px;
   height: min(860px, calc(100svh - 48px));
   background: var(--app-bg);
@@ -65,10 +66,11 @@ body { background: var(--surface); overflow: hidden; }
   .stage { display: block; padding: 0; height: 100%; }
   .guide { display: none; }
   .device { width: 100%; height: 100%; height: 100svh; border: 0; border-radius: 0; }
+
 }
 
 /* ---------- app frame ---------- */
-.app { height: 100%; display: flex; flex-direction: column; font-size: var(--t-size); position: relative; }
+.app { flex: 1; min-height: 0; display: flex; flex-direction: column; font-size: var(--t-size); position: relative; }
 .app[data-mode="none"] { overflow-y: auto; }
 .bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 22px 20px 12px; }
 .bar__title { display: flex; align-items: center; gap: 12px; min-width: 0; }
@@ -111,12 +113,8 @@ body { background: var(--surface); overflow: hidden; }
 .role__name { font-size: 24px; font-weight: 600; letter-spacing: -0.03em; line-height: 1.05; padding-right: 60px; }
 .role__who { font-size: 14px; font-weight: 500; }
 .role__does { font-size: 14px; max-width: 30ch; color: #222; }
-.pick__back { margin-top: 12px; color: var(--ink); }
-@media (min-width: 901px) { .pick__back { display: none; } }
 .role__go { position: absolute; top: 22px; right: 22px; width: 52px; height: 22px; border-radius: var(--slot); background: var(--ink); }
-@media (hover: hover) and (pointer: fine) { .role:hover .pick__back { margin-top: 12px; color: var(--ink); }
-@media (min-width: 901px) { .pick__back { display: none; } }
-.role__go { background: var(--accent); } }
+@media (hover: hover) and (pointer: fine) { .role:hover .role__go { background: var(--accent); } }
 
 /* ---------- resident home ---------- */
 .status-card { border-radius: 30px; padding: 22px 22px 24px; display: grid; gap: 8px; transition: background-color 400ms ease; }
@@ -333,3 +331,23 @@ body { background: var(--surface); overflow: hidden; }
 }
 .tab:active, .chip:active, .shelf-btn:active, .seg:active span { transform: scale(0.96); }
 .tab, .chip, .shelf-btn, .seg span { transition: transform var(--t-press) var(--ease-out), background-color var(--t-hover) ease, color var(--t-hover) ease; }
+
+/* ---------- mobile: back to the landing page ---------- */
+.backbar {
+  display: none; flex: none; align-items: center;
+  padding: calc(8px + env(safe-area-inset-top)) 16px 8px;
+  background: var(--ink);
+}
+.backbar a {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 16px 0 12px;
+  border-radius: var(--slot); background: var(--mint); color: var(--ink);
+  font-size: 15px; font-weight: 600; text-decoration: none;
+  transition: transform var(--t-press) var(--ease-out), background-color var(--t-hover) ease;
+}
+.backbar a:active { transform: scale(0.97); }
+.backbar svg { width: 18px; height: 18px; }
+@media (hover: hover) and (pointer: fine) { .backbar a:hover { background: var(--mint-deep); } }
+@media (max-width: 900px) {
+  .backbar { display: flex; }
+  .push { top: calc(64px + env(safe-area-inset-top)); }
+}
