@@ -336,7 +336,7 @@ body { background: var(--surface); overflow: hidden; }
 .backbar {
   display: none; flex: none; align-items: center;
   padding: calc(8px + env(safe-area-inset-top)) 16px 8px;
-  background: var(--ink);
+  background: var(--app-bg);
 }
 .backbar a {
   display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 16px 0 12px;
