@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Smart Mailbox</title>
+  <meta name="description" content="Smart Mailbox is a weatherproof sensor and app that tells you when letters or parcels arrive, lets a neighbour open your box in a time window you set, and lets your caretaker log oversized parcels into secure storage.">
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+  <link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23c3edce'/%3E%3Crect x='6' y='13' width='20' height='6' rx='3' fill='%230a0a0a'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/landing.css">
+  <script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav">
+    <a class="wordmark" href="#top" aria-label="Smart Mailbox, back to top">
+      <span class="wordmark__slot" aria-hidden="true"></span>Smart Mailbox
+    </a>
+    <nav aria-label="Main">
+      <ul class="nav__links">
+        <li><a href="#how">How it works</a></li>
+        <li><a href="#buildings">For buildings</a></li>
+        <li><a href="#specs">Specs</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn--small nav__cta" href="demo.html">Try the demo</a>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero__copy">
+        <h1 id="hero-title" class="hero__title">The mailbox that tells you</h1>
+        <p class="hero__lede">Smart Mailbox is a weatherproof sensor and app. It tells you the moment letters or parcels arrive, so you only walk to the box when something is in it.</p>
+        <div class="hero__actions">
+          <a class="btn" href="demo.html">Try the live demo</a>
+          <a class="hero__link" href="#how">See how it works</a>
+        </div>
+      </div>
+
+      <div class="hero__stage">
+        <span class="hero__slot" aria-hidden="true"></span>
+        <div class="status" data-ui id="hero-status" data-state="arrived" aria-live="polite">
+          <div class="status__head">
+            <p class="status__where">Box 4B · Harbour View Residences</p>
+            <p class="status__battery tnum">Battery 87% · LTE-M</p>
+          </div>
+          <div class="status__body">
+            <p class="status__word" id="status-word">Mail arrived</p>
+            <p class="status__meta tnum" id="status-meta">Dropped in at 10:42 · still inside</p>
+          </div>
+          <div class="status__controls">
+            <button class="btn" type="button" id="drop-btn">Post a letter</button>
+            <button class="btn btn--quiet" type="button" id="take-btn">Take it out</button>
+          </div>
+          <ol class="status__log tnum" id="status-log" aria-label="Today at this mailbox">
+            <li><span>10:42</span>Letter detected inside</li>
+            <li><span>10:42</span>Alert sent to your phone</li>
+            <li><span>08:15</span>Box emptied, status reset</li>
+          </ol>
+        </div>
+        <div class="toast" id="hero-toast" role="status" hidden>
+          <span class="toast__dot" aria-hidden="true"></span>
+          <span><strong>Smart Mailbox</strong> New mail in box 4B</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY -->
+    <section class="why" id="why" aria-labelledby="why-title">
+      <div class="why__text reveal">
+        <h2 id="why-title" class="h2">Most trips end at an empty box</h2>
+        <p>A brass bank in a lobby, a steel wall in a high-rise, a post at the end of a long drive. Wherever the box is, the routine is the same: you walk there, you look, and usually there is nothing new.</p>
+        <p>In rain, heat or darkness, on stairs or with a walking stick, that walk costs real effort. People start checking every few days instead, and bills or official letters sit unseen.</p>
+        <dl class="why__figures">
+          <div><dt class="tnum">~1</dt><dd>personal letter reaches a home in a typical month</dd></div>
+          <div><dt class="tnum">30</dt><dd>checks a month for someone who looks once a day</dd></div>
+        </dl>
+        <p class="why__source">Letter volume: Posti, 2023. Check frequency: our user-research assumption.</p>
+      </div>
+      <div class="why__pictures">
+        <figure class="pic pic--tall reveal shutter">
+          <img src="assets/04-mailboxes-in-lobby-of-apartment-building.jpg" width="1920" height="1441" alt="A wall of brass mailboxes in the tiled lobby of an apartment building">
+          <figcaption>An apartment lobby in Spain</figcaption>
+        </figure>
+        <figure class="pic pic--mid reveal">
+          <img src="assets/kaspi-postomat-astana-p1190696.jpg" width="1920" height="2880" alt="A red street parcel locker with rows of small doors in Astana" loading="lazy">
+          <figcaption>A parcel locker in Astana</figcaption>
+        </figure>
+        <figure class="pic pic--low reveal">
+          <img src="assets/mailbox-on-a-country-road-53509730546.jpg" width="1704" height="1087" alt="A white mailbox at the edge of a long gravel country road" loading="lazy">
+          <figcaption>A box at the end of a country road, Canada</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- FEATURES BOARD -->
+    <section class="board" id="features" aria-labelledby="board-title">
+      <div class="tile tile--title">
+        <h2 id="board-title" class="h2">What it tells you</h2>
+      </div>
+
+      <div class="tile tile--live mint reveal">
+        <div class="macro macro--status" data-ui aria-hidden="true"><span class="macro__dot"></span>Mail arrived</div>
+        <div class="tile__cap"><h3>Live status</h3><p>“Mail arrived” or “Empty”, readable at a glance.</p></div>
+      </div>
+
+      <div class="tile tile--alert pink reveal">
+        <div class="macro macro--toast" data-ui aria-hidden="true"><b>New mail</b> in box 4B · 10:42</div>
+        <div class="tile__cap"><h3>Instant alert</h3><p>A push the moment something lands, SMS as backup.</p></div>
+      </div>
+
+      <div class="tile tile--access paper reveal">
+        <div class="macro macro--keys tnum" data-ui aria-hidden="true"><span>4</span><span>8</span><span>1</span><span>9</span></div>
+        <div class="tile__cap"><h3>Timed access</h3><p>A code for a neighbour, valid only in your window.</p></div>
+      </div>
+
+      <div class="tile tile--parcel surface reveal">
+        <div class="macro macro--barcode" data-ui aria-hidden="true">
+          <svg class="bars" viewBox="0 0 290 100" preserveAspectRatio="none" fill="#0a0a0a"><rect x="0" width="3" height="100"/><rect x="7" width="2" height="100"/><rect x="15" width="5" height="100"/><rect x="23" width="2" height="100"/><rect x="27" width="2" height="100"/><rect x="35" width="6" height="100"/><rect x="45" width="2" height="100"/><rect x="50" width="6" height="100"/><rect x="60" width="3" height="100"/><rect x="66" width="2" height="100"/><rect x="72" width="3" height="100"/><rect x="77" width="3" height="100"/><rect x="84" width="3" height="100"/><rect x="90" width="3" height="100"/><rect x="97" width="3" height="100"/><rect x="102" width="6" height="100"/><rect x="112" width="5" height="100"/><rect x="120" width="3" height="100"/><rect x="126" width="5" height="100"/><rect x="135" width="2" height="100"/><rect x="141" width="2" height="100"/><rect x="147" width="6" height="100"/><rect x="157" width="6" height="100"/><rect x="166" width="5" height="100"/><rect x="177" width="6" height="100"/><rect x="187" width="5" height="100"/><rect x="198" width="3" height="100"/><rect x="204" width="3" height="100"/><rect x="211" width="2" height="100"/><rect x="215" width="2" height="100"/><rect x="223" width="3" height="100"/><rect x="232" width="3" height="100"/><rect x="238" width="3" height="100"/><rect x="243" width="5" height="100"/><rect x="251" width="5" height="100"/><rect x="260" width="3" height="100"/><rect x="267" width="5" height="100"/><rect x="276" width="6" height="100"/></svg><span class="tnum">JD014 6003 8851</span>
+        </div>
+        <div class="tile__cap"><h3>Parcel intake</h3><p>Caretakers scan big parcels into the parcel room.</p></div>
+      </div>
+
+      <div class="tile tile--reset mint reveal">
+        <div class="macro macro--toggle" data-ui aria-hidden="true"><span class="switch"><span></span></span>Empty</div>
+        <div class="tile__cap"><h3>Auto reset</h3><p>Take the mail out and it reads “Empty”.</p></div>
+      </div>
+
+      <div class="tile tile--battery paper reveal">
+        <div class="macro macro--figure tnum" data-ui aria-hidden="true">2 yrs</div>
+        <div class="tile__cap"><h3>Long battery</h3><p>Alerts you weeks before it runs low.</p></div>
+      </div>
+
+      <div class="tile tile--network pink reveal">
+        <div class="macro macro--signal" data-ui aria-hidden="true"><span></span><span></span><span></span><span></span>LTE-M</div>
+        <div class="tile__cap"><h3>No Wi-Fi needed</h3><p>Its own mobile connection works at the kerb or in the basement.</p></div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="how" id="how" aria-labelledby="how-title">
+      <h2 id="how-title" class="h2 how__title reveal">Set up in ten minutes</h2>
+      <ol class="how__stages">
+        <li class="stage stage--1 reveal">
+          <div class="stage__tile pink">
+            <img src="assets/farm-mailbox-4781614699.jpg" width="1536" height="2048" alt="An old white roadside mailbox on a metal post" loading="lazy">
+          </div>
+          <h3>Clipped into your box</h3>
+          <p>The module sits on the inside wall of the mailbox you already have. No drilling, no wiring.</p>
+        </li>
+        <li class="stage stage--2 reveal">
+          <div class="stage__tile mint">
+            <svg class="module" viewBox="0 0 400 300" role="img" aria-label="Drawing of the Smart Mailbox module: a rounded white unit with a letter-slot sensor window">
+              <rect x="40" y="70" width="320" height="160" rx="80" fill="#ffffff"/>
+              <rect x="110" y="128" width="180" height="44" rx="22" fill="#0a0a0a"/>
+              <circle cx="132" cy="150" r="9" fill="#c3edce"/>
+              <rect x="300" y="138" width="24" height="24" rx="12" fill="#1f6b3a"/>
+            </svg>
+          </div>
+          <h3>Paired with your phone</h3>
+          <p>Scan the code on the module. The app finds it over its own mobile connection.</p>
+        </li>
+        <li class="stage stage--3 reveal">
+          <div class="stage__tile paper">
+            <div class="phone-mini" data-ui aria-hidden="true">
+              <p class="phone-mini__time tnum">10:42</p>
+              <div class="phone-mini__note"><b>Smart Mailbox</b><span>New mail in box 4B</span></div>
+              <div class="phone-mini__note phone-mini__note--pink"><b>Parcel room</b><span>Parcel on shelf B3 for you</span></div>
+            </div>
+          </div>
+          <h3>Notified, then reset</h3>
+          <p>You get one alert per delivery. Take the mail out and it reads “Empty” again.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- SHOWCASE: ACCESS TOGGLE -->
+    <section class="show mint" id="access" aria-labelledby="show-title" data-on="true">
+      <div class="show__text">
+        <h2 id="show-title" class="h2 show__title">Lea's access is <span id="show-word">on</span></h2>
+        <p>Away for the weekend? Give your neighbour a code that opens your box from Friday 08:00 to Sunday 20:00. Outside that window it does nothing, and every opening is logged.</p>
+      </div>
+      <div class="show__control" data-ui>
+        <button class="big-switch" type="button" role="switch" aria-checked="true" id="show-switch" aria-labelledby="show-label">
+          <span class="big-switch__track"><span class="big-switch__thumb"></span></span>
+        </button>
+        <p class="big-switch__label" id="show-label">Lea Brandt, 3B</p>
+        <p class="big-switch__value tnum" id="show-value">Fri 08:00 – Sun 20:00</p>
+      </div>
+    </section>
+
+    <!-- FOR BUILDINGS -->
+    <section class="buildings" id="buildings" aria-labelledby="buildings-title">
+      <figure class="buildings__pic pic reveal">
+        <div class="pic__frame"><img src="assets/apartment-mailboxes-rear-view-hong-kong.jpg" width="1920" height="1280" alt="Rows of steel apartment mailboxes seen from behind, in a Hong Kong residential block" loading="lazy"></div>
+        <figcaption>Residential mailboxes in Hong Kong</figcaption>
+      </figure>
+      <div class="buildings__text reveal">
+        <h2 id="buildings-title" class="h2">Built for whole buildings</h2>
+        <p>Caretakers and property managers get their own portal. When a parcel is too big for the box, they scan it into the parcel room and the resident is told straight away.</p>
+        <ul class="slot-list">
+          <li>Scan the label, the resident is matched</li>
+          <li>Pick a free shelf or locker</li>
+          <li>The resident gets a pickup alert and code</li>
+          <li>Every intake and pickup is in the log</li>
+        </ul>
+        <div class="capacity" data-ui aria-label="Parcel room capacity example">
+          <div class="capacity__row"><span>Parcel room</span><span class="tnum">9 of 24 shelves used</span></div>
+          <div class="capacity__bar" role="img" aria-label="9 of 24 shelves used"><span style="width:37.5%"></span></div>
+          <div class="capacity__row capacity__row--muted"><span>Waiting for pickup</span><span class="tnum">9 parcels · 2 over 3 days</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SPECS -->
+    <section class="specs" id="specs" aria-labelledby="specs-title">
+      <div class="specs__figure mint reveal">
+        <svg viewBox="0 0 600 600" role="img" aria-label="Exploded drawing of the module: housing, sensor bar, battery and mounting clip">
+          <rect x="70" y="60" width="460" height="200" rx="100" fill="#ffffff"/>
+          <rect x="170" y="138" width="260" height="44" rx="22" fill="#0a0a0a"/>
+          <circle cx="196" cy="160" r="10" fill="#c3edce"/>
+          <rect x="130" y="300" width="340" height="80" rx="40" fill="#1f6b3a"/>
+          <rect x="190" y="420" width="220" height="56" rx="28" fill="#f8c7c9"/>
+          <rect x="250" y="510" width="100" height="36" rx="18" fill="#0a0a0a"/>
+        </svg>
+        <ul class="specs__key">
+          <li><span class="k k--paper"></span>Housing</li>
+          <li><span class="k k--ink"></span>Sensor bar</li>
+          <li><span class="k k--green"></span>Battery</li>
+          <li><span class="k k--pink"></span>Clip</li>
+        </ul>
+      </div>
+      <div class="specs__text">
+        <h2 id="specs-title" class="h2 reveal">What's in the box</h2>
+        <table class="spec-table reveal">
+          <caption class="visually-hidden">Smart Mailbox technical specifications</caption>
+          <tbody>
+            <tr><th scope="row">Detection</th><td>Optical presence sensor, notices mail resting inside, not just a lid moving</td></tr>
+            <tr><th scope="row">Connection</th><td>Built-in LTE-M / NB-IoT mobile connection, no home Wi-Fi</td></tr>
+            <tr><th scope="row">Alerts</th><td>App push within seconds, SMS backup</td></tr>
+            <tr><th scope="row">Battery</th><td>Replaceable lithium pack, about 2 years, low-battery warning</td></tr>
+            <tr><th scope="row">Weather</th><td>IP67 sealed, −25 °C to +60 °C</td></tr>
+            <tr><th scope="row">Size</th><td>120 × 48 × 30 mm, 140 g, clip or adhesive mount</td></tr>
+            <tr><th scope="row">Fits</th><td>Roadside, wall and lobby mailboxes; parcel lockers with the lock add-on</td></tr>
+            <tr><th scope="row">App</th><td>iOS and Android, large-type mode, shared household access</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- PERSONA QUOTE -->
+    <section class="quote" aria-label="Why we built it">
+      <figure class="quote__portrait pic reveal">
+        <div class="pic__frame"><img src="assets/mailbox-in-the-rain.jpg" width="1920" height="2560" alt="A single mailbox on a post beside a street in heavy rain" loading="lazy"></div>
+      </figure>
+      <div class="quote__body reveal"><figure class="quote__fig">
+        <blockquote>
+          <p>“I want to know if I have mail, without walking out to check.”</p>
+        </blockquote>
+        <figcaption>Aino, 72, retired nurse. The research persona our team designed Smart Mailbox around.</figcaption>
+        </figure>
+        <figure class="quote__small pic">
+          <img src="assets/parcel-locker-almaty-courtyard.jpg" width="1920" height="1440" alt="A parcel locker against a courtyard wall in Almaty" loading="lazy">
+          <figcaption>A courtyard parcel locker, Almaty</figcaption>
+        </figure>
+        <ul class="quote__points">
+          <li>No empty trips</li>
+          <li>No “just in case” walks in bad weather</li>
+          <li>No letters left unseen for days</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq" aria-labelledby="faq-title">
+      <h2 id="faq-title" class="h2 faq__title">Questions, answered</h2>
+      <div class="faq__list">
+        <details name="faq" open>
+          <summary>Does it work with the mailbox I already have?</summary>
+          <p>Yes. The module clips or sticks to the inside wall of most roadside, wall-mounted and lobby mailboxes. Buildings can add the lock module for parcel lockers and remote opening.</p>
+        </details>
+        <details name="faq">
+          <summary>Do I need Wi-Fi at home?</summary>
+          <p>No. Each module has its own low-power mobile connection (LTE-M or NB-IoT), so it works at the end of a drive or in a basement lobby where Wi-Fi does not reach.</p>
+        </details>
+        <details name="faq">
+          <summary>Will flyers and advertising set it off?</summary>
+          <p>It reports anything resting inside the box, so a flyer counts as mail. You can mute alerts for a weekday your area gets advertising, and the status still shows what is inside.</p>
+        </details>
+        <details name="faq">
+          <summary>How do I let a neighbour open my box?</summary>
+          <p>In the app, choose Access, pick the person and set a start and end time. They get a code that only works inside that window. You see each opening in your history.</p>
+        </details>
+        <details name="faq">
+          <summary>What happens to parcels that do not fit?</summary>
+          <p>In buildings with a parcel room, the caretaker scans the label, stores the parcel on a free shelf and the app tells you where it is, with a pickup code.</p>
+        </details>
+        <details name="faq">
+          <summary>How long does the battery last?</summary>
+          <p>About two years in normal use. The app warns you weeks before it runs low, and the pack is replaceable without tools.</p>
+        </details>
+        <details name="faq">
+          <summary>Is there a camera?</summary>
+          <p>No. Smart Mailbox detects that something is inside, not what it is. Nothing is filmed and nothing about your mail's content is stored.</p>
+        </details>
+        <details name="faq">
+          <summary>What will it cost?</summary>
+          <p>The plan is a one-time kit plus a small monthly fee that covers the mobile connection and support. Final prices will be shared with the waitlist first.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta" id="start" aria-labelledby="cta-title">
+      <div class="cta__side cta__side--pic">
+        <img src="assets/delivery-of-parcels-to-an-allegro-parcel.jpg" width="1920" height="1080" alt="A delivery van parked at night beside a parcel locker" loading="lazy">
+      </div>
+      <div class="cta__main">
+        <h2 id="cta-title" class="cta__title">Try it before it ships</h2>
+        <p>Open the demo as a resident or as a caretaker and run the real journeys. Or join the waitlist for the first kits.</p>
+        <div class="cta__actions">
+          <a class="btn btn--quiet" href="demo.html">Open the demo</a>
+          <form class="waitlist" id="waitlist" action="mailto:hello@smartmailbox.example" method="post" enctype="text/plain">
+            <label class="visually-hidden" for="email">Your email address</label>
+            <input id="email" name="email" type="email" required placeholder="you@example.com" autocomplete="email">
+            <button class="btn btn--ink" type="submit">Join the waitlist</button>
+          </form>
+        </div>
+        <p class="cta__done" id="waitlist-done" role="status" hidden>Thanks. Your email app should open with the request ready to send.</p>
+      </div>
+      <div class="cta__side pink" aria-hidden="true"></div>
+    </section>
+  </main>
+
+  <footer class="footer" aria-labelledby="footer-title">
+    <h2 id="footer-title" class="visually-hidden">Smart Mailbox</h2>
+    <svg class="blocks blocks--wide" viewBox="0 0 1400 320" aria-hidden="true" focusable="false"><path d="M0.0,320.0 V94.4 Q0.0,70.4 24.0,70.4 H172.6 Q196.6,70.4 196.6,94.4 V320.0 Z" fill="#a6e2b6"/><text x="98.3" y="311.6" font-size="210" text-anchor="middle" fill="#f8f8f8" font-weight="600" font-family="Switzer, sans-serif" letter-spacing="-4">M</text><path d="M200.6,320.0 V24.0 Q200.6,0.0 224.6,0.0 H373.1 Q397.1,0.0 397.1,24.0 V320.0 Z" fill="#f2a9ad"/><text x="298.9" y="311.6" font-size="210" text-anchor="middle" fill="#f8f8f8" font-weight="600" font-family="Switzer, sans-serif" letter-spacing="-4">A</text><path d="M401.1,320.0 V139.2 Q401.1,115.2 425.1,115.2 H573.7 Q597.7,115.2 597.7,139.2 V320.0 Z" fill="#1f6b3a"/><text x="499.4" y="311.6" font-size="210" text-anchor="middle" fill="#f8f8f8" font-weight="600" font-family="Switzer, sans-serif" letter-spacing="-4">I</text><path d="M601.7,320.0 V62.4 Q601.7,38.4 625.7,38.4 H774.3 Q798.3,38.4 798.3,62.4 V320.0 Z" fill="#a6e2b6"/><text x="700.0" y="311.6" font-size="210" text-anchor="middle" fill="#f8f8f8" font-weight="600" font-family="Switzer, sans-serif" letter-spacing="-4">L</text><path d="M802.3,320.0 V120.0 Q802.3,96.0 826.3,96.0 H974.9 Q998.9,96.0 998.9,120.0 V320.0 Z" fill="#0a0a0a"/><text x="900.6" y="311.6" font-size="210" text-anchor="middle" fill="#f8f8f8" font-weight="600" font-family="Switzer, sans-serif" letter-spacing="-4">B</text><path d="M1002.9,320.0 V36.8 Q1002.9,12.8 1026.9,12.8 H1175.4 Q1199.4,12.8 1199.4,36.8 V320.0 Z" fill="#f2a9ad"/><text x="1101.1" y="311.6" font-size="210" text-anchor="middle" fill="#f8f8f8" font-weight="600" font-family="Switzer, sans-serif" letter-spacing="-4">O</text><path d="M1203.4,320.0 V81.6 Q1203.4,57.6 1227.4,57.6 H1376.0 Q1400.0,57.6 1400.0,81.6 V320.0 Z" fill="#a6e2b6"/><text x="1301.7" y="311.6" font-size="210" text-anchor="middle" fill="#f8f8f8" font-weight="600" font-family="Switzer, sans-serif" letter-spacing="-4">X</text></svg>
+    <svg class="blocks blocks--narrow" viewBox="0 0 700 520" aria-hidden="true" focusable="false"><path d="M0.0,258.0 V74.8 Q0.0,56.8 18.0,56.8 H154.0 Q172.0,56.8 172.0,74.8 V258.0 Z" fill="#a6e2b6"/><text x="86.0" y="250.8" font-size="180" text-anchor="middle" fill="#f8f8f8" font-weight="600" font-family="Switzer, sans-serif" letter-spacing="-4">M</text><path d="M176.0,258.0 V18.0 Q176.0,0.0 194.0,0.0 H330.0 Q348.0,0.0 348.0,18.0 V258.0 Z" fill="#f2a9ad"/><text x="262.0" y="250.8" font-size="180" text-anchor="middle" fill="#f8f8f8" font-weight="600" font-family="Switzer, sans-serif" letter-spacing="-4">A</text><path d="M352.0,258.0 V110.9 Q352.0,92.9 370.0,92.9 H506.0 Q524.0,92.9 524.0,110.9 V258.0 Z" fill="#1f6b3a"/><text x="438.0" y="250.8" font-size="180" text-anchor="middle" fill="#f8f8f8" font-weight="600" font-family="Switzer, sans-serif" letter-spacing="-4">I</text><path d="M528.0,258.0 V49.0 Q528.0,31.0 546.0,31.0 H682.0 Q700.0,31.0 700.0,49.0 V258.0 Z" fill="#a6e2b6"/><text x="614.0" y="250.8" font-size="180" text-anchor="middle" fill="#f8f8f8" font-weight="600" font-family="Switzer, sans-serif" letter-spacing="-4">L</text><path d="M0.0,520.0 V357.4 Q0.0,339.4 18.0,339.4 H154.0 Q172.0,339.4 172.0,357.4 V520.0 Z" fill="#0a0a0a"/><text x="86.0" y="512.8" font-size="180" text-anchor="middle" fill="#f8f8f8" font-weight="600" font-family="Switzer, sans-serif" letter-spacing="-4">B</text><path d="M176.0,520.0 V290.3 Q176.0,272.3 194.0,272.3 H330.0 Q348.0,272.3 348.0,290.3 V520.0 Z" fill="#f2a9ad"/><text x="262.0" y="512.8" font-size="180" text-anchor="middle" fill="#f8f8f8" font-weight="600" font-family="Switzer, sans-serif" letter-spacing="-4">O</text><path d="M352.0,520.0 V326.4 Q352.0,308.4 370.0,308.4 H506.0 Q524.0,308.4 524.0,326.4 V520.0 Z" fill="#a6e2b6"/><text x="438.0" y="512.8" font-size="180" text-anchor="middle" fill="#f8f8f8" font-weight="600" font-family="Switzer, sans-serif" letter-spacing="-4">X</text></svg>
+    <div class="footer__cols">
+      <ul>
+        <li><a href="#how">How it works</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#specs">Specs</a></li>
+      </ul>
+      <ul>
+        <li><a href="#buildings">For buildings</a></li>
+        <li><a href="#access">Timed access</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+      <ul>
+        <li><a href="demo.html">Resident demo</a></li>
+        <li><a href="demo.html?role=caretaker">Caretaker demo</a></li>
+      </ul>
+      <div class="footer__contact">
+        <p>Team Smart Mailbox<br>ICT Business Management, 2026</p>
+        <p><a href="mailto:hello@smartmailbox.example">hello@smartmailbox.example</a></p>
+      </div>
+    </div>
+    <p class="footer__credits">Photographs via Wikimedia Commons: <a href="https://commons.wikimedia.org/wiki/File:Farm_mailbox_(4781614699).jpg">"Farm mailbox (4781614699)" by brittgow, CC BY 2.0</a> · <a href="https://commons.wikimedia.org/wiki/File:04_Mailboxes_in_lobby_of_apartment_building_in_Spain,_common_area_in_apartment_building.jpg">"04 Mailboxes in lobby of apartment building in Spain, common area in apartment building" by Marek Ślusarczyk ( Tupungato ) Photo portfolio, CC BY 3.0</a> · <a href="https://commons.wikimedia.org/wiki/File:Mailbox_in_the_rain.jpg">"Mailbox in the rain" by Yitzilitt, CC BY-SA 4.0</a> · <a href="https://commons.wikimedia.org/wiki/File:Mailbox_on_a_country_road._(53509730546).jpg">"Mailbox on a country road. (53509730546)" by Robbie Sproule from Montreal, Canada, CC BY 2.0</a> · <a href="https://commons.wikimedia.org/wiki/File:Delivery_of_parcels_to_an_Allegro_parcel_locker_AL005ETM._Tomasz%C3%B3w_Mazowiecki,_Poland.jpg">"Delivery of parcels to an Allegro parcel locker AL005ETM. Tomaszów Mazowiecki, Poland" by WrS.tm.pl, public domain</a> · <a href="https://commons.wikimedia.org/wiki/File:Apartment_mailboxes,_rear_view_(Hong_Kong).jpg">"Apartment mailboxes, rear view (Hong Kong)" by Mk2010, CC BY-SA 4.0</a> · <a href="https://commons.wikimedia.org/wiki/File:Kaspi_Postomat,_Astana_(P1190696).jpg">"Kaspi Postomat, Astana (P1190696)" by Matti Blume, CC BY-SA 4.0</a> · <a href="https://commons.wikimedia.org/wiki/File:%D0%90%D0%BB%D0%BC%D0%B0%D1%82%D1%8B,_%D0%BF%D0%BE%D1%81%D1%82%D0%BE%D0%BC%D0%B0%D1%82_%D0%B2%D0%BE_%D0%B4%D0%B2%D0%BE%D1%80%D0%B5_%D0%A2%D0%BE%D0%BB%D0%B5_%D0%B1%D0%B8_64_(1).jpg">"Алматы, постомат во дворе Толе би 64 (1)" by Nikolai Bulykin, CC BY-SA 4.0</a>. Product drawings and interface by the team.</p>
+    <div class="footer__last">
+      <p>© 2026 Team Smart Mailbox. A student product concept.</p>
+      <a class="btn btn--small" href="#top">Back to top</a>
+    </div>
+  </footer>
+
+  <!-- FAQ ASSISTANT -->
+  <div class="assist" id="assist">
+    <button class="assist__fab" type="button" id="assist-open" aria-expanded="false" aria-controls="assist-panel">
+      <span class="assist__slot" aria-hidden="true"></span>Questions?
+    </button>
+    <div class="assist__panel" id="assist-panel" role="dialog" aria-modal="false" aria-labelledby="assist-title" hidden>
+      <div class="assist__head">
+        <h2 id="assist-title">Smart Mailbox help</h2>
+        <button type="button" class="assist__close" id="assist-close" aria-label="Close help">Close</button>
+      </div>
+      <div class="assist__log" id="assist-log" aria-live="polite">
+        <p class="msg msg--bot">Hi, I can answer the common questions. Pick one below.</p>
+      </div>
+      <div class="assist__chips" id="assist-chips" aria-label="Suggested questions"></div>
+    </div>
+  </div>
+
+  <script src="js/landing.js" defer></script>
+</body>
+</html>

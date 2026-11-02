@@ -1,0 +1,94 @@
+/* Smart Mailbox — shared design tokens (landing page + demo app) */
+:root {
+  --bg: #f8f8f8;
+  --surface: #eeeeee;
+  --surface-2: #e4e4e4;
+  --ink: #0a0a0a;
+  --ink-soft: #3a3a3a;
+  --muted: #5f5f5f;
+  --accent: #1f6b3a;
+  --accent-strong: #15522b;
+  --accent-ink: #ffffff;
+  --mint: #c3edce;
+  --mint-deep: #a6e2b6;
+  --pink: #f8c7c9;
+  --pink-deep: #f2a9ad;
+  --paper: #ffffff;
+  --alert: #b3261e;
+
+  --font: "Switzer", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --step-small: clamp(0.8125rem, 0.79rem + 0.1vw, 0.875rem);
+  --step-body: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
+  --step-lead: clamp(1.25rem, 1.1rem + 0.7vw, 1.625rem);
+  --step-head: clamp(2rem, 1.3rem + 3.2vw, 4rem);
+  --step-display: clamp(2.75rem, 1.2rem + 5.4vw, 6rem);
+
+  /* The motif: the letter slot. Fully round ends, used at every scale. */
+  --slot: 999px;
+  --radius: 14px;
+
+  --margin: clamp(16px, 2.8vw, 40px);
+  --gap: clamp(8px, 0.8vw, 12px);
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-soft: cubic-bezier(0.25, 0.8, 0.25, 1);
+  --t-press: 120ms;
+  --t-hover: 180ms;
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: var(--step-body);
+  line-height: 1.5;
+  letter-spacing: -0.005em;
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: "tnum" 0;
+}
+
+img, svg, video { display: block; max-width: 100%; }
+button, input, select { font: inherit; color: inherit; }
+a { color: inherit; }
+
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+::selection { background: var(--mint); color: var(--ink); }
+
+.visually-hidden {
+  position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+.tnum { font-variant-numeric: tabular-nums; }
+
+/* Buttons: the slot shape, flat, one fill */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 48px; padding: 0 26px;
+  border: 0; border-radius: var(--slot);
+  background: var(--accent); color: var(--accent-ink);
+  font-weight: 500; font-size: var(--step-body); text-decoration: none; cursor: pointer;
+  transition: transform var(--t-press) var(--ease-out), background-color var(--t-hover) ease, color var(--t-hover) ease;
+}
+.btn:active { transform: scale(0.97); }
+.btn--ink { background: var(--ink); color: var(--paper); }
+.btn--quiet { background: var(--paper); color: var(--ink); }
+.btn--small { min-height: 40px; padding: 0 18px; font-size: var(--step-small); }
+@media (hover: hover) and (pointer: fine) {
+  .btn:hover { background: var(--accent-strong); }
+  .btn--ink:hover { background: #2a2a2a; }
+  .btn--quiet:hover { background: var(--surface); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 1ms !important; animation-duration: 1ms !important; animation-iteration-count: 1 !important; }
+}

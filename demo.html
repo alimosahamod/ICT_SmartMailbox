@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Smart Mailbox Demo</title>
+  <meta name="description" content="Interactive prototype of the Smart Mailbox app: resident mailbox status, timed neighbour access and history, and the caretaker parcel intake portal.">
+  <meta name="theme-color" content="#f8f8f8">
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+  <link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23c3edce'/%3E%3Crect x='6' y='13' width='20' height='6' rx='3' fill='%230a0a0a'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/demo.css">
+</head>
+<body>
+  <div class="stage">
+    <aside class="guide" aria-labelledby="guide-title">
+      <a class="guide__back" href="index.html">Back to the product page</a>
+      <p id="guide-title" class="guide__title">Smart Mailbox prototype</p>
+      <p class="guide__lede" id="guide-lede">Choose a role in the app to start. Each role has its own critical journey to try.</p>
+      <div class="guide__tasks" id="guide-tasks" aria-live="polite"></div>
+      <div class="guide__foot">
+        <button class="btn btn--quiet btn--small" type="button" id="reset-demo">Reset demo data</button>
+        <p>Everything is simulated in your browser. No real mailbox is connected.</p>
+      </div>
+    </aside>
+
+    <div class="device">
+      <div class="app" id="app" aria-live="polite">
+        <noscript><p class="pad">This prototype needs JavaScript to run.</p></noscript>
+      </div>
+      <div class="push" id="push" role="status" hidden></div>
+    </div>
+  </div>
+
+  <script src="js/demo.js" defer></script>
+</body>
+</html>
