@@ -9,6 +9,9 @@
   const pushEl = document.getElementById('push');
   const tasksEl = document.getElementById('guide-tasks');
   const ledeEl = document.getElementById('guide-lede');
+  const panel = document.getElementById('demo-panel');
+  const simEl = document.getElementById('sim-body');
+  const handoffEl = document.getElementById('handoff');
 
   /* ---------- helpers ---------- */
   const MIN = 60 * 1000, HOUR = 60 * MIN, DAY = 24 * HOUR;
@@ -50,6 +53,17 @@
     { name: 'Grace Okafor', apt: '', rel: 'Family' }
   ];
   const SHELVES = ['A', 'B', 'C', 'D'].flatMap((r) => [1, 2, 3, 4, 5, 6].map((n) => r + n));
+  // What the simulated carrier can leave at the parcel room door.
+  const SAM_DELIVERIES = [
+    { carrier: 'DHL', prefix: 'JD01460', name: 'Sam Okafor', apt: '4B', size: 'L', desc: 'Box, 50 × 40 × 30 cm, 4.8 kg' },
+    { carrier: 'GLS', prefix: '6040', name: 'Sam Okafor', apt: '4B', size: 'XL', desc: 'Box, 100 × 30 × 30 cm, 9.5 kg' }
+  ];
+  const NEIGHBOUR_DELIVERIES = [
+    { carrier: 'DPD', prefix: '0150', name: 'Chen Wei', apt: '7A', size: 'M', desc: 'Padded bag, 1.6 kg' },
+    { carrier: 'UPS', prefix: '1Z999AA1', name: 'Aino Virtanen', apt: '1A', size: 'L', desc: 'Box, 60 × 40 × 20 cm, 5.1 kg' },
+    { carrier: 'Amazon', prefix: 'TBA30', name: 'Noah Fischer', apt: '6A', size: 'M', desc: 'Box, 35 × 25 × 15 cm, 2.2 kg' }
+  ];
+  let drops = 0;
 
   function seed() {
     const n = Date.now();
@@ -119,7 +133,7 @@
       ['seeStatus', 'See whether mail has arrived', 'Open Home and read the mailbox status.'],
       ['collect', 'Collect the mail and watch it reset', 'Use “I took the mail out”.'],
       ['grant', 'Give a neighbour timed access', 'Access → New access, set a time window.'],
-      ['useCode', 'Let the neighbour open your box', 'Try their code in “Test a code”.'],
+      ['useCode', 'Let the neighbour open your box', 'Enter their code under Simulate → Test a code.'],
       ['history', 'Check what happened while you were away', 'Open History.']
     ],
     caretaker: [
@@ -127,13 +141,16 @@
       ['scan', 'Scan an oversized parcel', 'Scan → Scan next parcel.'],
       ['store', 'Store it and alert the resident', 'Pick a shelf, then “Store and notify”.'],
       ['handover', 'Hand a parcel over', 'Storage → choose a shelf → Mark collected.'],
-      ['residentSees', 'See the alert as the resident', 'Switch role to Sam (Resident).']
+      ['residentSees', 'See the alert as the resident', 'Use “See it as Sam”, or switch the role to Resident.']
     ]
   };
 
   function renderGuide() {
+    panel.querySelectorAll('input[name="demo-role"]').forEach((r) => { r.checked = r.value === S.role; });
+    renderHandoff();
+    renderSim();
     if (!S.role) {
-      ledeEl.textContent = 'Choose a role in the app to start. Each role has its own critical journey to try.';
+      ledeEl.textContent = 'Pick a role to start. Each role has its own journey to try.';
       tasksEl.innerHTML = '';
       return;
     }
@@ -144,6 +161,50 @@
       : 'You are Jonas Weber, caretaker at Harbour View Residences. Try these in any order.';
     tasksEl.innerHTML = '<p class="guide__count tnum">' + count + ' of ' + list.length + ' done</p><ol class="tasks">' +
       list.map(([k, title, hint]) => '<li class="' + (S.done[k] ? 'is-done' : '') + '"><span class="tick" aria-hidden="true"></span><span><b>' + title + '</b><small>' + hint + '</small></span><span class="visually-hidden">' + (S.done[k] ? 'done' : 'not done yet') + '</span></li>').join('') + '</ol>';
+  }
+
+  /* The caretaker's shortcut into Sam's phone, once a parcel for 4B is on a shelf. */
+  function renderHandoff() {
+    const mine = S.role === 'caretaker' ? waitingFor(ME.apt) : [];
+    handoffEl.hidden = !mine.length;
+    if (!mine.length) { handoffEl.innerHTML = ''; return; }
+    const p = mine[mine.length - 1];
+    handoffEl.innerHTML = '<p>Sam has a parcel on shelf <b>' + p.shelf + '</b>.</p>' +
+      '<button type="button" class="btn btn--ink btn--small" data-act="seeAsSam">See it as Sam</button>';
+  }
+
+  /* ---------- simulate: the world outside the app ---------- */
+  // Rebuilt only when what it shows changes, so a half-typed code and its result survive app renders.
+  let simKey = '';
+  function renderSim() {
+    const latest = S.lastPass ? S.passes.find((p) => p.id === S.lastPass) : null;
+    const code = latest && !latest.revoked ? latest.code : '';
+    const key = [S.role, code, S.queue.map((q) => q.tracking).join()].join('|');
+    if (key === simKey) return;
+    simKey = key;
+    if (!S.role) {
+      simEl.innerHTML = '<div class="sim-group"><p>Pick a role first. The actions here change with it.</p></div>';
+      return;
+    }
+    if (S.role === 'resident') {
+      simEl.innerHTML =
+        '<section class="sim-group" aria-labelledby="sg-mail"><h3 id="sg-mail">The postal carrier</h3><p>Puts something through the slot of Mailbox 4B.</p>' +
+          '<div class="btn-row"><button type="button" class="btn btn--small" data-act="deliver">Deliver a letter</button><button type="button" class="btn btn--small btn--quiet" data-act="deliverAd">Drop a flyer</button></div></section>' +
+        '<section class="sim-group" aria-labelledby="sg-code"><h3 id="sg-code">Test a code</h3><p>Be the neighbour typing a code into the keypad on Mailbox 4B.</p>' +
+          '<form id="code-form" class="form" novalidate>' +
+          '<div class="field2"><label>Code<input name="code" inputmode="numeric" autocomplete="off" maxlength="7" placeholder="6 digits" value="' + code + '"></label>' +
+          '<label>Time at the box<input type="datetime-local" name="at" value="' + toLocalInput(Date.now()) + '"></label></div>' +
+          '<button class="btn btn--small" type="submit">Enter code at the box</button>' +
+          '<p class="sim-result" id="code-result" role="status"></p></form></section>';
+      return;
+    }
+    const q = S.queue;
+    simEl.innerHTML =
+      '<section class="sim-group" aria-labelledby="sg-door"><h3 id="sg-door">The parcel carrier</h3>' +
+        '<p>' + (q.length ? (q.length === 1 ? 'One parcel is' : q.length + ' parcels are') + ' at the parcel room door, waiting to be scanned.' : 'Nothing at the parcel room door. Drop a parcel to scan it in.') + '</p>' +
+        (q.length ? '<ul class="door tnum">' + q.slice(0, 4).map((it) => '<li><b>' + esc(it.carrier) + '</b> for ' + esc(it.name) + ', ' + it.apt + '</li>').join('') +
+          (q.length > 4 ? '<li>and ' + (q.length - 4) + ' more</li>' : '') + '</ul>' : '') +
+        '<div class="btn-row"><button type="button" class="btn btn--small" data-act="dropParcel" data-for="sam">Drop a parcel for Sam</button><button type="button" class="btn btn--small btn--quiet" data-act="dropParcel" data-for="other">One for a neighbour</button></div></section>';
   }
 
   /* ---------- push banner inside the device ---------- */
@@ -179,7 +240,7 @@
     const who = S.role === 'resident' ? 'SO' : 'JW';
     return '<header class="bar">' +
       '<div class="bar__title"><span class="bar__mark ' + (S.role === 'resident' ? 'm-mint' : 'm-pink') + '" aria-hidden="true"></span><div><h1>' + title + '</h1><p>' + sub + '</p></div></div>' +
-      '<button class="avatar ' + (S.role === 'resident' ? 'm-mint' : 'm-pink') + '" type="button" data-act="profile" aria-label="Profile, settings and switch role">' + who + '</button>' +
+      '<button class="avatar ' + (S.role === 'resident' ? 'm-mint' : 'm-pink') + '" type="button" data-act="profile" aria-label="Profile and settings">' + who + '</button>' +
       '</header>' +
       '<main class="screen" id="screen" tabindex="-1">' + body + '</main>' +
       '<nav class="tabs" aria-label="Sections">' + tabs.map(([k, label, ic]) =>
@@ -234,9 +295,7 @@
         '<button type="button" class="link" data-go="parcels">See parcels</button></section>' : '') +
       '<section class="card" aria-labelledby="ac-h"><div class="card__row"><h3 id="ac-h">Access</h3><button type="button" class="link" data-go="access">' + (activePasses.length ? 'Manage' : 'Give access') + '</button></div>' +
         (activePasses.length ? activePasses.map((p) => '<p>' + esc(p.name) + ' can open your box until ' + when(p.to) + '</p>').join('') : '<p class="muted">Only you can open Mailbox 4B right now.</p>') +
-      '</section>' +
-      '<section class="sim" aria-labelledby="sim-h"><h3 id="sim-h">Demo controls</h3><p>Act as the postal carrier.</p>' +
-        '<div class="sim__row"><button type="button" class="btn btn--small" data-act="deliver">Deliver a letter</button><button type="button" class="btn btn--small btn--quiet" data-act="deliverAd">Drop a flyer</button></div></section>';
+      '</section>';
   }
 
   /* ---------- resident: access ---------- */
@@ -274,13 +333,7 @@
         return '<li class="row"><div><b>' + esc(p.name) + '</b><small class="tnum">' + when(p.from) + ' – ' + when(p.to) + '</small></div>' +
           '<span class="pill pill--' + tone + '">' + label + '</span>' +
           (!p.revoked && p.to > n ? '<button type="button" class="link link--danger" data-act="revoke" data-id="' + p.id + '">Revoke</button>' : '') + '</li>';
-      }).join('') + '</ul>' +
-      '<section class="sim" aria-labelledby="tc-h"><h3 id="tc-h">Test a code</h3><p>Act as the neighbour standing at your mailbox.</p>' +
-        '<form id="code-form" class="form" novalidate>' +
-        '<div class="field2"><label>Code<input name="code" inputmode="numeric" autocomplete="off" maxlength="7" placeholder="6 digits" value="' + (latest && !latest.revoked ? latest.code : '') + '"></label>' +
-        '<label>Time at the box<input type="datetime-local" name="at" value="' + toLocalInput(n) + '"></label></div>' +
-        '<button class="btn btn--small" type="submit">Enter code at the box</button>' +
-        '<p class="sim__result" id="code-result" role="status"></p></form></section>';
+      }).join('') + '</ul>';
   }
 
   /* ---------- resident: parcels ---------- */
@@ -356,8 +409,7 @@
         '<h3 id="dn-h">Stored on shelf ' + p.shelf + '</h3>' +
         '<p>' + esc(p.name) + ' (' + p.apt + ') got a push alert at ' + hm(p.inAt) + ' with pickup code <b class="tnum">' + p.code + '</b>.</p>' +
         '<div class="phone-note"><b>Smart Mailbox</b><span>Your ' + esc(p.carrier) + ' parcel is in the parcel room, shelf ' + p.shelf + '. Code ' + p.code + '.</span></div>' +
-        '<div class="sim__row"><button type="button" class="btn btn--small" data-act="scanAgain">Scan next parcel</button>' +
-        (p.apt === ME.apt ? '<button type="button" class="btn btn--small btn--quiet" data-act="switchToResident">See it as Sam</button>' : '') + '</div></section>';
+        '<div class="btn-row"><button type="button" class="btn btn--small" data-act="scanAgain">Scan next parcel</button></div></section>';
     }
     if (sc && sc.stage === 'matched') {
       const it = sc.item;
@@ -376,8 +428,8 @@
     const next = S.queue[0];
     return '<h3 class="screen__title">Scan a parcel</h3>' +
       '<div class="viewfinder' + (sc && sc.stage === 'scanning' ? ' is-scanning' : '') + '" aria-hidden="true"><span class="vf__line"></span><span class="vf__label tnum">' + (next ? esc(next.tracking) : '') + '</span></div>' +
-      (next ? '<button type="button" class="btn btn--block" data-act="doScan"' + (sc && sc.stage === 'scanning' ? ' disabled' : '') + '>' + (sc && sc.stage === 'scanning' ? 'Reading label…' : 'Scan next parcel') + '</button>' +
-        '<p class="muted center">' + S.queue.length + ' delivered parcel' + (S.queue.length === 1 ? '' : 's') + ' at the door</p>' : '<div class="empty"><p><b>No more parcels at the door.</b></p><p class="muted">Use Reset demo data to bring the sample parcels back.</p></div>') +
+      '<button type="button" class="btn btn--block" data-act="doScan"' + (sc && sc.stage === 'scanning' ? ' disabled' : '') + '>' + (sc && sc.stage === 'scanning' ? 'Reading label…' : 'Scan next parcel') + '</button>' +
+      (sc && sc.stage === 'nolabel' ? '<p class="form__err center" role="alert">No label found. Hold the parcel label inside the frame.</p>' : '<p class="muted center">Hold the shipping label inside the frame.</p>') +
       '<form id="manual-form" class="form manual" novalidate><label>Or type a tracking number<input name="tracking" autocomplete="off" placeholder="e.g. JD0146003885"></label><button class="btn btn--small btn--quiet" type="submit">Find</button><p class="form__err" id="manual-err" role="alert"></p></form>';
   }
 
@@ -396,7 +448,7 @@
       '<p class="legend"><span class="lg lg--used"></span>In use <span class="lg lg--late"></span>Over 3 days <span class="lg lg--free"></span>Free</p>' +
       (sel ? '<section class="card" aria-labelledby="sh-h"><div class="card__row"><h3 id="sh-h">Shelf ' + sel.shelf + '</h3><span class="pill pill--' + (Date.now() - sel.inAt > 3 * DAY ? 'amber' : 'grey') + '">' + ago(sel.inAt) + '</span></div>' +
         '<dl class="kv tnum"><div><dt>Resident</dt><dd>' + esc(sel.name) + ', ' + sel.apt + '</dd></div><div><dt>Carrier</dt><dd>' + esc(sel.carrier) + ' · ' + sel.size + '</dd></div><div><dt>Pickup code</dt><dd>' + sel.code + '</dd></div></dl>' +
-        '<div class="sim__row"><button type="button" class="btn btn--small" data-act="handover" data-id="' + sel.id + '">Mark collected</button><button type="button" class="btn btn--small btn--quiet" data-act="remind" data-id="' + sel.id + '">Send reminder</button></div></section>' : '');
+        '<div class="btn-row"><button type="button" class="btn btn--small" data-act="handover" data-id="' + sel.id + '">Mark collected</button><button type="button" class="btn btn--small btn--quiet" data-act="remind" data-id="' + sel.id + '">Send reminder</button></div></section>' : '');
   }
 
   /* ---------- profile sheet ---------- */
@@ -406,10 +458,6 @@
     return '<div class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-h"><div class="sheet__panel">' +
       '<div class="card__row"><h3 id="sheet-h">' + (S.role === 'resident' ? ME.name + ' · ' + ME.apt : CARETAKER.name + ' · Caretaker') + '</h3><button type="button" class="link" data-act="closeSheet">Done</button></div>' +
       (S.role === 'resident' ? t('push', 'Push alerts', 'When mail or a parcel arrives') + t('sms', 'SMS backup', 'If the push is not opened in 10 min') + t('quietAds', 'Mute Monday flyers', 'Advertising day in your area') + t('largeText', 'Large text', 'Bigger type across the app') : t('largeText', 'Large text', 'Bigger type across the app')) +
-      '<button type="button" class="btn btn--block btn--quiet" data-act="switchRole">Switch to ' + (S.role === 'resident' ? 'caretaker' : 'resident') + '</button>' +
-      '<button type="button" class="btn btn--block btn--quiet" data-act="chooseRole">Back to role choice</button>' +
-      '<button type="button" class="btn btn--block btn--quiet" data-act="resetAll">Reset demo data</button>' +
-      '<a class="link link--center" href="index.html">Back to the product page</a>' +
       '</div></div>';
   }
 
@@ -456,12 +504,14 @@
       push('Smart Mailbox', 'Mailbox 4B is empty again.', 'mint');
     },
     deliver() {
+      closeDrawer();
       S.mailbox.items += 1; S.mailbox.lastArrival = Date.now();
       log('mail', 'Letter detected in Mailbox 4B', 'Sensor');
       render();
       if (S.settings.push) push('Smart Mailbox', 'New mail in Mailbox 4B.', 'mint');
     },
     deliverAd() {
+      closeDrawer();
       S.mailbox.items += 1; S.mailbox.lastArrival = Date.now();
       log('mail', 'Item detected in Mailbox 4B', 'Sensor');
       render();
@@ -492,16 +542,23 @@
     },
     profile() { S.sheet = true; render(); },
     closeSheet() { S.sheet = false; render(); const a = app.querySelector('.avatar'); if (a) a.focus(); },
-    resetAll() { document.getElementById('reset-demo').click(); },
-    switchRole() { pushEl.hidden = true; S.sheet = false; S.role = S.role === 'resident' ? 'caretaker' : 'resident'; S.tab = S.role === 'resident' ? 'home' : 'overview'; render(true); },
-    switchToResident() { pushEl.hidden = true; S.role = 'resident'; S.tab = 'parcels'; render(true); },
-    chooseRole() { S.sheet = false; S.role = null; render(); },
+    seeAsSam() { closeDrawer(); setRole('resident', 'parcels'); },
+    dropParcel(el) {
+      const pool = el.dataset.for === 'sam' ? SAM_DELIVERIES : NEIGHBOUR_DELIVERIES;
+      const { prefix, ...it } = pool[drops++ % pool.length];
+      it.tracking = prefix + String(Math.floor(1e7 + Math.random() * 9e7));
+      S.queue.push(it);
+      if (S.scan && S.scan.stage === 'nolabel') S.scan = null;
+      closeDrawer();
+      render();
+      push('At the parcel room door', it.carrier + ' left a parcel for ' + it.name + ', ' + it.apt + '.', 'pink');
+    },
     doScan() {
       S.scan = { stage: 'scanning' };
       render();
       setTimeout(() => {
         const item = S.queue[0];
-        if (!item) return;
+        if (!item) { S.scan = { stage: 'nolabel' }; render(); return; }
         S.scan = { stage: 'matched', item: Object.assign({}, item) };
         done('scan');
         render(true);
@@ -546,11 +603,18 @@
     }
   };
 
+  function setRole(role, tab) {
+    pushEl.hidden = true;
+    S.role = role; S.sheet = false; S.filter = 'all';
+    S.tab = tab || (role === 'resident' ? 'home' : 'overview');
+    render(true);
+  }
+
   /* ---------- events ---------- */
   app.addEventListener('click', (e) => {
     const t = e.target.closest('[data-role],[data-tab],[data-go],[data-act],[data-filter]');
     if (!t || t.tagName === 'INPUT') return;
-    if (t.dataset.role) { S.role = t.dataset.role; S.tab = S.role === 'resident' ? 'home' : 'overview'; render(true); return; }
+    if (t.dataset.role) { setRole(t.dataset.role); return; }
     if (t.dataset.tab) { go(t.dataset.tab); return; }
     if (t.dataset.go) { go(t.dataset.go); return; }
     if (t.dataset.filter) { S.filter = t.dataset.filter; render(); return; }
@@ -583,33 +647,6 @@
       render(true);
       push('Access created', c.name + ' can open Mailbox 4B in your window.', 'mint');
     }
-    if (f.id === 'code-form') {
-      const code = (f.code.value || '').replace(/\D/g, '');
-      const at = new Date(f.at.value).getTime() || Date.now();
-      const out = f.querySelector('#code-result');
-      const p = S.passes.find((x) => x.code === code);
-      let ok = false, msg;
-      if (!code) msg = 'Enter the 6-digit code first.';
-      else if (!p) msg = 'Wrong code. The box stays locked.';
-      else if (p.revoked) msg = 'This code was revoked. The box stays locked.';
-      else if (at < p.from) msg = 'Too early. ' + p.name + "'s code works from " + when(p.from) + '.';
-      else if (at > p.to) msg = 'Too late. ' + p.name + "'s code ended " + when(p.to) + '.';
-      else ok = true;
-      if (!ok) {
-        if (p) log('access', 'Code refused at Mailbox 4B (' + (p.revoked ? 'revoked' : 'outside window') + ')', p.name);
-        out.className = 'sim__result is-bad'; out.textContent = msg;
-        if (p) save();
-        return;
-      }
-      const n = S.mailbox.items;
-      S.mailbox.items = 0; S.mailbox.lastEmptied = Date.now();
-      log('access', 'Mailbox 4B opened with an access code' + (n ? ', ' + n + (n === 1 ? ' item' : ' items') + ' taken out' : ''), p.name);
-      done('useCode');
-      render();
-      const r = app.querySelector('#code-result');
-      if (r) { r.className = 'sim__result is-ok'; r.textContent = 'Opened. ' + p.name + ' collected ' + (n ? n + (n === 1 ? ' item' : ' items') : 'nothing (the box was empty)') + '. The box reads “Empty” again.'; }
-      push('Mailbox 4B opened', p.name + ' used their code' + (n ? ' and took ' + n + (n === 1 ? ' item.' : ' items.') : '.'), 'mint');
-    }
     if (f.id === 'manual-form') {
       const q = (f.tracking.value || '').replace(/\s/g, '').toUpperCase();
       const item = S.queue.find((x) => x.tracking.toUpperCase() === q);
@@ -621,11 +658,89 @@
     }
   });
 
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && S.sheet) actions.closeSheet(); });
+  /* ---------- the demo panel: columns beside the phone, a drawer on a phone ---------- */
+  panel.addEventListener('change', (e) => {
+    if (e.target.name === 'demo-role') setRole(e.target.value);
+  });
+  panel.addEventListener('click', (e) => {
+    const t = e.target.closest('[data-act]');
+    if (t && actions[t.dataset.act]) actions[t.dataset.act](t);
+  });
+  panel.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const f = e.target;
+    if (f.id !== 'code-form') return;
+    const code = (f.code.value || '').replace(/\D/g, '');
+    const at = new Date(f.at.value).getTime() || Date.now();
+    const out = f.querySelector('#code-result');
+    const p = S.passes.find((x) => x.code === code);
+    let ok = false, msg;
+    if (!code) msg = 'Enter the 6-digit code first.';
+    else if (!p) msg = 'Wrong code. The box stays locked.';
+    else if (p.revoked) msg = 'This code was revoked. The box stays locked.';
+    else if (at < p.from) msg = 'Too early. ' + p.name + "'s code works from " + when(p.from) + '.';
+    else if (at > p.to) msg = 'Too late. ' + p.name + "'s code ended " + when(p.to) + '.';
+    else ok = true;
+    if (!ok) {
+      if (p) log('access', 'Code refused at Mailbox 4B (' + (p.revoked ? 'revoked' : 'outside window') + ')', p.name);
+      out.className = 'sim-result is-bad'; out.textContent = msg;
+      if (p) render();
+      return;
+    }
+    const n = S.mailbox.items;
+    S.mailbox.items = 0; S.mailbox.lastEmptied = Date.now();
+    log('access', 'Mailbox 4B opened with an access code' + (n ? ', ' + n + (n === 1 ? ' item' : ' items') + ' taken out' : ''), p.name);
+    done('useCode');
+    render();
+    out.className = 'sim-result is-ok';
+    out.textContent = 'Opened. ' + p.name + ' collected ' + (n ? n + (n === 1 ? ' item' : ' items') : 'nothing (the box was empty)') + '. The box reads “Empty” again.';
+    push('Mailbox 4B opened', p.name + ' used their code' + (n ? ' and took ' + n + (n === 1 ? ' item.' : ' items.') : '.'), 'mint');
+  });
+
+  const narrow = window.matchMedia('(max-width: 900px)');
+  const openBtn = document.getElementById('demo-open');
+  const closeBtn = document.getElementById('demo-close');
+  const scrim = document.getElementById('demo-scrim');
+  const device = document.querySelector('.device');
+  let scrimTimer;
+  function openDrawer() {
+    if (!narrow.matches) return;
+    clearTimeout(scrimTimer);
+    scrim.hidden = false; void scrim.offsetWidth;
+    panel.classList.add('is-open'); scrim.classList.add('is-on');
+    device.inert = true;
+    openBtn.setAttribute('aria-expanded', 'true');
+    closeBtn.focus({ preventScroll: true });
+  }
+  function closeDrawer() {
+    if (!panel.classList.contains('is-open')) return;
+    panel.classList.remove('is-open'); scrim.classList.remove('is-on');
+    scrimTimer = setTimeout(() => { scrim.hidden = true; }, 320);
+    device.inert = false;
+    openBtn.setAttribute('aria-expanded', 'false');
+    if (narrow.matches) openBtn.focus({ preventScroll: true });
+  }
+  function drawerSemantics() {
+    if (narrow.matches) { panel.setAttribute('role', 'dialog'); panel.setAttribute('aria-modal', 'true'); }
+    else { closeDrawer(); panel.removeAttribute('role'); panel.removeAttribute('aria-modal'); }
+  }
+  openBtn.addEventListener('click', openDrawer);
+  closeBtn.addEventListener('click', closeDrawer);
+  scrim.addEventListener('click', closeDrawer);
+  narrow.addEventListener('change', drawerSemantics);
+  drawerSemantics();
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape') return;
+    if (panel.classList.contains('is-open')) closeDrawer();
+    else if (S.sheet) actions.closeSheet();
+  });
 
   document.getElementById('reset-demo').addEventListener('click', () => {
     const role = S.role;
     S = seed(); S.role = role; S.sheet = false; S.tab = role === 'caretaker' ? 'overview' : 'home';
+    simKey = '';
+    closeDrawer();
     render(true);
     push('Demo reset', 'All sample data is back to the start.', role === 'caretaker' ? 'pink' : 'mint');
   });

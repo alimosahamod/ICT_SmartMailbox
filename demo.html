@@ -15,20 +15,53 @@
 </head>
 <body>
   <div class="stage">
-    <aside class="guide" aria-labelledby="guide-title">
-      <a class="guide__back" href="index.html">Back to the product page</a>
-      <p id="guide-title" class="guide__title">Smart Mailbox prototype</p>
-      <p class="guide__lede" id="guide-lede">Choose a role in the app to start. Each role has its own critical journey to try.</p>
-      <div class="guide__tasks" id="guide-tasks" aria-live="polite"></div>
-      <div class="guide__foot">
-        <button class="btn btn--quiet btn--small" type="button" id="reset-demo">Reset demo data</button>
-        <p>Everything is simulated in your browser. No real mailbox is connected.</p>
+    <!-- Everything outside the app: on desktop the columns beside the phone, on a phone a drawer. -->
+    <div class="demo" id="demo-panel" aria-labelledby="drawer-title">
+      <div class="demo__head">
+        <h2 id="drawer-title">Demo controls</h2>
+        <button class="btn btn--quiet btn--small" type="button" id="demo-close">Close</button>
       </div>
-    </aside>
+
+      <aside class="guide" aria-labelledby="guide-title">
+        <a class="guide__back" href="index.html">Back to the product page</a>
+        <p id="guide-title" class="guide__title">Smart Mailbox prototype</p>
+        <p class="guide__lede" id="guide-lede">Pick a role to start. Each role has its own journey to try.</p>
+
+        <fieldset class="roles">
+          <legend>View the app as</legend>
+          <label class="roles__opt roles__opt--mint">
+            <input type="radio" name="demo-role" value="resident">
+            <span><b>Resident</b><small>Sam Okafor · 4B</small></span>
+          </label>
+          <label class="roles__opt roles__opt--pink">
+            <input type="radio" name="demo-role" value="caretaker">
+            <span><b>Caretaker</b><small>Jonas Weber</small></span>
+          </label>
+        </fieldset>
+        <div class="handoff" id="handoff" hidden></div>
+
+        <div class="guide__tasks" id="guide-tasks" aria-live="polite"></div>
+      </aside>
+
+      <div class="side">
+        <section class="simulate" aria-labelledby="sim-title">
+          <h2 id="sim-title" class="simulate__title">Simulate</h2>
+          <p class="simulate__lede">What happens outside the app: carriers and neighbours at the boxes.</p>
+          <div id="sim-body"></div>
+        </section>
+
+        <div class="demo__foot">
+          <button class="btn btn--quiet btn--small" type="button" id="reset-demo">Reset demo data</button>
+          <p>Everything is simulated in your browser. No real mailbox is connected.</p>
+        </div>
+      </div>
+    </div>
+    <div class="scrim" id="demo-scrim" hidden></div>
 
     <div class="device">
       <nav class="backbar" aria-label="Site">
         <a href="index.html"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>Landing Page</a>
+        <button class="backbar__demo" type="button" id="demo-open" aria-controls="demo-panel" aria-expanded="false"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></svg>Demo controls</button>
       </nav>
       <div class="app" id="app" aria-live="polite">
         <noscript><p class="pad">This prototype needs JavaScript to run.</p></noscript>

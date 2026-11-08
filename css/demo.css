@@ -24,50 +24,147 @@ body { background: var(--surface); overflow: hidden; }
 .btn .ico { width: 20px; height: 20px; }
 .btn:disabled { opacity: 0.55; cursor: progress; }
 
-/* ---------- stage: guide + device ---------- */
+/* ---------- stage: guide | device | simulate ----------
+   Wide screens: three columns, the phone in the middle.
+   901–1239px: the demo controls stack into one column beside the phone.
+   900px and under: the phone fills the screen, the controls live in a drawer. */
 .stage {
+  --dev-h: min(860px, calc(100svh - 48px));
+  --dev-top: calc((100svh - 48px - var(--dev-h)) / 2);
   height: 100%;
   display: grid;
-  grid-template-columns: minmax(280px, 400px) auto;
+  grid-template-columns: minmax(300px, 360px) 400px minmax(280px, 340px);
+  grid-template-rows: minmax(0, 1fr);
   justify-content: center;
   align-items: center;
-  gap: clamp(32px, 6vw, 96px);
+  gap: clamp(32px, 4vw, 72px);
   padding: 24px var(--margin);
 }
+.demo { display: contents; }
+.demo__head { display: none; }
+.guide { grid-column: 1; grid-row: 1; }
+.device { grid-column: 2; grid-row: 1; }
+.side { grid-column: 3; grid-row: 1; align-self: stretch; min-height: 0; display: flex; flex-direction: column; padding: var(--dev-top) 0; }
 
-.guide { align-self: center; max-width: 400px; }
+/* The side columns start on the phone's top edge and scroll on their own when the window is short.
+   The side padding keeps focus rings visible inside the scroll box. */
+.guide { align-self: stretch; padding: calc(var(--dev-top) + 6px) 6px; }
+.simulate { flex: 1 1 auto; min-height: 0; padding: 6px; }
+.guide, .simulate { overflow-y: auto; margin: 0 -6px; scrollbar-width: thin; }
+.demo__foot { flex: none; margin-top: 20px; display: grid; gap: 10px; justify-items: start; }
+.demo__foot p { margin: 0; font-size: 13px; color: var(--muted); }
+
 .guide__back { font-size: var(--step-small); text-underline-offset: 0.25em; }
-.guide__title { margin: 28px 0 0; font-size: clamp(2rem, 1.4rem + 1.6vw, 2.75rem); font-weight: 600; letter-spacing: -0.04em; line-height: 1; }
-.guide__lede { margin: 16px 0 0; }
+.guide__title { margin: 22px 0 0; font-size: clamp(2rem, 1.4rem + 1.6vw, 2.75rem); font-weight: 600; letter-spacing: -0.04em; line-height: 1; }
+.guide__lede { margin: 14px 0 0; }
+
+/* role switcher */
+.roles { margin: 24px 0 0; padding: 0; border: 0; min-width: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.roles legend { padding: 0; margin-bottom: 8px; font-weight: 500; font-size: 15px; }
+.roles__opt { position: relative; cursor: pointer; }
+.roles__opt input { position: absolute; inset: 0; margin: 0; opacity: 0; cursor: pointer; }
+.roles__opt span {
+  display: grid; gap: 2px; min-height: 76px; align-content: end;
+  padding: 12px 14px 13px; border-radius: 18px; background: var(--paper);
+  transition: background-color var(--t-hover) ease, transform var(--t-press) var(--ease-out);
+}
+.roles__opt span::before { content: ""; width: 24px; height: 10px; margin-bottom: 8px; border-radius: var(--slot); background: var(--surface-2); transition: background-color var(--t-hover) ease, width 300ms var(--ease-out); }
+.roles__opt b { font-size: 16px; font-weight: 600; letter-spacing: -0.01em; }
+.roles__opt small { font-size: 13px; color: var(--muted); }
+.roles__opt--mint input:checked + span { background: var(--mint); }
+.roles__opt--pink input:checked + span { background: var(--pink); }
+.roles__opt input:checked + span::before { background: var(--ink); width: 34px; }
+.roles__opt input:checked + span small { color: var(--ink-soft); }
+.roles__opt input:focus-visible + span { outline: 3px solid var(--accent); outline-offset: 2px; }
+.roles__opt:active span { transform: scale(0.98); }
+@media (hover: hover) and (pointer: fine) { .roles__opt input:not(:checked) + span:hover { background: var(--bg); } }
+
+.handoff { margin-top: 6px; background: var(--pink); border-radius: 18px; padding: 10px 10px 10px 16px; display: flex; align-items: center; justify-content: space-between; gap: 12px; animation: pop 400ms var(--ease-out); }
+.handoff[hidden] { display: none; }
+.handoff p { margin: 0; font-size: 15px; }
+.handoff .btn { flex: none; }
+
+/* simulate: the world outside the app */
+.simulate__title { margin: 0; font-size: 24px; font-weight: 600; letter-spacing: -0.03em; line-height: 1.1; }
+.simulate__lede { margin: 8px 0 16px; font-size: 15px; color: var(--ink-soft); }
+#sim-body { display: grid; gap: 8px; }
+.sim-group { background: var(--paper); border-radius: 22px; padding: 16px 18px 18px; display: grid; gap: 10px; }
+.sim-group h3 { margin: 0; font-size: 16px; font-weight: 600; letter-spacing: -0.01em; }
+.sim-group > p { margin: 0; font-size: 14px; color: var(--ink-soft); }
+.sim-group .form { gap: 10px; }
+.sim-group .btn--quiet { background: var(--surface); }
+@media (hover: hover) and (pointer: fine) { .sim-group .btn--quiet:hover { background: var(--surface-2); } }
+.door { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; font-size: 14px; }
+.door li { background: var(--bg); border-radius: 12px; padding: 8px 12px; }
+.door b { font-weight: 600; }
+.sim-result { margin: 2px 0 0; font-size: 14px; border-radius: 14px; animation: pop 300ms var(--ease-out); }
+.sim-result:empty { display: none; }
+.sim-result.is-ok { background: var(--green-bg); color: var(--green-ink); padding: 10px 12px; }
+.sim-result.is-bad { background: var(--bad-bg); color: var(--bad-ink); padding: 10px 12px; }
 .guide__count { margin: 28px 0 10px; font-weight: 500; }
-.tasks { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
-.tasks li { display: grid; grid-template-columns: 28px 1fr; gap: 10px; align-items: start; background: var(--paper); border-radius: 18px; padding: 12px 14px; transition: background-color 300ms ease; }
+.tasks { list-style: none; margin: 0; padding: 0; display: grid; gap: 5px; }
+.tasks li { display: grid; grid-template-columns: 28px 1fr; gap: 10px; align-items: start; background: var(--paper); border-radius: 18px; padding: 10px 14px 11px; transition: background-color 300ms ease; }
 .tasks li b { display: block; font-weight: 500; font-size: 15px; }
 .tasks li small { display: block; color: var(--muted); font-size: 13px; }
 .tick { width: 24px; height: 12px; margin-top: 5px; border-radius: var(--slot); background: var(--surface-2); transition: background-color 300ms ease, width 300ms var(--ease-out); }
 .tasks li.is-done { background: var(--mint); }
 .tasks li.is-done .tick { background: var(--accent); }
-.guide__foot { margin-top: 28px; display: grid; gap: 10px; justify-items: start; }
-.guide__foot p { margin: 0; font-size: 13px; color: var(--muted); }
 
 .device {
   position: relative;
   display: flex; flex-direction: column;
   width: 400px;
-  height: min(860px, calc(100svh - 48px));
+  height: var(--dev-h);
   background: var(--app-bg);
   border-radius: 48px;
   border: 10px solid var(--ink);
   overflow: hidden;
 }
 
+/* Below the three-column width the demo controls become one column: the guide's parts and
+   Simulate interleave, so the order reads role → simulate → checklist → reset. */
+@media (max-width: 1239px) {
+  .stage { grid-template-columns: minmax(300px, 400px) 400px; grid-template-rows: minmax(0, 1fr); }
+  .demo { display: flex; flex-direction: column; grid-column: 1; grid-row: 1; align-self: stretch; overflow-y: auto; padding: calc(var(--dev-top) + 6px) 6px calc(var(--dev-top) + 6px); margin: 0 -6px; scrollbar-width: thin; }
+  .guide, .side { display: contents; }
+  .simulate { flex: none; overflow: visible; padding: 0; margin: 28px 0 0; }
+  .demo__foot { margin-top: 24px; }
+  .guide__back { order: 0; align-self: start; }
+  .guide__title { order: 1; }
+  .guide__lede { order: 2; }
+  .roles { order: 3; }
+  .handoff { order: 4; }
+  .simulate { order: 5; }
+  .guide__tasks { order: 6; }
+  .demo__foot { order: 7; }
+}
+
 @media (max-width: 900px) {
   body { background: var(--app-bg); overflow: auto; }
   .stage { display: block; padding: 0; height: 100%; }
-  .guide { display: none; }
   .device { width: 100%; height: 100%; height: 100svh; border: 0; border-radius: 0; }
 
+  /* the drawer */
+  .demo {
+    position: fixed; z-index: 40; top: 0; right: 0; bottom: 0;
+    width: min(420px, calc(100vw - 32px)); max-height: none; margin: 0;
+    padding: calc(14px + env(safe-area-inset-top)) 20px calc(28px + env(safe-area-inset-bottom));
+    background: var(--surface); overscroll-behavior: contain;
+    box-shadow: -24px 0 48px rgba(0, 0, 0, 0.18); /* taste-skill-ignore: the drawer is an overlay */
+    transform: translateX(calc(100% + 48px)); visibility: hidden;
+    transition: transform 340ms var(--ease-out), visibility 0s linear 340ms;
+  }
+  .demo.is-open { transform: none; visibility: visible; transition: transform 340ms var(--ease-out), visibility 0s; }
+  .demo__head { order: -1; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .demo__head h2 { margin: 0; font-size: 24px; font-weight: 600; letter-spacing: -0.03em; }
+  .guide__back, .guide__title { display: none; }
+  .guide__lede { margin-top: 10px; font-size: 16px; }
+  .roles { margin-top: 18px; }
+
+  .scrim { position: fixed; inset: 0; z-index: 35; background: rgba(10, 10, 10, 0.4); opacity: 0; transition: opacity 340ms ease; }
+  .scrim.is-on { opacity: 1; }
 }
+.scrim[hidden] { display: none; }
 
 /* ---------- app frame ---------- */
 .app { flex: 1; min-height: 0; display: flex; flex-direction: column; font-size: var(--t-size); position: relative; }
@@ -152,14 +249,7 @@ body { background: var(--surface); overflow: hidden; }
 .notice ul { margin: 0; padding-left: 18px; }
 .notice .link { color: var(--mint); }
 
-.sim { margin-top: 6px; border: 1.5px dashed var(--line-strong); border-radius: 22px; padding: 14px 16px 16px; display: grid; gap: 8px; }
-.sim h3 { margin: 0; font-size: 14px; font-weight: 600; }
-.sim > p { margin: 0; font-size: 13px; color: var(--muted); }
-.sim__row { display: flex; gap: 8px; flex-wrap: wrap; }
-.sim__result { margin: 4px 0 0; min-height: 0; font-size: 14px; border-radius: 14px; }
-.sim__result:empty { display: none; }
-.sim__result.is-ok { background: var(--green-bg); color: var(--green-ink); padding: 10px 12px; }
-.sim__result.is-bad { background: var(--bad-bg); color: var(--bad-ink); padding: 10px 12px; }
+.btn-row { display: flex; gap: 8px; flex-wrap: wrap; }
 
 /* ---------- access ---------- */
 .code-card { background: var(--mint); border-radius: 26px; padding: 18px 20px 20px; display: grid; gap: 6px; justify-items: start; animation: pop 400ms var(--ease-out); }
@@ -334,7 +424,7 @@ body { background: var(--surface); overflow: hidden; }
 
 /* ---------- mobile: back to the landing page ---------- */
 .backbar {
-  display: none; flex: none; align-items: center;
+  display: none; flex: none; align-items: center; justify-content: space-between; gap: 8px;
   padding: calc(8px + env(safe-area-inset-top)) 16px 8px;
   background: var(--app-bg);
 }
@@ -344,9 +434,18 @@ body { background: var(--surface); overflow: hidden; }
   font-size: 15px; font-weight: 600; text-decoration: none;
   transition: transform var(--t-press) var(--ease-out), background-color var(--t-hover) ease;
 }
-.backbar a:active { transform: scale(0.97); }
+.backbar__demo {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 16px 0 14px;
+  border: 0; border-radius: var(--slot); background: var(--ink); color: var(--paper);
+  font-size: 15px; font-weight: 600; cursor: pointer;
+  transition: transform var(--t-press) var(--ease-out), background-color var(--t-hover) ease;
+}
+.backbar a:active, .backbar__demo:active { transform: scale(0.97); }
 .backbar svg { width: 18px; height: 18px; }
-@media (hover: hover) and (pointer: fine) { .backbar a:hover { background: var(--mint-deep); } }
+@media (hover: hover) and (pointer: fine) {
+  .backbar a:hover { background: var(--mint-deep); }
+  .backbar__demo:hover { background: #2a2a2a; }
+}
 @media (max-width: 900px) {
   .backbar { display: flex; }
   .push { top: calc(64px + env(safe-area-inset-top)); }

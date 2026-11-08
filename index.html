@@ -101,45 +101,117 @@
 
     <!-- FEATURES BOARD -->
     <section class="board" id="features" aria-labelledby="board-title">
-      <div class="tile tile--title">
-        <h2 id="board-title" class="h2">What it tells you</h2>
-      </div>
-
-      <div class="tile tile--live mint reveal">
-        <div class="macro macro--status" data-ui aria-hidden="true"><span class="macro__dot"></span>Mail arrived</div>
-        <div class="tile__cap"><h3>Live status</h3><p>“Mail arrived” or “Empty”, readable at a glance.</p></div>
-      </div>
-
-      <div class="tile tile--alert pink reveal">
-        <div class="macro macro--toast" data-ui aria-hidden="true"><b>New mail</b> in box 4B · 10:42</div>
-        <div class="tile__cap"><h3>Instant alert</h3><p>A push the moment something lands, SMS as backup.</p></div>
-      </div>
-
-      <div class="tile tile--access paper reveal">
-        <div class="macro macro--keys tnum" data-ui aria-hidden="true"><span>4</span><span>8</span><span>1</span><span>9</span></div>
-        <div class="tile__cap"><h3>Timed access</h3><p>A code for a neighbour, valid only in your window.</p></div>
-      </div>
-
-      <div class="tile tile--parcel surface reveal">
-        <div class="macro macro--barcode" data-ui aria-hidden="true">
-          <svg class="bars" viewBox="0 0 290 100" preserveAspectRatio="none" fill="#0a0a0a"><rect x="0" width="3" height="100"/><rect x="7" width="2" height="100"/><rect x="15" width="5" height="100"/><rect x="23" width="2" height="100"/><rect x="27" width="2" height="100"/><rect x="35" width="6" height="100"/><rect x="45" width="2" height="100"/><rect x="50" width="6" height="100"/><rect x="60" width="3" height="100"/><rect x="66" width="2" height="100"/><rect x="72" width="3" height="100"/><rect x="77" width="3" height="100"/><rect x="84" width="3" height="100"/><rect x="90" width="3" height="100"/><rect x="97" width="3" height="100"/><rect x="102" width="6" height="100"/><rect x="112" width="5" height="100"/><rect x="120" width="3" height="100"/><rect x="126" width="5" height="100"/><rect x="135" width="2" height="100"/><rect x="141" width="2" height="100"/><rect x="147" width="6" height="100"/><rect x="157" width="6" height="100"/><rect x="166" width="5" height="100"/><rect x="177" width="6" height="100"/><rect x="187" width="5" height="100"/><rect x="198" width="3" height="100"/><rect x="204" width="3" height="100"/><rect x="211" width="2" height="100"/><rect x="215" width="2" height="100"/><rect x="223" width="3" height="100"/><rect x="232" width="3" height="100"/><rect x="238" width="3" height="100"/><rect x="243" width="5" height="100"/><rect x="251" width="5" height="100"/><rect x="260" width="3" height="100"/><rect x="267" width="5" height="100"/><rect x="276" width="6" height="100"/></svg><span class="tnum">JD014 6003 8851</span>
+      <header class="board__head">
+        <div class="board__heading reveal">
+          <p class="board__tag">Features &amp; sensors</p>
+          <h2 id="board-title" class="h2 board__title">Everything your mailbox tells you — in real time</h2>
         </div>
-        <div class="tile__cap"><h3>Parcel intake</h3><p>Caretakers scan big parcels into the parcel room.</p></div>
-      </div>
+        <p class="board__lede reveal">A sensor inside the box pushes an alert the moment mail lands. It runs about two years on one battery and connects over its own mobile link, so there is no Wi-Fi to set up.</p>
+      </header>
 
-      <div class="tile tile--reset mint reveal">
-        <div class="macro macro--toggle" data-ui aria-hidden="true"><span class="switch"><span></span></span>Empty</div>
-        <div class="tile__cap"><h3>Auto reset</h3><p>Take the mail out and it reads “Empty”.</p></div>
-      </div>
+      <div class="board__grid">
+        <article class="feat feat--alert pink reveal">
+          <div class="feat__text">
+            <h3>Instant alert</h3>
+            <p>A push notification the moment a letter or parcel lands, with an SMS as backup when your phone is offline.</p>
+            <ol class="feat__log tnum" data-ui aria-hidden="true">
+              <li><span>10:42</span>Letter detected inside</li>
+              <li><span>10:42</span>Push sent to your phone</li>
+              <li><span>10:43</span>SMS backup delivered</li>
+            </ol>
+          </div>
+          <div class="feat__ui feat__ui--phone" data-ui aria-hidden="true">
+            <div class="lock">
+              <p class="lock__time tnum">10:42</p>
+              <div class="lock__note">
+                <p class="lock__app">Smart Mailbox <span>now</span></p>
+                <p><b>New mail in box 4B</b></p>
+                <p>Letter detected at 10:42 · still inside</p>
+              </div>
+              <div class="lock__note lock__note--sms">
+                <p class="lock__app">Messages <span>10:43</span></p>
+                <p>Smart Mailbox: mail arrived in box 4B.</p>
+              </div>
+            </div>
+          </div>
+        </article>
 
-      <div class="tile tile--battery paper reveal">
-        <div class="macro macro--figure tnum" data-ui aria-hidden="true">2 yrs</div>
-        <div class="tile__cap"><h3>Long battery</h3><p>Alerts you weeks before it runs low.</p></div>
-      </div>
+        <article class="feat feat--live mint reveal">
+          <div class="feat__text">
+            <h3>Live status</h3>
+            <p>The app reads “Mail arrived” or “Empty”, so you know before you walk out.</p>
+          </div>
+          <div class="feat__ui feat__ui--centre" data-ui aria-hidden="true">
+            <span class="pill pill--status"><span class="pill__dot"></span>Mail arrived</span>
+            <span class="feat__meta tnum">Box 4B · since 10:42</span>
+          </div>
+        </article>
 
-      <div class="tile tile--network pink reveal">
-        <div class="macro macro--signal" data-ui aria-hidden="true"><span></span><span></span><span></span><span></span>LTE-M</div>
-        <div class="tile__cap"><h3>No Wi-Fi needed</h3><p>Its own mobile connection works at the kerb or in the basement.</p></div>
+        <article class="feat feat--reset mint reveal">
+          <div class="feat__text">
+            <h3>Auto reset</h3>
+            <p>Take the mail out and the status flips back to “Empty” on its own.</p>
+          </div>
+          <div class="feat__ui feat__ui--centre" data-ui aria-hidden="true">
+            <span class="pill"><span class="switch-sm"><span></span></span>Empty</span>
+            <span class="feat__meta tnum">Emptied at 18:05</span>
+          </div>
+        </article>
+
+        <article class="feat feat--access paper reveal">
+          <div class="feat__text">
+            <h3>Timed access</h3>
+            <p>Give a neighbour a code that opens your box only inside the window you set.</p>
+          </div>
+          <div class="feat__ui" data-ui aria-hidden="true">
+            <div class="keys tnum"><span>4</span><span>8</span><span>1</span><span>9</span></div>
+            <span class="feat__meta tnum">Lea Brandt, 3B · Fri 08:00 – Sun 20:00</span>
+          </div>
+        </article>
+
+        <article class="feat feat--parcel surface reveal">
+          <div class="feat__text">
+            <h3>Parcel intake</h3>
+            <p>Caretakers scan oversized parcels into the parcel room. You get the shelf and a pickup code.</p>
+          </div>
+          <div class="feat__ui" data-ui aria-hidden="true">
+            <div class="label">
+              <svg class="label__bars" viewBox="0 0 290 100" preserveAspectRatio="none" fill="#0a0a0a"><rect x="0" width="3" height="100"/><rect x="7" width="2" height="100"/><rect x="15" width="5" height="100"/><rect x="23" width="2" height="100"/><rect x="27" width="2" height="100"/><rect x="35" width="6" height="100"/><rect x="45" width="2" height="100"/><rect x="50" width="6" height="100"/><rect x="60" width="3" height="100"/><rect x="66" width="2" height="100"/><rect x="72" width="3" height="100"/><rect x="77" width="3" height="100"/><rect x="84" width="3" height="100"/><rect x="90" width="3" height="100"/><rect x="97" width="3" height="100"/><rect x="102" width="6" height="100"/><rect x="112" width="5" height="100"/><rect x="120" width="3" height="100"/><rect x="126" width="5" height="100"/><rect x="135" width="2" height="100"/><rect x="141" width="2" height="100"/><rect x="147" width="6" height="100"/><rect x="157" width="6" height="100"/><rect x="166" width="5" height="100"/><rect x="177" width="6" height="100"/><rect x="187" width="5" height="100"/><rect x="198" width="3" height="100"/><rect x="204" width="3" height="100"/><rect x="211" width="2" height="100"/><rect x="215" width="2" height="100"/><rect x="223" width="3" height="100"/><rect x="232" width="3" height="100"/><rect x="238" width="3" height="100"/><rect x="243" width="5" height="100"/><rect x="251" width="5" height="100"/><rect x="260" width="3" height="100"/><rect x="267" width="5" height="100"/><rect x="276" width="6" height="100"/></svg>
+              <div class="label__info tnum">
+                <span>JD014 6003 8851</span>
+                <b>Shelf B3</b>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="feat feat--battery paper reveal">
+          <div class="feat__text">
+            <h3>Long battery</h3>
+            <p>About two years on one replaceable pack, with a warning weeks before it runs low.</p>
+          </div>
+          <div class="feat__ui" data-ui aria-hidden="true">
+            <div class="metric">
+              <span class="battery"><span></span></span>
+              <span class="metric__value tnum">2 yrs</span>
+              <span class="feat__meta tnum">87% left</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="feat feat--network pink reveal">
+          <div class="feat__text">
+            <h3>No Wi-Fi needed</h3>
+            <p>Its own LTE-M connection works at the kerb, in a lobby or down in the basement. Nothing to pair with your router.</p>
+          </div>
+          <div class="feat__ui" data-ui aria-hidden="true">
+            <div class="signal">
+              <span class="signal__bars"><span></span><span></span><span></span><span></span></span>
+              <span class="signal__net">LTE-M</span>
+              <span class="feat__meta">Connected · strong signal</span>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -340,8 +412,10 @@
 
   <footer class="footer" aria-labelledby="footer-title">
     <h2 id="footer-title" class="visually-hidden">Smart Mailbox</h2>
+    <!-- Smart Mailbox logo
     <svg class="blocks blocks--wide" viewBox="0 0 1400 320" aria-hidden="true" focusable="false"><path d="M0.0,320.0 V94.4 Q0.0,70.4 24.0,70.4 H172.6 Q196.6,70.4 196.6,94.4 V320.0 Z" fill="#a6e2b6"/><text x="98.3" y="311.6" font-size="210" text-anchor="middle" fill="#f8f8f8" font-weight="600" font-family="Switzer, sans-serif" letter-spacing="-4">M</text><path d="M200.6,320.0 V24.0 Q200.6,0.0 224.6,0.0 H373.1 Q397.1,0.0 397.1,24.0 V320.0 Z" fill="#f2a9ad"/><text x="298.9" y="311.6" font-size="210" text-anchor="middle" fill="#f8f8f8" font-weight="600" font-family="Switzer, sans-serif" letter-spacing="-4">A</text><path d="M401.1,320.0 V139.2 Q401.1,115.2 425.1,115.2 H573.7 Q597.7,115.2 597.7,139.2 V320.0 Z" fill="#1f6b3a"/><text x="499.4" y="311.6" font-size="210" text-anchor="middle" fill="#f8f8f8" font-weight="600" font-family="Switzer, sans-serif" letter-spacing="-4">I</text><path d="M601.7,320.0 V62.4 Q601.7,38.4 625.7,38.4 H774.3 Q798.3,38.4 798.3,62.4 V320.0 Z" fill="#a6e2b6"/><text x="700.0" y="311.6" font-size="210" text-anchor="middle" fill="#f8f8f8" font-weight="600" font-family="Switzer, sans-serif" letter-spacing="-4">L</text><path d="M802.3,320.0 V120.0 Q802.3,96.0 826.3,96.0 H974.9 Q998.9,96.0 998.9,120.0 V320.0 Z" fill="#0a0a0a"/><text x="900.6" y="311.6" font-size="210" text-anchor="middle" fill="#f8f8f8" font-weight="600" font-family="Switzer, sans-serif" letter-spacing="-4">B</text><path d="M1002.9,320.0 V36.8 Q1002.9,12.8 1026.9,12.8 H1175.4 Q1199.4,12.8 1199.4,36.8 V320.0 Z" fill="#f2a9ad"/><text x="1101.1" y="311.6" font-size="210" text-anchor="middle" fill="#f8f8f8" font-weight="600" font-family="Switzer, sans-serif" letter-spacing="-4">O</text><path d="M1203.4,320.0 V81.6 Q1203.4,57.6 1227.4,57.6 H1376.0 Q1400.0,57.6 1400.0,81.6 V320.0 Z" fill="#a6e2b6"/><text x="1301.7" y="311.6" font-size="210" text-anchor="middle" fill="#f8f8f8" font-weight="600" font-family="Switzer, sans-serif" letter-spacing="-4">X</text></svg>
     <svg class="blocks blocks--narrow" viewBox="0 0 700 520" aria-hidden="true" focusable="false"><path d="M0.0,258.0 V74.8 Q0.0,56.8 18.0,56.8 H154.0 Q172.0,56.8 172.0,74.8 V258.0 Z" fill="#a6e2b6"/><text x="86.0" y="250.8" font-size="180" text-anchor="middle" fill="#f8f8f8" font-weight="600" font-family="Switzer, sans-serif" letter-spacing="-4">M</text><path d="M176.0,258.0 V18.0 Q176.0,0.0 194.0,0.0 H330.0 Q348.0,0.0 348.0,18.0 V258.0 Z" fill="#f2a9ad"/><text x="262.0" y="250.8" font-size="180" text-anchor="middle" fill="#f8f8f8" font-weight="600" font-family="Switzer, sans-serif" letter-spacing="-4">A</text><path d="M352.0,258.0 V110.9 Q352.0,92.9 370.0,92.9 H506.0 Q524.0,92.9 524.0,110.9 V258.0 Z" fill="#1f6b3a"/><text x="438.0" y="250.8" font-size="180" text-anchor="middle" fill="#f8f8f8" font-weight="600" font-family="Switzer, sans-serif" letter-spacing="-4">I</text><path d="M528.0,258.0 V49.0 Q528.0,31.0 546.0,31.0 H682.0 Q700.0,31.0 700.0,49.0 V258.0 Z" fill="#a6e2b6"/><text x="614.0" y="250.8" font-size="180" text-anchor="middle" fill="#f8f8f8" font-weight="600" font-family="Switzer, sans-serif" letter-spacing="-4">L</text><path d="M0.0,520.0 V357.4 Q0.0,339.4 18.0,339.4 H154.0 Q172.0,339.4 172.0,357.4 V520.0 Z" fill="#0a0a0a"/><text x="86.0" y="512.8" font-size="180" text-anchor="middle" fill="#f8f8f8" font-weight="600" font-family="Switzer, sans-serif" letter-spacing="-4">B</text><path d="M176.0,520.0 V290.3 Q176.0,272.3 194.0,272.3 H330.0 Q348.0,272.3 348.0,290.3 V520.0 Z" fill="#f2a9ad"/><text x="262.0" y="512.8" font-size="180" text-anchor="middle" fill="#f8f8f8" font-weight="600" font-family="Switzer, sans-serif" letter-spacing="-4">O</text><path d="M352.0,520.0 V326.4 Q352.0,308.4 370.0,308.4 H506.0 Q524.0,308.4 524.0,326.4 V520.0 Z" fill="#a6e2b6"/><text x="438.0" y="512.8" font-size="180" text-anchor="middle" fill="#f8f8f8" font-weight="600" font-family="Switzer, sans-serif" letter-spacing="-4">X</text></svg>
+    -->
     <div class="footer__cols">
       <ul>
         <li><a href="#how">How it works</a></li>
