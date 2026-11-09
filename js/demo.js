@@ -104,7 +104,7 @@
         { id: uid(), t: n - 9 * DAY, kind: 'access', text: 'Access granted until ' + when(n - 7 * DAY), who: 'Tomás Rivera' }
       ],
       unread: [],
-      settings: { push: true, sms: true, largeText: false, quietAds: false },
+      settings: { push: true, sms: true },
       done: {}
     };
   }
@@ -130,18 +130,18 @@
   /* ---------- tasks shown beside the device ---------- */
   const TASKS = {
     resident: [
-      ['seeStatus', 'See whether mail has arrived', 'Open Home and read the mailbox status.'],
-      ['collect', 'Collect the mail and watch it reset', 'Use “I took the mail out”.'],
-      ['grant', 'Give a neighbour timed access', 'Access → New access, set a time window.'],
-      ['useCode', 'Let the neighbour open your box', 'Enter their code under Simulate → Test a code.'],
-      ['history', 'Check what happened while you were away', 'Open History.']
+      ['seeStatus', 'See whether mail has arrived'],
+      ['collect', 'Collect the mail and watch it reset'],
+      ['grant', 'Give a neighbour timed access'],
+      ['useCode', 'Let the neighbour open your box'],
+      ['history', 'Check what happened while you were away']
     ],
     caretaker: [
-      ['overview', 'Check parcels and storage space', 'Read the Overview.'],
-      ['scan', 'Scan an oversized parcel', 'Scan → Scan next parcel.'],
-      ['store', 'Store it and alert the resident', 'Pick a shelf, then “Store and notify”.'],
-      ['handover', 'Hand a parcel over', 'Storage → choose a shelf → Mark collected.'],
-      ['residentSees', 'See the alert as the resident', 'Use “See it as Sam”, or switch the role to Resident.']
+      ['overview', 'Check parcels and storage space'],
+      ['scan', 'Scan an oversized parcel'],
+      ['store', 'Store it and alert the resident'],
+      ['residentSees', 'See the alert as the resident'],
+      ['handover', 'Mark a parcel as collected']
     ]
   };
 
@@ -160,7 +160,7 @@
       ? 'You are Sam Okafor, resident of apartment 4B. Try these in any order.'
       : 'You are Jonas Weber, caretaker at Harbour View Residences. Try these in any order.';
     tasksEl.innerHTML = '<p class="guide__count tnum">' + count + ' of ' + list.length + ' done</p><ol class="tasks">' +
-      list.map(([k, title, hint]) => '<li class="' + (S.done[k] ? 'is-done' : '') + '"><span class="tick" aria-hidden="true"></span><span><b>' + title + '</b><small>' + hint + '</small></span><span class="visually-hidden">' + (S.done[k] ? 'done' : 'not done yet') + '</span></li>').join('') + '</ol>';
+      list.map(([k, title]) => '<li class="' + (S.done[k] ? 'is-done' : '') + '"><span class="tick" aria-hidden="true"></span><span><b>' + title + '</b></span><span class="visually-hidden">' + (S.done[k] ? 'done' : 'not done yet') + '</span></li>').join('') + '</ol>';
   }
 
   /* The caretaker's shortcut into Sam's phone, once a parcel for 4B is on a shelf. */
@@ -175,11 +175,13 @@
 
   /* ---------- simulate: the world outside the app ---------- */
   // Rebuilt only when what it shows changes, so a half-typed code and its result survive app renders.
+  // The keypad test belongs to the Access screen and is shown only while it is open.
   let simKey = '';
   function renderSim() {
     const latest = S.lastPass ? S.passes.find((p) => p.id === S.lastPass) : null;
     const code = latest && !latest.revoked ? latest.code : '';
-    const key = [S.role, code, S.queue.map((q) => q.tracking).join()].join('|');
+    const keypad = S.role === 'resident' && S.tab === 'access';
+    const key = [S.role, keypad, code, S.queue.map((q) => q.tracking).join()].join('|');
     if (key === simKey) return;
     simKey = key;
     if (!S.role) {
@@ -189,13 +191,13 @@
     if (S.role === 'resident') {
       simEl.innerHTML =
         '<section class="sim-group" aria-labelledby="sg-mail"><h3 id="sg-mail">The postal carrier</h3><p>Puts something through the slot of Mailbox 4B.</p>' +
-          '<div class="btn-row"><button type="button" class="btn btn--small" data-act="deliver">Deliver a letter</button><button type="button" class="btn btn--small btn--quiet" data-act="deliverAd">Drop a flyer</button></div></section>' +
-        '<section class="sim-group" aria-labelledby="sg-code"><h3 id="sg-code">Test a code</h3><p>Be the neighbour typing a code into the keypad on Mailbox 4B.</p>' +
+          '<div class="btn-row"><button type="button" class="btn btn--small" data-act="deliver">Deliver a letter</button></div></section>' +
+        (keypad ? '<section class="sim-group" aria-labelledby="sg-code"><h3 id="sg-code">Test a code</h3><p>Be the neighbour typing a code into the keypad on Mailbox 4B.</p>' +
           '<form id="code-form" class="form" novalidate>' +
           '<div class="field2"><label>Code<input name="code" inputmode="numeric" autocomplete="off" maxlength="7" placeholder="6 digits" value="' + code + '"></label>' +
           '<label>Time at the box<input type="datetime-local" name="at" value="' + toLocalInput(Date.now()) + '"></label></div>' +
           '<button class="btn btn--small" type="submit">Enter code at the box</button>' +
-          '<p class="sim-result" id="code-result" role="status"></p></form></section>';
+          '<p class="sim-result" id="code-result" role="status"></p></form></section>' : '');
       return;
     }
     const q = S.queue;
@@ -457,13 +459,13 @@
     const t = (k, label, sub) => '<label class="toggle"><span><b>' + label + '</b><small>' + sub + '</small></span><input type="checkbox" role="switch" data-setting="' + k + '"' + (st[k] ? ' checked' : '') + '><i aria-hidden="true"></i></label>';
     return '<div class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-h"><div class="sheet__panel">' +
       '<div class="card__row"><h3 id="sheet-h">' + (S.role === 'resident' ? ME.name + ' · ' + ME.apt : CARETAKER.name + ' · Caretaker') + '</h3><button type="button" class="link" data-act="closeSheet">Done</button></div>' +
-      (S.role === 'resident' ? t('push', 'Push alerts', 'When mail or a parcel arrives') + t('sms', 'SMS backup', 'If the push is not opened in 10 min') + t('quietAds', 'Mute Monday flyers', 'Advertising day in your area') + t('largeText', 'Large text', 'Bigger type across the app') : t('largeText', 'Large text', 'Bigger type across the app')) +
+      (S.role === 'resident' ? t('push', 'Push alerts', 'When mail or a parcel arrives') + t('sms', 'SMS backup', 'If the push is not opened in 10 min')
+        : '<dl class="kv tnum"><div><dt>Building</dt><dd>' + BUILDING + '</dd></div><div><dt>Parcel room</dt><dd>' + SHELVES.length + ' shelves</dd></div></dl>') +
       '</div></div>';
   }
 
   /* ---------- render ---------- */
   function render(focus) {
-    document.documentElement.classList.toggle('large-text', !!S.settings.largeText);
     let html;
     if (!S.role) html = rolePicker();
     else if (S.role === 'resident') {
@@ -509,13 +511,6 @@
       log('mail', 'Letter detected in Mailbox 4B', 'Sensor');
       render();
       if (S.settings.push) push('Smart Mailbox', 'New mail in Mailbox 4B.', 'mint');
-    },
-    deliverAd() {
-      closeDrawer();
-      S.mailbox.items += 1; S.mailbox.lastArrival = Date.now();
-      log('mail', 'Item detected in Mailbox 4B', 'Sensor');
-      render();
-      if (S.settings.push && !S.settings.quietAds) push('Smart Mailbox', 'New mail in Mailbox 4B.', 'mint');
     },
     clearUnread() { S.unread = []; render(); },
     revoke(el) {

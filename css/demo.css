@@ -15,7 +15,6 @@
   --bad-ink: #8c1d16;
   --t-size: 15px;
 }
-.large-text { --t-size: 18px; }
 
 html, body { height: 100%; }
 body { background: var(--surface); overflow: hidden; }
@@ -103,10 +102,9 @@ body { background: var(--surface); overflow: hidden; }
 .sim-result.is-bad { background: var(--bad-bg); color: var(--bad-ink); padding: 10px 12px; }
 .guide__count { margin: 28px 0 10px; font-weight: 500; }
 .tasks { list-style: none; margin: 0; padding: 0; display: grid; gap: 5px; }
-.tasks li { display: grid; grid-template-columns: 28px 1fr; gap: 10px; align-items: start; background: var(--paper); border-radius: 18px; padding: 10px 14px 11px; transition: background-color 300ms ease; }
+.tasks li { display: grid; grid-template-columns: 28px 1fr; gap: 10px; align-items: center; background: var(--paper); border-radius: 18px; padding: 10px 14px 11px; transition: background-color 300ms ease; }
 .tasks li b { display: block; font-weight: 500; font-size: 15px; }
-.tasks li small { display: block; color: var(--muted); font-size: 13px; }
-.tick { width: 24px; height: 12px; margin-top: 5px; border-radius: var(--slot); background: var(--surface-2); transition: background-color 300ms ease, width 300ms var(--ease-out); }
+.tick { width: 24px; height: 12px; border-radius: var(--slot); background: var(--surface-2); transition: background-color 300ms ease, width 300ms var(--ease-out); }
 .tasks li.is-done { background: var(--mint); }
 .tasks li.is-done .tick { background: var(--accent); }
 

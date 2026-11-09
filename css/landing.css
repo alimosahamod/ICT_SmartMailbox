@@ -408,14 +408,16 @@ section { scroll-margin-top: 80px; }
   padding: clamp(120px, 14vw, 200px) var(--margin) 0; align-items: start;
 }
 .specs__figure { grid-column: 1 / 6; border-radius: 0 0 var(--slot) var(--slot); padding: clamp(32px, 4vw, 56px) clamp(24px, 3vw, 40px) 80px; position: sticky; top: 24px; }
-.specs__figure svg { width: 100%; height: auto; }
-.specs__key { list-style: none; margin: 24px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px 22px; font-size: var(--step-small); justify-content: center; }
-.specs__key li { display: flex; align-items: center; gap: 8px; }
-.k { width: 22px; height: 9px; border-radius: var(--slot); }
-.k--paper { background: var(--paper); }
-.k--ink { background: var(--ink); }
-.k--green { background: var(--accent); }
-.k--pink { background: var(--pink-deep); }
+.specs__figure { margin: 0; }
+.anatomy { position: relative; }
+.anatomy svg { width: 100%; height: auto; overflow: visible; }
+.anatomy__axis { fill: none; stroke: var(--ink); stroke-opacity: 0.3; stroke-width: 2; stroke-dasharray: 6 8; }
+.anatomy__leads path { fill: none; stroke: var(--ink); stroke-width: 2; }
+.anatomy__leads circle { fill: var(--ink); }
+.anatomy__labels { list-style: none; margin: 0; padding: 0; position: absolute; inset: clamp(32px, 4vw, 56px) clamp(24px, 3vw, 40px) 80px; pointer-events: none; }
+.anatomy__labels li { position: absolute; left: 61%; right: 0; top: calc(var(--y) / 820 * 100%); transform: translateY(-50%); line-height: 1.25; }
+.anatomy__labels b { display: block; font-size: var(--step-body); font-weight: 600; letter-spacing: -0.01em; }
+.anatomy__labels span { display: block; font-size: var(--step-small); color: var(--ink-soft); }
 .specs__text { grid-column: 7 / 13; }
 .spec-table { width: 100%; border-collapse: collapse; margin-top: 40px; }
 .spec-table th, .spec-table td { text-align: left; vertical-align: top; padding: 18px 0; border-bottom: 1px solid #dcdcdc; }
@@ -424,7 +426,11 @@ section { scroll-margin-top: 80px; }
 
 @media (max-width: 860px) {
   .specs { display: block; }
-  .specs__figure { position: static; padding-bottom: 56px; }
+  .specs__figure { position: relative; top: auto; padding-bottom: 56px; }
+  .anatomy__labels { bottom: 56px; }
+  .anatomy__labels li { left: 59%; line-height: 1.2; }
+  .anatomy__labels b { font-size: 15px; }
+  .anatomy__labels span { font-size: 13px; }
   .specs__text { margin-top: 48px; }
   .spec-table th { width: 38%; }
 }
@@ -577,6 +583,14 @@ section { scroll-margin-top: 80px; }
 @media (prefers-reduced-motion: no-preference) {
   .js .reveal { opacity: 0; transform: translateY(24px); transition: opacity 700ms var(--ease-out), transform 800ms var(--ease-out); transition-delay: var(--d, 0ms); }
   .js .reveal.is-in { opacity: 1; transform: none; }
+  /* What's in the box: the module starts assembled and comes apart into its parts. */
+  .js .anatomy__part { transition: transform 900ms var(--ease-out) 250ms; }
+  .js .anatomy__part--sensor { transform: translateY(100px); }
+  .js .anatomy__part--battery { transform: translateY(-96px); }
+  .js .anatomy__part--bracket { transform: translateY(-250px); }
+  .js .anatomy.is-in .anatomy__part { transform: none; }
+  .js .anatomy__leads, .js .anatomy__labels li, .js .anatomy__axis { opacity: 0; transition: opacity 500ms var(--ease-out) 850ms; }
+  .js .anatomy.is-in .anatomy__leads, .js .anatomy.is-in .anatomy__labels li, .js .anatomy.is-in .anatomy__axis { opacity: 1; }
   .js .hero__title, .js .hero__lede, .js .hero__actions { animation: rise 900ms var(--ease-out) both; }
   .js .hero__lede { animation-delay: 90ms; }
   .js .hero__actions { animation-delay: 180ms; }

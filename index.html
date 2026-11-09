@@ -292,22 +292,61 @@
 
     <!-- SPECS -->
     <section class="specs" id="specs" aria-labelledby="specs-title">
-      <div class="specs__figure mint reveal">
-        <svg viewBox="0 0 600 600" role="img" aria-label="Exploded drawing of the module: housing, sensor bar, battery and mounting clip">
-          <rect x="70" y="60" width="460" height="200" rx="100" fill="#ffffff"/>
-          <rect x="170" y="138" width="260" height="44" rx="22" fill="#0a0a0a"/>
-          <circle cx="196" cy="160" r="10" fill="#c3edce"/>
-          <rect x="130" y="300" width="340" height="80" rx="40" fill="#1f6b3a"/>
-          <rect x="190" y="420" width="220" height="56" rx="28" fill="#f8c7c9"/>
-          <rect x="250" y="510" width="100" height="36" rx="18" fill="#0a0a0a"/>
+      <figure class="specs__figure anatomy mint reveal">
+        <svg viewBox="0 0 600 820" role="img" aria-labelledby="anatomy-title">
+          <title id="anatomy-title">Exploded drawing of the Smart Mailbox module: sensor bar, IP67 housing, replaceable battery pack and mounting bracket, and the module fitted inside a mailbox</title>
+          <path class="anatomy__axis" d="M180 74V400"/>
+          <g class="anatomy__part anatomy__part--bracket">
+            <rect x="92" y="388" width="28" height="30" rx="8" fill="#f2a9ad"/>
+            <rect x="240" y="388" width="28" height="30" rx="8" fill="#f2a9ad"/>
+            <rect x="50" y="400" width="260" height="52" rx="26" fill="#f8c7c9"/>
+            <circle cx="84" cy="426" r="8" fill="#c3edce"/>
+            <circle cx="276" cy="426" r="8" fill="#c3edce"/>
+            <rect x="62" y="452" width="236" height="14" rx="7" fill="#f2a9ad"/>
+            <rect x="290" y="455" width="34" height="9" rx="4.5" fill="#ffffff"/>
+          </g>
+          <g class="anatomy__part anatomy__part--housing">
+            <rect x="30" y="110" width="300" height="140" rx="44" fill="#ffffff"/>
+            <rect x="70" y="130" width="220" height="44" rx="22" fill="#e4e4e4"/>
+            <rect x="80" y="196" width="200" height="36" rx="18" fill="none" stroke="#e4e4e4" stroke-width="4" stroke-dasharray="8 7"/>
+            <circle cx="304" cy="152" r="6" fill="#1f6b3a"/>
+          </g>
+          <g class="anatomy__part anatomy__part--battery">
+            <rect x="80" y="290" width="200" height="60" rx="30" fill="#1f6b3a"/>
+            <rect x="276" y="308" width="16" height="24" rx="6" fill="#15522b"/>
+            <path d="M118 320h20M128 310v20" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>
+            <path d="M160 320h84" stroke="#a6e2b6" stroke-width="4" stroke-linecap="round"/>
+          </g>
+          <g class="anatomy__part anatomy__part--sensor">
+            <rect x="70" y="30" width="220" height="44" rx="22" fill="#0a0a0a"/>
+            <circle cx="104" cy="52" r="11" fill="#c3edce"/>
+            <circle cx="134" cy="52" r="6" fill="#1f6b3a"/>
+            <path d="M178 52h84" stroke="#3a3a3a" stroke-width="6" stroke-linecap="round"/>
+          </g>
+          <g class="anatomy__leads">
+            <path d="M290 52H356M330 180H356M292 320H356M310 427H356M236 590H356"/>
+            <circle cx="290" cy="52" r="5"/><circle cx="330" cy="180" r="5"/><circle cx="292" cy="320" r="5"/><circle cx="310" cy="427" r="5"/><circle cx="236" cy="590" r="5"/>
+          </g>
+          <g class="anatomy__fitted">
+            <path d="M40 812V650A145 104 0 0 1 330 650V812Z" fill="#0a0a0a"/>
+            <path d="M54 800V650A131 92 0 0 1 316 650V800Z" fill="#a6e2b6"/>
+            <path d="M185 602L96 800H274Z" fill="#ffffff" opacity="0.45"/>
+            <rect x="148" y="560" width="74" height="8" rx="4" fill="#f8c7c9"/>
+            <rect x="134" y="566" width="102" height="38" rx="19" fill="#ffffff"/>
+            <rect x="152" y="592" width="66" height="12" rx="6" fill="#0a0a0a"/>
+            <circle cx="166" cy="598" r="3.5" fill="#c3edce"/>
+            <rect x="104" y="780" width="104" height="18" rx="3" fill="#ffffff" transform="rotate(-4 156 789)"/>
+            <rect x="170" y="786" width="92" height="14" rx="3" fill="#f8f8f8" transform="rotate(3 216 793)"/>
+          </g>
         </svg>
-        <ul class="specs__key">
-          <li><span class="k k--paper"></span>Housing</li>
-          <li><span class="k k--ink"></span>Sensor bar</li>
-          <li><span class="k k--green"></span>Battery</li>
-          <li><span class="k k--pink"></span>Clip</li>
+        <ul class="anatomy__labels">
+          <li style="--y: 52"><b>Sensor bar</b><span>Optical presence sensor</span></li>
+          <li style="--y: 180"><b>Main housing</b><span>IP67 sealed enclosure</span></li>
+          <li style="--y: 320"><b>Battery pack</b><span>Replaceable lithium</span></li>
+          <li style="--y: 427"><b>Mounting bracket</b><span>Clip or universal adhesive</span></li>
+          <li style="--y: 590"><b>Fitted</b><span>Inside the box, sensor facing the mail</span></li>
         </ul>
-      </div>
+      </figure>
       <div class="specs__text">
         <h2 id="specs-title" class="h2 reveal">What's in the box</h2>
         <table class="spec-table reveal">
@@ -320,7 +359,7 @@
             <tr><th scope="row">Weather</th><td>IP67 sealed, −25 °C to +60 °C</td></tr>
             <tr><th scope="row">Size</th><td>120 × 48 × 30 mm, 140 g, clip or adhesive mount</td></tr>
             <tr><th scope="row">Fits</th><td>Roadside, wall and lobby mailboxes; parcel lockers with the lock add-on</td></tr>
-            <tr><th scope="row">App</th><td>iOS and Android, large-type mode, shared household access</td></tr>
+            <tr><th scope="row">App</th><td>iOS and Android, shared household access</td></tr>
           </tbody>
         </table>
       </div>
@@ -360,10 +399,6 @@
         <details name="faq">
           <summary>Do I need Wi-Fi at home?</summary>
           <p>No. Each module has its own low-power mobile connection (LTE-M or NB-IoT), so it works at the end of a drive or in a basement lobby where Wi-Fi does not reach.</p>
-        </details>
-        <details name="faq">
-          <summary>Will flyers and advertising set it off?</summary>
-          <p>It reports anything resting inside the box, so a flyer counts as mail. You can mute alerts for a weekday your area gets advertising, and the status still shows what is inside.</p>
         </details>
         <details name="faq">
           <summary>How do I let a neighbour open my box?</summary>
