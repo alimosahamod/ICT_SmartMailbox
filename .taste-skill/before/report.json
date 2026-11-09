@@ -1,6 +1,6 @@
 {
  "url": "index.html",
- "at": "2026-11-07T19:58:51.935Z",
+ "at": "2026-11-09T00:43:35.726Z",
  "allow": [],
  "viewports": [
   {
@@ -11,21 +11,21 @@
    "filled": [
     0.35,
     0.38,
-    0.65,
-    0.66,
-    0.75,
-    0.56,
-    0.44,
-    0.38,
-    0.33,
-    0.55,
+    0.67,
     0.63,
-    0.46
+    0.67,
+    0.67,
+    0.43,
+    0.35,
+    0.34,
+    0.5,
+    0.38,
+    0.45
    ],
    "motion": {
-    "elements": 32,
+    "elements": 43,
     "css": 9,
-    "transitions": 23,
+    "transitions": 34,
     "scripted": 0,
     "videos": 0,
     "playingVideos": 0
@@ -36,21 +36,21 @@
      "h": 900
     },
     "page": {
-     "height": 10261,
-     "screens": 11.4,
-     "words": 966,
+     "height": 10134,
+     "screens": 11.3,
+     "words": 1139,
      "img": 8,
      "video": 0,
      "canvas": 0,
-     "svg": 5,
+     "svg": 7,
      "sections": 10,
      "horizontalOverflow": 0,
      "overflowCulprits": [],
-     "uiFragments": 11,
+     "uiFragments": 12,
      "uiAbuse": false,
      "realPictures": 8,
      "videoCount": 0,
-     "uiPictures": 3,
+     "uiPictures": 4,
      "pictureSamples": [
       "04-mailboxes-in-lobby-of-apartment-building.jpg",
       "kaspi-postomat-astana-p1190696.jpg",
@@ -202,53 +202,32 @@
       "kind": "heading"
      },
      {
-      "text": "What it tells you",
-      "words": 4,
-      "chars": 17,
-      "lines": 1,
-      "size": 57.6,
-      "vw": 4,
+      "text": "Everything your mailbox tells you — in real time",
+      "words": 9,
+      "chars": 48,
+      "lines": 2,
+      "size": 56,
+      "vw": 3.9,
       "font": "Switzer",
       "weight": 600,
       "tracking": -0.04,
-      "leading": 0.98,
+      "leading": 1.02,
       "upper": false,
       "italic": false,
       "mono": false,
       "align": "left",
       "position": "left",
-      "widthRatio": 0.28,
-      "top": 1977,
+      "widthRatio": 0.51,
+      "top": 2012,
       "tag": "h2",
       "kind": "heading"
      },
      {
-      "text": "Mail arrived",
-      "words": 2,
-      "chars": 12,
+      "text": "10:42",
+      "words": 1,
+      "chars": 5,
       "lines": 1,
-      "size": 115.2,
-      "vw": 8,
-      "font": "Switzer",
-      "weight": 600,
-      "tracking": -0.04,
-      "leading": 1,
-      "upper": false,
-      "italic": false,
-      "mono": false,
-      "align": "left",
-      "position": "right",
-      "widthRatio": 0.56,
-      "top": 2052,
-      "tag": "div",
-      "kind": "heading"
-     },
-     {
-      "text": "New mail in box 4B · 10:42",
-      "words": 7,
-      "chars": 26,
-      "lines": 1,
-      "size": 40.3,
+      "size": 40,
       "vw": 2.8,
       "font": "Switzer",
       "weight": 500,
@@ -257,117 +236,12 @@
       "upper": false,
       "italic": false,
       "mono": false,
-      "align": "left",
-      "position": "left",
-      "widthRatio": 0.37,
-      "top": 2219,
-      "tag": "div",
-      "kind": "heading"
-     },
-     {
-      "text": "2 yrs",
-      "words": 2,
-      "chars": 5,
-      "lines": 1,
-      "size": 115.2,
-      "vw": 8,
-      "font": "Switzer",
-      "weight": 600,
-      "tracking": -0.04,
-      "leading": 1,
-      "upper": false,
-      "italic": false,
-      "mono": false,
-      "align": "left",
-      "position": "right",
-      "widthRatio": 0.16,
-      "top": 2427,
-      "tag": "div",
-      "kind": "heading"
-     },
-     {
-      "text": "Empty",
-      "words": 1,
-      "chars": 5,
-      "lines": 1,
-      "size": 49,
-      "vw": 3.4,
-      "font": "Switzer",
-      "weight": 600,
-      "tracking": -0.04,
-      "leading": 1,
-      "upper": false,
-      "italic": false,
-      "mono": false,
-      "align": "left",
-      "position": "right",
-      "widthRatio": 0.17,
-      "top": 2439,
-      "tag": "div",
-      "kind": "heading"
-     },
-     {
-      "text": "4 8 1 9",
-      "words": 4,
-      "chars": 7,
-      "lines": 1,
-      "size": 100.8,
-      "vw": 7,
-      "font": "Switzer",
-      "weight": 600,
-      "tracking": -0.04,
-      "leading": 1,
-      "upper": false,
-      "italic": false,
-      "mono": false,
-      "align": "left",
-      "position": "left",
-      "widthRatio": 0.34,
-      "top": 2447,
-      "tag": "div",
-      "kind": "heading"
-     },
-     {
-      "text": "JD014 6003 8851",
-      "words": 3,
-      "chars": 15,
-      "lines": 1,
-      "size": 43.2,
-      "vw": 3,
-      "font": "Switzer",
-      "weight": 500,
-      "tracking": 0,
-      "leading": 1,
-      "upper": true,
-      "italic": false,
-      "mono": false,
-      "align": "left",
-      "position": "left",
-      "widthRatio": 0.24,
-      "top": 2451,
-      "tag": "div",
-      "kind": "heading"
-     },
-     {
-      "text": "LTE-M",
-      "words": 1,
-      "chars": 5,
-      "lines": 1,
-      "size": 100.8,
-      "vw": 7,
-      "font": "Switzer",
-      "weight": 600,
-      "tracking": -0.04,
-      "leading": 1,
-      "upper": true,
-      "italic": false,
-      "mono": false,
-      "align": "left",
-      "position": "right",
-      "widthRatio": 0.29,
-      "top": 2665,
-      "tag": "div",
-      "kind": "heading"
+      "align": "center",
+      "position": "center",
+      "widthRatio": 0.22,
+      "top": 2246,
+      "tag": "p",
+      "kind": "statement"
      },
      {
       "text": "Set up in ten minutes",
@@ -386,7 +260,7 @@
       "align": "left",
       "position": "left",
       "widthRatio": 0.19,
-      "top": 3061,
+      "top": 3211,
       "tag": "h2",
       "kind": "heading"
      },
@@ -407,7 +281,7 @@
       "align": "left",
       "position": "left",
       "widthRatio": 0.33,
-      "top": 4021,
+      "top": 4171,
       "tag": "h2",
       "kind": "heading"
      },
@@ -428,7 +302,7 @@
       "align": "left",
       "position": "right",
       "widthRatio": 0.36,
-      "top": 4546,
+      "top": 4697,
       "tag": "p",
       "kind": "statement"
      },
@@ -449,7 +323,7 @@
       "align": "left",
       "position": "right",
       "widthRatio": 0.36,
-      "top": 4646,
+      "top": 4796,
       "tag": "p",
       "kind": "statement"
      },
@@ -470,7 +344,7 @@
       "align": "left",
       "position": "right",
       "widthRatio": 0.27,
-      "top": 5051,
+      "top": 5201,
       "tag": "h2",
       "kind": "heading"
      },
@@ -491,7 +365,7 @@
       "align": "left",
       "position": "right",
       "widthRatio": 0.47,
-      "top": 5906,
+      "top": 6056,
       "tag": "h2",
       "kind": "heading"
      },
@@ -512,7 +386,7 @@
       "align": "left",
       "position": "right",
       "widthRatio": 0.32,
-      "top": 6995,
+      "top": 7322,
       "tag": "p",
       "kind": "statement"
      },
@@ -533,7 +407,7 @@
       "align": "left",
       "position": "left",
       "widthRatio": 0.18,
-      "top": 7949,
+      "top": 8276,
       "tag": "h2",
       "kind": "heading"
      },
@@ -554,17 +428,17 @@
       "align": "left",
       "position": "center",
       "widthRatio": 0.55,
-      "top": 9040,
+      "top": 9280,
       "tag": "h2",
       "kind": "heading"
      }
     ],
     "headingSummary": {
-     "count": 22,
+     "count": 16,
      "maxLines": 2,
      "over2Lines": 0,
-     "statements": 4,
-     "centered": 0,
+     "statements": 5,
+     "centered": 1,
      "medianWords": 4,
      "mixedFontHeadings": 0
     },
@@ -579,7 +453,10 @@
      "familyCount": 1,
      "sizes": [
       14,
+      15,
+      16,
       19,
+      20,
       26,
       36,
       37,
@@ -590,7 +467,7 @@
       64,
       96
      ],
-     "sizeCount": 11,
+     "sizeCount": 14,
      "notLoaded": [],
      "body": {
       "font": "Switzer",
@@ -602,23 +479,36 @@
      },
      "measureChars": 53,
      "max": {
-      "size": 115.2,
-      "vw": 8,
+      "size": 96,
+      "vw": 6.7,
       "font": "Switzer",
-      "text": "Mail arrived"
+      "text": "The mailbox that tells you"
      },
      "monoShare": 0,
      "monoProseShare": 0,
      "monoFamilies": [],
      "monoSamples": [],
-     "microLabels": 0,
-     "microLabelShare": 0,
-     "microSamples": [],
-     "upperShare": 0,
-     "centerShare": 0.01,
+     "microLabels": 1,
+     "microLabelShare": 0.003,
+     "microSamples": [
+      "Features & sensors"
+     ],
+     "upperShare": 0.01,
+     "centerShare": 0.02,
      "smallText": 0
     },
-    "eyebrows": [],
+    "eyebrows": [
+     {
+      "text": "Features & sensors",
+      "above": "Everything your mailbox tells you — in r",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 14,
+      "top": 1973
+     }
+    ],
     "numbered": [],
     "color": {
      "bodyBg": "#f8f8f8",
@@ -642,19 +532,19 @@
      "textColors": [
       {
        "color": "#0a0a0a",
-       "share": 0.67
-      },
-      {
-       "color": "#5f5f5f",
-       "share": 0.18
-      },
-      {
-       "color": "#ffffff",
-       "share": 0.08
+       "share": 0.54
       },
       {
        "color": "#3a3a3a",
-       "share": 0.04
+       "share": 0.2
+      },
+      {
+       "color": "#5f5f5f",
+       "share": 0.16
+      },
+      {
+       "color": "#ffffff",
+       "share": 0.07
       },
       {
        "color": "#161616",
@@ -699,23 +589,16 @@
      "gradientText": 0,
      "hairlines": 0,
      "hairlineSamples": [],
-     "outlinedBoxes": 0,
+     "outlinedBoxes": 7,
      "dashed": 0,
      "blurred": 0,
-     "roundedBoxes": 23,
+     "roundedBoxes": 26,
      "boxRadius": 28,
      "squareMedia": 1,
      "roundedMedia": 7,
      "mediaRadius": 999,
      "textShadow": 0,
-     "cardRows": [
-      {
-       "count": 3,
-       "iconTopped": false,
-       "rounded": true,
-       "top": 1973
-      }
-     ]
+     "cardRows": []
     },
     "heroMedia": [],
     "nav": {
@@ -734,10 +617,10 @@
      "w": 1440,
      "h": 900
     },
-    "pageH": 10261,
+    "pageH": 10134,
     "margins": {
      "left": 40,
-     "right": 40
+     "right": 49
     },
     "sections": [
      {
@@ -790,19 +673,19 @@
       "sel": "section#features.board",
       "tag": "section",
       "top": 1773,
-      "height": 1088,
-      "words": 98,
-      "media": 1,
+      "height": 1238,
+      "words": 244,
+      "media": 0,
       "middle": 0,
       "heading": {
-       "text": "Mail arrived",
-       "size": 115,
-       "tag": "div"
+       "text": "Everything your mailbox tells you — in real time",
+       "size": 56,
+       "tag": "h2"
       },
       "left": 40,
-      "right": 40,
+      "right": 92,
       "textLeft": 40,
-      "textRight": 40,
+      "textRight": 92,
       "fullBleed": false,
       "footer": false,
       "hero": false,
@@ -812,7 +695,7 @@
      {
       "sel": "section#how.how",
       "tag": "section",
-      "top": 2861,
+      "top": 3011,
       "height": 864,
       "words": 82,
       "media": 1,
@@ -835,7 +718,7 @@
      {
       "sel": "section#access.show.mint",
       "tag": "section",
-      "top": 3925,
+      "top": 4075,
       "height": 828,
       "words": 42,
       "media": 0,
@@ -858,7 +741,7 @@
      {
       "sel": "section#buildings.buildings",
       "tag": "section",
-      "top": 4753,
+      "top": 4903,
       "height": 953,
       "words": 82,
       "media": 1,
@@ -881,20 +764,20 @@
      {
       "sel": "section#specs.specs",
       "tag": "section",
-      "top": 5706,
-      "height": 969,
-      "words": 90,
-      "media": 1,
-      "middle": 166,
+      "top": 5856,
+      "height": 1146,
+      "words": 122,
+      "media": 5,
+      "middle": 206,
       "heading": {
        "text": "What's in the box",
        "size": 64,
        "tag": "h2"
       },
       "left": 80,
-      "right": 40,
-      "textLeft": 163,
-      "textRight": 40,
+      "right": 44,
+      "textLeft": 196,
+      "textRight": 44,
       "fullBleed": false,
       "footer": false,
       "hero": false,
@@ -904,7 +787,7 @@
      {
       "sel": "section.quote",
       "tag": "section",
-      "top": 6675,
+      "top": 7002,
       "height": 1074,
       "words": 50,
       "media": 2,
@@ -927,9 +810,9 @@
      {
       "sel": "section#faq.faq",
       "tag": "section",
-      "top": 7749,
-      "height": 1000,
-      "words": 243,
+      "top": 8076,
+      "height": 913,
+      "words": 205,
       "media": 0,
       "middle": 222,
       "heading": {
@@ -950,7 +833,7 @@
      {
       "sel": "section#start.cta",
       "tag": "section",
-      "top": 8949,
+      "top": 9189,
       "height": 380,
       "words": 34,
       "media": 1,
@@ -973,14 +856,14 @@
      {
       "sel": "footer.footer",
       "tag": "footer",
-      "top": 9529,
-      "height": 732,
+      "top": 9769,
+      "height": 365,
       "words": 158,
-      "media": 1,
-      "middle": 0,
+      "media": 0,
+      "middle": 153,
       "heading": null,
       "left": 40,
-      "right": 40,
+      "right": 58,
       "textLeft": 40,
       "textRight": 58,
       "fullBleed": false,
@@ -1007,15 +890,19 @@
      },
      {
       "x": 525,
-      "n": 8
+      "n": 11
      },
      {
-      "x": 746,
+      "x": 70,
+      "n": 6
+     },
+     {
+      "x": 984,
       "n": 4
      },
      {
-      "x": 62,
-      "n": 2
+      "x": 840,
+      "n": 3
      },
      {
       "x": 321,
@@ -1026,23 +913,11 @@
       "n": 2
      },
      {
-      "x": 840,
-      "n": 2
-     },
-     {
       "x": 284,
-      "n": 1
-     },
-     {
-      "x": 404,
-      "n": 1
-     },
-     {
-      "x": 1088,
       "n": 1
      }
     ],
-    "leftBlocks": 34,
+    "leftBlocks": 40,
     "bodySize": 19,
     "stage": false,
     "explains": true,
@@ -1065,22 +940,22 @@
    "screens": 12,
    "filled": [
     0.5,
-    0.44,
-    0.68,
-    0.93,
-    0.75,
-    0.79,
-    0.79,
-    0.74,
-    0.56,
-    0.5,
-    0.49,
-    0.4
+    0.62,
+    0.67,
+    0.76,
+    0.71,
+    0.73,
+    0.82,
+    0.52,
+    0.72,
+    0.31,
+    0.35,
+    0.68
    ],
    "motion": {
-    "elements": 32,
+    "elements": 43,
     "css": 9,
-    "transitions": 23,
+    "transitions": 34,
     "scripted": 0,
     "videos": 0,
     "playingVideos": 0
@@ -1091,21 +966,21 @@
      "h": 1024
     },
     "page": {
-     "height": 14765,
-     "screens": 14.4,
-     "words": 954,
+     "height": 13378,
+     "screens": 13.1,
+     "words": 1127,
      "img": 8,
      "video": 0,
      "canvas": 0,
-     "svg": 5,
+     "svg": 7,
      "sections": 10,
      "horizontalOverflow": 0,
      "overflowCulprits": [],
-     "uiFragments": 11,
+     "uiFragments": 12,
      "uiAbuse": false,
      "realPictures": 8,
      "videoCount": 0,
-     "uiPictures": 3,
+     "uiPictures": 4,
      "pictureSamples": [
       "04-mailboxes-in-lobby-of-apartment-building.jpg",
       "kaspi-postomat-astana-p1190696.jpg",
@@ -1257,54 +1132,33 @@
       "kind": "heading"
      },
      {
-      "text": "What it tells you",
-      "words": 4,
-      "chars": 17,
-      "lines": 1,
-      "size": 69.1,
-      "vw": 9,
+      "text": "Everything your mailbox tells you — in real time",
+      "words": 9,
+      "chars": 48,
+      "lines": 2,
+      "size": 40.8,
+      "vw": 5.3,
       "font": "Switzer",
       "weight": 600,
       "tracking": -0.04,
-      "leading": 0.98,
+      "leading": 1.02,
       "upper": false,
       "italic": false,
       "mono": false,
       "align": "left",
       "position": "left",
-      "widthRatio": 0.62,
-      "top": 2209,
+      "widthRatio": 0.69,
+      "top": 2244,
       "tag": "h2",
       "kind": "heading"
      },
      {
-      "text": "Mail arrived",
-      "words": 2,
-      "chars": 12,
+      "text": "10:42",
+      "words": 1,
+      "chars": 5,
       "lines": 1,
-      "size": 99.8,
-      "vw": 13,
-      "font": "Switzer",
-      "weight": 600,
-      "tracking": -0.04,
-      "leading": 1,
-      "upper": false,
-      "italic": false,
-      "mono": false,
-      "align": "left",
-      "position": "center",
-      "widthRatio": 0.91,
-      "top": 2545,
-      "tag": "div",
-      "kind": "heading"
-     },
-     {
-      "text": "New mail in box 4B · 10:42",
-      "words": 7,
-      "chars": 26,
-      "lines": 1,
-      "size": 43,
-      "vw": 5.6,
+      "size": 40,
+      "vw": 5.2,
       "font": "Switzer",
       "weight": 500,
       "tracking": -0.04,
@@ -1312,117 +1166,12 @@
       "upper": false,
       "italic": false,
       "mono": false,
-      "align": "left",
-      "position": "left",
-      "widthRatio": 0.74,
-      "top": 2891,
-      "tag": "div",
-      "kind": "heading"
-     },
-     {
-      "text": "4 8 1 9",
-      "words": 4,
-      "chars": 7,
-      "lines": 1,
-      "size": 92.2,
-      "vw": 12,
-      "font": "Switzer",
-      "weight": 600,
-      "tracking": -0.04,
-      "leading": 1,
-      "upper": false,
-      "italic": false,
-      "mono": false,
-      "align": "left",
-      "position": "left",
-      "widthRatio": 0.59,
-      "top": 3293,
-      "tag": "div",
-      "kind": "heading"
-     },
-     {
-      "text": "JD014 6003 8851",
-      "words": 3,
-      "chars": 15,
-      "lines": 1,
-      "size": 38.4,
-      "vw": 5,
-      "font": "Switzer",
-      "weight": 500,
-      "tracking": 0,
-      "leading": 1,
-      "upper": true,
-      "italic": false,
-      "mono": false,
-      "align": "left",
+      "align": "center",
       "position": "right",
-      "widthRatio": 0.45,
-      "top": 3293,
-      "tag": "div",
-      "kind": "heading"
-     },
-     {
-      "text": "2 yrs",
-      "words": 2,
-      "chars": 5,
-      "lines": 1,
-      "size": 99.8,
-      "vw": 13,
-      "font": "Switzer",
-      "weight": 600,
-      "tracking": -0.04,
-      "leading": 1,
-      "upper": false,
-      "italic": false,
-      "mono": false,
-      "align": "left",
-      "position": "right",
-      "widthRatio": 0.27,
-      "top": 3685,
-      "tag": "div",
-      "kind": "heading"
-     },
-     {
-      "text": "Empty",
-      "words": 1,
-      "chars": 5,
-      "lines": 1,
-      "size": 53.8,
-      "vw": 7,
-      "font": "Switzer",
-      "weight": 600,
-      "tracking": -0.04,
-      "leading": 1,
-      "upper": false,
-      "italic": false,
-      "mono": false,
-      "align": "left",
-      "position": "left",
-      "widthRatio": 0.36,
-      "top": 3695,
-      "tag": "div",
-      "kind": "heading"
-     },
-     {
-      "text": "LTE-M",
-      "words": 1,
-      "chars": 5,
-      "lines": 1,
-      "size": 107.5,
-      "vw": 14,
-      "font": "Switzer",
-      "weight": 600,
-      "tracking": -0.04,
-      "leading": 1,
-      "upper": true,
-      "italic": false,
-      "mono": false,
-      "align": "left",
-      "position": "right",
-      "widthRatio": 0.57,
-      "top": 4101,
-      "tag": "div",
-      "kind": "heading"
+      "widthRatio": 0.39,
+      "top": 2547,
+      "tag": "p",
+      "kind": "statement"
      },
      {
       "text": "Set up in ten minutes",
@@ -1441,7 +1190,7 @@
       "align": "left",
       "position": "center",
       "widthRatio": 0.94,
-      "top": 4597,
+      "top": 3692,
       "tag": "h2",
       "kind": "heading"
      },
@@ -1462,7 +1211,7 @@
       "align": "left",
       "position": "left",
       "widthRatio": 0.63,
-      "top": 6826,
+      "top": 5921,
       "tag": "h2",
       "kind": "heading"
      },
@@ -1483,7 +1232,7 @@
       "align": "left",
       "position": "left",
       "widthRatio": 0.57,
-      "top": 7475,
+      "top": 6570,
       "tag": "p",
       "kind": "statement"
      },
@@ -1504,7 +1253,7 @@
       "align": "left",
       "position": "left",
       "widthRatio": 0.57,
-      "top": 7560,
+      "top": 6655,
       "tag": "p",
       "kind": "statement"
      },
@@ -1525,7 +1274,7 @@
       "align": "left",
       "position": "left",
       "widthRatio": 0.37,
-      "top": 8191,
+      "top": 7286,
       "tag": "h2",
       "kind": "heading"
      },
@@ -1546,7 +1295,7 @@
       "align": "left",
       "position": "center",
       "widthRatio": 0.94,
-      "top": 9682,
+      "top": 8987,
       "tag": "h2",
       "kind": "heading"
      },
@@ -1567,7 +1316,7 @@
       "align": "left",
       "position": "center",
       "widthRatio": 0.94,
-      "top": 12145,
+      "top": 11422,
       "tag": "h2",
       "kind": "heading"
      },
@@ -1588,17 +1337,17 @@
       "align": "left",
       "position": "center",
       "widthRatio": 0.89,
-      "top": 13060,
+      "top": 12268,
       "tag": "h2",
       "kind": "heading"
      }
     ],
     "headingSummary": {
-     "count": 21,
+     "count": 15,
      "maxLines": 2,
      "over2Lines": 0,
-     "statements": 3,
-     "centered": 0,
+     "statements": 4,
+     "centered": 1,
      "medianWords": 4,
      "mixedFontHeadings": 0
     },
@@ -1613,8 +1362,10 @@
      "familyCount": 1,
      "sizes": [
       13,
-      14,
+      15,
+      16,
       18,
+      20,
       23,
       24,
       26,
@@ -1625,7 +1376,7 @@
       69,
       72
      ],
-     "sizeCount": 12,
+     "sizeCount": 14,
      "notLoaded": [],
      "body": {
       "font": "Switzer",
@@ -1637,23 +1388,36 @@
      },
      "measureChars": 53,
      "max": {
-      "size": 107.5,
-      "vw": 14,
+      "size": 72,
+      "vw": 9.4,
       "font": "Switzer",
-      "text": "LTE-M"
+      "text": "The mailbox that tells you"
      },
      "monoShare": 0,
      "monoProseShare": 0,
      "monoFamilies": [],
      "monoSamples": [],
-     "microLabels": 0,
-     "microLabelShare": 0,
-     "microSamples": [],
-     "upperShare": 0,
-     "centerShare": 0.01,
+     "microLabels": 1,
+     "microLabelShare": 0.003,
+     "microSamples": [
+      "Features & sensors"
+     ],
+     "upperShare": 0.01,
+     "centerShare": 0.02,
      "smallText": 0
     },
-    "eyebrows": [],
+    "eyebrows": [
+     {
+      "text": "Features & sensors",
+      "above": "Everything your mailbox tells you — in r",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 13.4,
+      "top": 2205
+     }
+    ],
     "numbered": [],
     "color": {
      "bodyBg": "#f8f8f8",
@@ -1684,7 +1448,7 @@
       },
       {
        "color": "#f8c7c9",
-       "top": 2875,
+       "top": 3754,
        "hsl": {
         "h": 358,
         "s": 0.78,
@@ -1693,7 +1457,7 @@
       },
       {
        "color": "#eeeeee",
-       "top": 5828,
+       "top": 4922,
        "hsl": {
         "h": 0,
         "s": 0,
@@ -1702,7 +1466,7 @@
       },
       {
        "color": "#1f6b3a",
-       "top": 13015,
+       "top": 12223,
        "hsl": {
         "h": 141,
         "s": 0.55,
@@ -1713,19 +1477,19 @@
      "textColors": [
       {
        "color": "#0a0a0a",
-       "share": 0.67
-      },
-      {
-       "color": "#5f5f5f",
-       "share": 0.17
-      },
-      {
-       "color": "#ffffff",
-       "share": 0.08
+       "share": 0.54
       },
       {
        "color": "#3a3a3a",
-       "share": 0.04
+       "share": 0.2
+      },
+      {
+       "color": "#5f5f5f",
+       "share": 0.15
+      },
+      {
+       "color": "#ffffff",
+       "share": 0.07
       },
       {
        "color": "#161616",
@@ -1770,10 +1534,10 @@
      "gradientText": 0,
      "hairlines": 0,
      "hairlineSamples": [],
-     "outlinedBoxes": 0,
+     "outlinedBoxes": 7,
      "dashed": 0,
      "blurred": 0,
-     "roundedBoxes": 24,
+     "roundedBoxes": 27,
      "boxRadius": 28,
      "squareMedia": 1,
      "roundedMedia": 6,
@@ -1781,10 +1545,10 @@
      "textShadow": 0,
      "cardRows": [
       {
-       "count": 4,
+       "count": 6,
        "iconTopped": false,
        "rounded": true,
-       "top": 3277
+       "top": 2814
       }
      ]
     },
@@ -1805,10 +1569,10 @@
      "w": 768,
      "h": 1024
     },
-    "pageH": 14765,
+    "pageH": 13378,
     "margins": {
      "left": 22,
-     "right": 22
+     "right": 28
     },
     "sections": [
      {
@@ -1858,91 +1622,22 @@
       "pinned": false
      },
      {
-      "sel": "div.tile.tile--title",
-      "tag": "div",
-      "top": 2205,
-      "height": 262,
-      "words": 4,
+      "sel": "section#features.board",
+      "tag": "section",
+      "top": 2085,
+      "height": 1487,
+      "words": 244,
       "media": 0,
       "middle": 0,
       "heading": {
-       "text": "What it tells you",
-       "size": 69,
+       "text": "Everything your mailbox tells you — in real time",
+       "size": 41,
        "tag": "h2"
       },
       "left": 22,
-      "right": 286,
+      "right": 50,
       "textLeft": 22,
-      "textRight": 286,
-      "fullBleed": false,
-      "footer": false,
-      "hero": false,
-      "continues": true,
-      "pinned": false
-     },
-     {
-      "sel": "div.tile.tile--live",
-      "tag": "div",
-      "top": 2473,
-      "height": 396,
-      "words": 12,
-      "media": 0,
-      "middle": 0,
-      "heading": {
-       "text": "Mail arrived",
-       "size": 100,
-       "tag": "div"
-      },
-      "left": 36,
-      "right": 33,
-      "textLeft": 36,
-      "textRight": 33,
-      "fullBleed": false,
-      "footer": false,
-      "hero": false,
-      "continues": true,
-      "pinned": false
-     },
-     {
-      "sel": "div.tile.tile--alert",
-      "tag": "div",
-      "top": 2875,
-      "height": 396,
-      "words": 18,
-      "media": 0,
-      "middle": 0,
-      "heading": {
-       "text": "New mail",
-       "size": 43,
-       "tag": "b"
-      },
-      "left": 36,
-      "right": 201,
-      "textLeft": 36,
-      "textRight": 201,
-      "fullBleed": false,
-      "footer": false,
-      "hero": false,
-      "continues": true,
-      "pinned": false
-     },
-     {
-      "sel": "div.tile.tile--network",
-      "tag": "div",
-      "top": 4081,
-      "height": 396,
-      "words": 17,
-      "media": 0,
-      "middle": 184,
-      "heading": {
-       "text": "LTE-M",
-       "size": 108,
-       "tag": "div"
-      },
-      "left": 36,
-      "right": 22,
-      "textLeft": 36,
-      "textRight": 22,
+      "textRight": 50,
       "fullBleed": false,
       "footer": false,
       "hero": false,
@@ -1952,7 +1647,7 @@
      {
       "sel": "section#how.how",
       "tag": "section",
-      "top": 4477,
+      "top": 3572,
       "height": 2173,
       "words": 82,
       "media": 2,
@@ -1975,7 +1670,7 @@
      {
       "sel": "section#access.show.mint",
       "tag": "section",
-      "top": 6770,
+      "top": 5865,
       "height": 881,
       "words": 42,
       "media": 0,
@@ -1998,7 +1693,7 @@
      {
       "sel": "section#buildings.buildings",
       "tag": "section",
-      "top": 7651,
+      "top": 6746,
       "height": 1054,
       "words": 77,
       "media": 1,
@@ -2015,18 +1710,18 @@
       "pinned": false
      },
      {
-      "sel": "div.specs__figure.mint",
-      "tag": "div",
-      "top": 8825,
-      "height": 809,
-      "words": 5,
-      "media": 1,
+      "sel": "figure.specs__figure.anatomy",
+      "tag": "figure",
+      "top": 7920,
+      "height": 1019,
+      "words": 39,
+      "media": 5,
       "middle": 0,
       "heading": null,
       "left": 46,
-      "right": 46,
-      "textLeft": 231,
-      "textRight": 201,
+      "right": 179,
+      "textLeft": 274,
+      "textRight": 179,
       "fullBleed": false,
       "footer": false,
       "hero": false,
@@ -2036,9 +1731,9 @@
      {
       "sel": "div.specs__text",
       "tag": "div",
-      "top": 9682,
-      "height": 730,
-      "words": 81,
+      "top": 8987,
+      "height": 703,
+      "words": 79,
       "media": 0,
       "middle": 182,
       "heading": null,
@@ -2055,7 +1750,7 @@
      {
       "sel": "section.quote",
       "tag": "section",
-      "top": 10412,
+      "top": 9690,
       "height": 1612,
       "words": 50,
       "media": 2,
@@ -2074,9 +1769,9 @@
      {
       "sel": "section#faq.faq",
       "tag": "section",
-      "top": 12025,
-      "height": 870,
-      "words": 221,
+      "top": 11302,
+      "height": 800,
+      "words": 183,
       "media": 0,
       "middle": 0,
       "heading": {
@@ -2097,7 +1792,7 @@
      {
       "sel": "section#start.cta",
       "tag": "section",
-      "top": 13015,
+      "top": 12223,
       "height": 506,
       "words": 34,
       "media": 1,
@@ -2120,14 +1815,14 @@
      {
       "sel": "footer.footer",
       "tag": "footer",
-      "top": 13641,
-      "height": 1124,
+      "top": 12849,
+      "height": 530,
       "words": 158,
-      "media": 1,
+      "media": 0,
       "middle": 0,
       "heading": null,
       "left": 22,
-      "right": 22,
+      "right": 28,
       "textLeft": 22,
       "textRight": 28,
       "fullBleed": false,
@@ -2139,8 +1834,8 @@
     ],
     "gaps": [
      {
-      "top": 5788,
-      "height": 532
+      "top": 4880,
+      "height": 536
      }
     ],
     "h1s": [
@@ -2154,23 +1849,23 @@
     "edgeText": [],
     "edges": [
      {
-      "x": 36,
-      "n": 16
+      "x": 42,
+      "n": 17
      },
      {
       "x": 22,
-      "n": 14
+      "n": 15
      },
      {
-      "x": 401,
-      "n": 2
+      "x": 413,
+      "n": 6
      },
      {
       "x": 191,
       "n": 1
      }
     ],
-    "leftBlocks": 33,
+    "leftBlocks": 39,
     "bodySize": 18,
     "stage": false,
     "explains": false,
@@ -2189,21 +1884,21 @@
    "filled": [
     0.57,
     0.49,
-    0.33,
-    0.91,
-    0.87,
-    0.6,
-    0.66,
+    0.39,
     0.82,
-    0.44,
-    0.7,
-    0.34,
-    0.41
+    0.86,
+    0.58,
+    0.73,
+    0.87,
+    0.51,
+    0.67,
+    0.47,
+    0.43
    ],
    "motion": {
-    "elements": 32,
+    "elements": 42,
     "css": 9,
-    "transitions": 23,
+    "transitions": 33,
     "scripted": 0,
     "videos": 0,
     "playingVideos": 0
@@ -2214,21 +1909,21 @@
      "h": 844
     },
     "page": {
-     "height": 12849,
-     "screens": 15.2,
-     "words": 954,
+     "height": 12992,
+     "screens": 15.4,
+     "words": 1127,
      "img": 8,
      "video": 0,
      "canvas": 0,
-     "svg": 5,
+     "svg": 7,
      "sections": 10,
      "horizontalOverflow": 0,
      "overflowCulprits": [],
-     "uiFragments": 11,
+     "uiFragments": 12,
      "uiAbuse": false,
      "realPictures": 7,
      "videoCount": 0,
-     "uiPictures": 1,
+     "uiPictures": 2,
      "pictureSamples": [
       "04-mailboxes-in-lobby-of-apartment-building.jpg",
       "kaspi-postomat-astana-p1190696.jpg",
@@ -2379,65 +2074,65 @@
       "kind": "heading"
      },
      {
-      "text": "What it tells you",
-      "words": 4,
-      "chars": 17,
-      "lines": 1,
-      "size": 35.1,
-      "vw": 9,
+      "text": "Everything your mailbox tells you — in real time",
+      "words": 9,
+      "chars": 48,
+      "lines": 2,
+      "size": 28,
+      "vw": 7.2,
       "font": "Switzer",
       "weight": 600,
       "tracking": -0.04,
-      "leading": 0.98,
-      "upper": false,
-      "italic": false,
-      "mono": false,
-      "align": "left",
-      "position": "left",
-      "widthRatio": 0.62,
-      "top": 2256,
-      "tag": "h2",
-      "kind": "heading"
-     },
-     {
-      "text": "Mail arrived",
-      "words": 2,
-      "chars": 12,
-      "lines": 1,
-      "size": 50.7,
-      "vw": 13,
-      "font": "Switzer",
-      "weight": 600,
-      "tracking": -0.04,
-      "leading": 1,
+      "leading": 1.02,
       "upper": false,
       "italic": false,
       "mono": false,
       "align": "left",
       "position": "center",
-      "widthRatio": 0.91,
-      "top": 2544,
-      "tag": "div",
+      "widthRatio": 0.92,
+      "top": 2290,
+      "tag": "h2",
       "kind": "heading"
+     },
+     {
+      "text": "10:42",
+      "words": 1,
+      "chars": 5,
+      "lines": 1,
+      "size": 40,
+      "vw": 10.3,
+      "font": "Switzer",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "center",
+      "widthRatio": 0.73,
+      "top": 2822,
+      "tag": "p",
+      "kind": "statement"
      },
      {
       "text": "4 8 1 9",
       "words": 4,
       "chars": 7,
       "lines": 1,
-      "size": 46.8,
-      "vw": 12,
+      "size": 24,
+      "vw": 6.2,
       "font": "Switzer",
       "weight": 600,
-      "tracking": -0.04,
-      "leading": 1,
+      "tracking": -0.02,
+      "leading": 1.5,
       "upper": false,
       "italic": false,
       "mono": false,
       "align": "left",
       "position": "left",
-      "widthRatio": 0.59,
-      "top": 3190,
+      "widthRatio": 0.5,
+      "top": 3740,
       "tag": "div",
       "kind": "heading"
      },
@@ -2446,62 +2141,20 @@
       "words": 2,
       "chars": 5,
       "lines": 1,
-      "size": 50.7,
-      "vw": 13,
+      "size": 24,
+      "vw": 6.2,
       "font": "Switzer",
       "weight": 600,
-      "tracking": -0.04,
-      "leading": 1,
-      "upper": false,
-      "italic": false,
-      "mono": false,
-      "align": "left",
-      "position": "right",
-      "widthRatio": 0.27,
-      "top": 3525,
-      "tag": "div",
-      "kind": "heading"
-     },
-     {
-      "text": "Empty",
-      "words": 1,
-      "chars": 5,
-      "lines": 1,
-      "size": 27.3,
-      "vw": 7,
-      "font": "Switzer",
-      "weight": 600,
-      "tracking": -0.04,
+      "tracking": -0.03,
       "leading": 1,
       "upper": false,
       "italic": false,
       "mono": false,
       "align": "left",
       "position": "left",
-      "widthRatio": 0.36,
-      "top": 3535,
-      "tag": "div",
-      "kind": "heading"
-     },
-     {
-      "text": "LTE-M",
-      "words": 1,
-      "chars": 5,
-      "lines": 1,
-      "size": 54.6,
-      "vw": 14,
-      "font": "Switzer",
-      "weight": 600,
-      "tracking": -0.04,
-      "leading": 1,
-      "upper": true,
-      "italic": false,
-      "mono": false,
-      "align": "left",
-      "position": "right",
-      "widthRatio": 0.57,
-      "top": 3885,
-      "tag": "div",
+      "widthRatio": 0.13,
+      "top": 4235,
+      "tag": "span",
       "kind": "heading"
      },
      {
@@ -2521,7 +2174,7 @@
       "align": "left",
       "position": "center",
       "widthRatio": 0.92,
-      "top": 4324,
+      "top": 4642,
       "tag": "h2",
       "kind": "heading"
      },
@@ -2542,7 +2195,7 @@
       "align": "left",
       "position": "center",
       "widthRatio": 0.92,
-      "top": 5776,
+      "top": 6093,
       "tag": "h2",
       "kind": "heading"
      },
@@ -2563,7 +2216,7 @@
       "align": "left",
       "position": "left",
       "widthRatio": 0.57,
-      "top": 6345,
+      "top": 6662,
       "tag": "p",
       "kind": "statement"
      },
@@ -2584,7 +2237,7 @@
       "align": "left",
       "position": "left",
       "widthRatio": 0.57,
-      "top": 6388,
+      "top": 6705,
       "tag": "p",
       "kind": "statement"
      },
@@ -2605,7 +2258,7 @@
       "align": "left",
       "position": "left",
       "widthRatio": 0.57,
-      "top": 6986,
+      "top": 7303,
       "tag": "h2",
       "kind": "heading"
      },
@@ -2626,7 +2279,7 @@
       "align": "left",
       "position": "center",
       "widthRatio": 0.92,
-      "top": 8136,
+      "top": 8697,
       "tag": "h2",
       "kind": "heading"
      },
@@ -2647,7 +2300,7 @@
       "align": "left",
       "position": "center",
       "widthRatio": 0.78,
-      "top": 9511,
+      "top": 10070,
       "tag": "p",
       "kind": "statement"
      },
@@ -2668,7 +2321,7 @@
       "align": "left",
       "position": "center",
       "widthRatio": 0.92,
-      "top": 10290,
+      "top": 10825,
       "tag": "h2",
       "kind": "heading"
      },
@@ -2689,17 +2342,17 @@
       "align": "left",
       "position": "center",
       "widthRatio": 0.81,
-      "top": 11276,
+      "top": 11742,
       "tag": "h2",
       "kind": "heading"
      }
     ],
     "headingSummary": {
-     "count": 20,
+     "count": 18,
      "maxLines": 2,
      "over2Lines": 0,
-     "statements": 4,
-     "centered": 0,
+     "statements": 5,
+     "centered": 1,
      "medianWords": 4,
      "mixedFontHeadings": 0
     },
@@ -2714,7 +2367,8 @@
      "familyCount": 1,
      "sizes": [
       13,
-      14,
+      15,
+      16,
       17,
       20,
       24,
@@ -2726,7 +2380,7 @@
       35,
       44
      ],
-     "sizeCount": 12,
+     "sizeCount": 13,
      "notLoaded": [],
      "body": {
       "font": "Switzer",
@@ -2738,23 +2392,36 @@
      },
      "measureChars": 42,
      "max": {
-      "size": 54.6,
-      "vw": 14,
+      "size": 44,
+      "vw": 11.3,
       "font": "Switzer",
-      "text": "LTE-M"
+      "text": "The mailbox that tells you"
      },
      "monoShare": 0,
      "monoProseShare": 0,
      "monoFamilies": [],
      "monoSamples": [],
-     "microLabels": 0,
-     "microLabelShare": 0,
-     "microSamples": [],
-     "upperShare": 0,
-     "centerShare": 0.01,
+     "microLabels": 1,
+     "microLabelShare": 0.003,
+     "microSamples": [
+      "Features & sensors"
+     ],
+     "upperShare": 0.01,
+     "centerShare": 0.02,
      "smallText": 0
     },
-    "eyebrows": [],
+    "eyebrows": [
+     {
+      "text": "Features & sensors",
+      "above": "Everything your mailbox tells you — in r",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 13,
+      "top": 2252
+     }
+    ],
     "numbered": [],
     "color": {
      "bodyBg": "#f8f8f8",
@@ -2785,7 +2452,7 @@
       },
       {
        "color": "#f8c7c9",
-       "top": 2828,
+       "top": 2513,
        "hsl": {
         "h": 358,
         "s": 0.78,
@@ -2794,7 +2461,7 @@
       },
       {
        "color": "#eeeeee",
-       "top": 5131,
+       "top": 5449,
        "hsl": {
         "h": 0,
         "s": 0,
@@ -2803,7 +2470,7 @@
       },
       {
        "color": "#1f6b3a",
-       "top": 11243,
+       "top": 11708,
        "hsl": {
         "h": 141,
         "s": 0.55,
@@ -2814,19 +2481,19 @@
      "textColors": [
       {
        "color": "#0a0a0a",
-       "share": 0.67
-      },
-      {
-       "color": "#5f5f5f",
-       "share": 0.17
-      },
-      {
-       "color": "#ffffff",
-       "share": 0.08
+       "share": 0.54
       },
       {
        "color": "#3a3a3a",
-       "share": 0.04
+       "share": 0.2
+      },
+      {
+       "color": "#5f5f5f",
+       "share": 0.15
+      },
+      {
+       "color": "#ffffff",
+       "share": 0.07
       },
       {
        "color": "#161616",
@@ -2871,23 +2538,16 @@
      "gradientText": 0,
      "hairlines": 0,
      "hairlineSamples": [],
-     "outlinedBoxes": 0,
+     "outlinedBoxes": 7,
      "dashed": 0,
      "blurred": 0,
-     "roundedBoxes": 23,
+     "roundedBoxes": 28,
      "boxRadius": 28,
      "squareMedia": 1,
      "roundedMedia": 2,
      "mediaRadius": 28,
      "textShadow": 0,
-     "cardRows": [
-      {
-       "count": 4,
-       "iconTopped": false,
-       "rounded": true,
-       "top": 3174
-      }
-     ]
+     "cardRows": []
     },
     "heroMedia": [],
     "nav": {
@@ -2906,10 +2566,10 @@
      "w": 390,
      "h": 844
     },
-    "pageH": 12849,
+    "pageH": 12992,
     "margins": {
      "left": 16,
-     "right": 16
+     "right": 18
     },
     "sections": [
      {
@@ -2959,22 +2619,22 @@
       "pinned": false
      },
      {
-      "sel": "div.tile.tile--title",
-      "tag": "div",
+      "sel": "header.board__head",
+      "tag": "header",
       "top": 2252,
-      "height": 224,
-      "words": 4,
+      "height": 221,
+      "words": 42,
       "media": 0,
       "middle": 0,
       "heading": {
-       "text": "What it tells you",
-       "size": 35,
+       "text": "Everything your mailbox tells you — in real time",
+       "size": 28,
        "tag": "h2"
       },
       "left": 16,
-      "right": 140,
+      "right": 30,
       "textLeft": 16,
-      "textRight": 140,
+      "textRight": 30,
       "fullBleed": false,
       "footer": false,
       "hero": false,
@@ -2982,68 +2642,22 @@
       "pinned": false
      },
      {
-      "sel": "div.tile.tile--live",
+      "sel": "div.board__grid",
       "tag": "div",
-      "top": 2483,
-      "height": 340,
-      "words": 12,
+      "top": 2513,
+      "height": 2009,
+      "words": 202,
       "media": 0,
       "middle": 0,
       "heading": {
-       "text": "Mail arrived",
-       "size": 51,
-       "tag": "div"
+       "text": "10:42",
+       "size": 40,
+       "tag": "p"
       },
-      "left": 30,
-      "right": 16,
-      "textLeft": 30,
-      "textRight": 16,
-      "fullBleed": false,
-      "footer": false,
-      "hero": false,
-      "continues": true,
-      "pinned": false
-     },
-     {
-      "sel": "div.tile.tile--alert",
-      "tag": "div",
-      "top": 2828,
-      "height": 340,
-      "words": 18,
-      "media": 0,
-      "middle": 0,
-      "heading": {
-       "text": "Instant alert",
-       "size": 17,
-       "tag": "h3"
-      },
-      "left": 30,
-      "right": 90,
-      "textLeft": 30,
-      "textRight": 90,
-      "fullBleed": false,
-      "footer": false,
-      "hero": false,
-      "continues": true,
-      "pinned": false
-     },
-     {
-      "sel": "div.tile.tile--network",
-      "tag": "div",
-      "top": 3865,
-      "height": 340,
-      "words": 17,
-      "media": 0,
-      "middle": 0,
-      "heading": {
-       "text": "LTE-M",
-       "size": 55,
-       "tag": "div"
-      },
-      "left": 30,
-      "right": 16,
-      "textLeft": 30,
-      "textRight": 16,
+      "left": 39,
+      "right": 41,
+      "textLeft": 39,
+      "textRight": 41,
       "fullBleed": false,
       "footer": false,
       "hero": false,
@@ -3053,7 +2667,7 @@
      {
       "sel": "section#how.how",
       "tag": "section",
-      "top": 4204,
+      "top": 4522,
       "height": 1395,
       "words": 82,
       "media": 2,
@@ -3076,7 +2690,7 @@
      {
       "sel": "section#access.show.mint",
       "tag": "section",
-      "top": 5720,
+      "top": 6037,
       "height": 726,
       "words": 42,
       "media": 0,
@@ -3099,7 +2713,7 @@
      {
       "sel": "section#buildings.buildings",
       "tag": "section",
-      "top": 6446,
+      "top": 6763,
       "height": 1052,
       "words": 77,
       "media": 1,
@@ -3116,17 +2730,17 @@
       "pinned": false
      },
      {
-      "sel": "div.specs__figure.mint",
-      "tag": "div",
-      "top": 7617,
-      "height": 471,
-      "words": 5,
+      "sel": "figure.specs__figure.anatomy",
+      "tag": "figure",
+      "top": 7935,
+      "height": 715,
+      "words": 39,
       "media": 1,
       "middle": 0,
       "heading": null,
       "left": 40,
-      "right": 40,
-      "textLeft": 81,
+      "right": 51,
+      "textLeft": 88,
       "textRight": 51,
       "fullBleed": false,
       "footer": false,
@@ -3137,9 +2751,9 @@
      {
       "sel": "div.specs__text",
       "tag": "div",
-      "top": 8136,
-      "height": 879,
-      "words": 81,
+      "top": 8697,
+      "height": 853,
+      "words": 79,
       "media": 0,
       "middle": 48,
       "heading": null,
@@ -3156,20 +2770,16 @@
      {
       "sel": "section.quote",
       "tag": "section",
-      "top": 9015,
+      "top": 9550,
       "height": 1155,
-      "words": 50,
-      "media": 2,
+      "words": 0,
+      "media": 1,
       "middle": 0,
-      "heading": {
-       "text": "“I want to know if I have mail, without walking ou",
-       "size": 24,
-       "tag": "p"
-      },
+      "heading": null,
       "left": 6,
-      "right": 16,
-      "textLeft": 16,
-      "textRight": 34,
+      "right": 106,
+      "textLeft": null,
+      "textRight": null,
       "fullBleed": false,
       "footer": false,
       "hero": false,
@@ -3179,9 +2789,9 @@
      {
       "sel": "section#faq.faq",
       "tag": "section",
-      "top": 10170,
-      "height": 953,
-      "words": 221,
+      "top": 10705,
+      "height": 883,
+      "words": 183,
       "media": 0,
       "middle": 0,
       "heading": {
@@ -3202,7 +2812,7 @@
      {
       "sel": "section#start.cta",
       "tag": "section",
-      "top": 11243,
+      "top": 11708,
       "height": 506,
       "words": 34,
       "media": 1,
@@ -3225,14 +2835,14 @@
      {
       "sel": "footer.footer",
       "tag": "footer",
-      "top": 11869,
-      "height": 980,
+      "top": 12334,
+      "height": 658,
       "words": 158,
-      "media": 1,
+      "media": 0,
       "middle": 0,
       "heading": null,
       "left": 16,
-      "right": 16,
+      "right": 17,
       "textLeft": 16,
       "textRight": 17,
       "fullBleed": false,
@@ -3244,8 +2854,12 @@
     ],
     "gaps": [
      {
-      "top": 5924,
+      "top": 6240,
       "height": 264
+     },
+     {
+      "top": 10028,
+      "height": 792
      }
     ],
     "h1s": [
@@ -3259,23 +2873,19 @@
     "edgeText": [],
     "edges": [
      {
-      "x": 30,
-      "n": 16
+      "x": 36,
+      "n": 23
      },
      {
       "x": 16,
       "n": 14
      },
      {
-      "x": 212,
-      "n": 2
-     },
-     {
       "x": 186,
       "n": 1
      }
     ],
-    "leftBlocks": 33,
+    "leftBlocks": 38,
     "bodySize": 17,
     "stage": false,
     "explains": false,
@@ -3289,10 +2899,43 @@
  ],
  "findings": [
   {
+   "level": "FAIL",
+   "id": "eyebrow",
+   "width": 1440,
+   "message": "1 eyebrow/kicker label(s) above headings: \"Features & sensors\" above \"Everything your mailbox tells you — in r\"",
+   "fix": "Delete them. If the label carried real information, fold it into the headline or the supporting sentence.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "micro-label",
+   "width": 1440,
+   "message": "1 tiny uppercase letter-spaced label(s): \"Features & sensors\"",
+   "fix": "Prefer sentence case at body size.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "outlined-box",
+   "width": 1440,
+   "message": "7 boxes drawn with a 1px outline.",
+   "fix": "Define a surface by its fill (one tone step from the page) or leave the content unboxed.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
    "level": "WARN",
    "id": "size-count",
    "width": 1440,
-   "message": "11 different font sizes (14, 19, 26, 36, 37, 44, 52, 56, 58, 64, 96).",
+   "message": "14 different font sizes (14, 15, 16, 19, 20, 26, 36, 37, 44, 52, 56, 58, 64, 96).",
    "fix": "A page needs about five: display, heading, lead, body, small.",
    "alsoAt": [
     768,
@@ -3310,8 +2953,15 @@
    "level": "WARN",
    "id": "blank-gap",
    "width": 768,
-   "message": "A 532px stretch at 5788px holds nothing.",
+   "message": "A 536px stretch at 4880px holds nothing.",
    "fix": "Check that it is a deliberate rest (once per page at most); otherwise close it to the normal section gap."
+  },
+  {
+   "level": "FAIL",
+   "id": "blank-gap",
+   "width": 390,
+   "message": "1 stretch(es) of the page hold nothing at all: 792px at 10028px (the screen is 844px tall).",
+   "fix": "Close the gap: a section gap is 120–240px on desktop and 72–112px on a phone. Look for a min-height: 100vh on a short section, an empty grid row, a hidden element still holding its space, or a reveal that never fired. A deliberate rest is a placed picture or colour field, not nothing."
   }
  ],
  "images": [

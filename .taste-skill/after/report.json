@@ -1,11 +1,7 @@
 {
  "url": "index.html",
- "at": "2026-11-07T20:07:15.545Z",
- "allow": [
-  "eyebrow",
-  "micro-label",
-  "outlined-box"
- ],
+ "at": "2026-11-09T00:47:43.273Z",
+ "allow": [],
  "viewports": [
   {
    "width": 1440,
@@ -16,20 +12,20 @@
     0.35,
     0.38,
     0.67,
-    0.63,
-    0.67,
-    0.67,
-    0.43,
-    0.34,
-    0.28,
     0.59,
-    0.58,
-    0.46
+    0.69,
+    0.62,
+    0.42,
+    0.31,
+    0.34,
+    0.53,
+    0.46,
+    0.45
    ],
    "motion": {
-    "elements": 34,
+    "elements": 43,
     "css": 9,
-    "transitions": 25,
+    "transitions": 34,
     "scripted": 0,
     "videos": 0,
     "playingVideos": 0
@@ -40,13 +36,13 @@
      "h": 900
     },
     "page": {
-     "height": 10411,
-     "screens": 11.6,
-     "words": 1120,
+     "height": 10080,
+     "screens": 11.2,
+     "words": 1139,
      "img": 8,
      "video": 0,
      "canvas": 0,
-     "svg": 5,
+     "svg": 7,
      "sections": 10,
      "horizontalOverflow": 0,
      "overflowCulprits": [],
@@ -251,7 +247,7 @@
       "text": "Set up in ten minutes",
       "words": 5,
       "chars": 21,
-      "lines": 2,
+      "lines": 1,
       "size": 52,
       "vw": 3.6,
       "font": "Switzer",
@@ -262,8 +258,8 @@
       "italic": false,
       "mono": false,
       "align": "left",
-      "position": "left",
-      "widthRatio": 0.19,
+      "position": "center",
+      "widthRatio": 0.94,
       "top": 3211,
       "tag": "h2",
       "kind": "heading"
@@ -285,7 +281,7 @@
       "align": "left",
       "position": "left",
       "widthRatio": 0.33,
-      "top": 4171,
+      "top": 4118,
       "tag": "h2",
       "kind": "heading"
      },
@@ -306,7 +302,7 @@
       "align": "left",
       "position": "right",
       "widthRatio": 0.36,
-      "top": 4697,
+      "top": 4643,
       "tag": "p",
       "kind": "statement"
      },
@@ -327,7 +323,7 @@
       "align": "left",
       "position": "right",
       "widthRatio": 0.36,
-      "top": 4796,
+      "top": 4743,
       "tag": "p",
       "kind": "statement"
      },
@@ -348,7 +344,7 @@
       "align": "left",
       "position": "right",
       "widthRatio": 0.27,
-      "top": 5201,
+      "top": 5148,
       "tag": "h2",
       "kind": "heading"
      },
@@ -369,7 +365,7 @@
       "align": "left",
       "position": "right",
       "widthRatio": 0.47,
-      "top": 6056,
+      "top": 6003,
       "tag": "h2",
       "kind": "heading"
      },
@@ -390,7 +386,7 @@
       "align": "left",
       "position": "right",
       "widthRatio": 0.32,
-      "top": 7145,
+      "top": 7269,
       "tag": "p",
       "kind": "statement"
      },
@@ -411,7 +407,7 @@
       "align": "left",
       "position": "left",
       "widthRatio": 0.18,
-      "top": 8099,
+      "top": 8223,
       "tag": "h2",
       "kind": "heading"
      },
@@ -432,7 +428,7 @@
       "align": "left",
       "position": "center",
       "widthRatio": 0.55,
-      "top": 9190,
+      "top": 9227,
       "tag": "h2",
       "kind": "heading"
      }
@@ -498,7 +494,7 @@
       "Features & sensors"
      ],
      "upperShare": 0.01,
-     "centerShare": 0.01,
+     "centerShare": 0.02,
      "smallText": 0
     },
     "eyebrows": [
@@ -536,11 +532,11 @@
      "textColors": [
       {
        "color": "#0a0a0a",
-       "share": 0.57
+       "share": 0.54
       },
       {
        "color": "#3a3a3a",
-       "share": 0.17
+       "share": 0.2
       },
       {
        "color": "#5f5f5f",
@@ -621,10 +617,10 @@
      "w": 1440,
      "h": 900
     },
-    "pageH": 10411,
+    "pageH": 10080,
     "margins": {
      "left": 40,
-     "right": 44
+     "right": 49
     },
     "sections": [
      {
@@ -700,7 +696,7 @@
       "sel": "section#how.how",
       "tag": "section",
       "top": 3011,
-      "height": 864,
+      "height": 810,
       "words": 82,
       "media": 1,
       "middle": 64,
@@ -710,9 +706,9 @@
        "tag": "h2"
       },
       "left": 40,
-      "right": 209,
+      "right": 95,
       "textLeft": 40,
-      "textRight": 209,
+      "textRight": 95,
       "fullBleed": false,
       "footer": false,
       "hero": false,
@@ -722,7 +718,7 @@
      {
       "sel": "section#access.show.mint",
       "tag": "section",
-      "top": 4075,
+      "top": 4022,
       "height": 828,
       "words": 42,
       "media": 0,
@@ -745,7 +741,7 @@
      {
       "sel": "section#buildings.buildings",
       "tag": "section",
-      "top": 4903,
+      "top": 4850,
       "height": 953,
       "words": 82,
       "media": 1,
@@ -768,20 +764,20 @@
      {
       "sel": "section#specs.specs",
       "tag": "section",
-      "top": 5856,
-      "height": 969,
-      "words": 90,
-      "media": 1,
-      "middle": 166,
+      "top": 5803,
+      "height": 1146,
+      "words": 122,
+      "media": 5,
+      "middle": 206,
       "heading": {
        "text": "What's in the box",
        "size": 64,
        "tag": "h2"
       },
       "left": 80,
-      "right": 40,
-      "textLeft": 163,
-      "textRight": 40,
+      "right": 44,
+      "textLeft": 196,
+      "textRight": 44,
       "fullBleed": false,
       "footer": false,
       "hero": false,
@@ -791,7 +787,7 @@
      {
       "sel": "section.quote",
       "tag": "section",
-      "top": 6825,
+      "top": 6949,
       "height": 1074,
       "words": 50,
       "media": 2,
@@ -814,9 +810,9 @@
      {
       "sel": "section#faq.faq",
       "tag": "section",
-      "top": 7899,
-      "height": 1000,
-      "words": 243,
+      "top": 8023,
+      "height": 913,
+      "words": 205,
       "media": 0,
       "middle": 222,
       "heading": {
@@ -837,7 +833,7 @@
      {
       "sel": "section#start.cta",
       "tag": "section",
-      "top": 9099,
+      "top": 9135,
       "height": 380,
       "words": 34,
       "media": 1,
@@ -860,14 +856,14 @@
      {
       "sel": "footer.footer",
       "tag": "footer",
-      "top": 9679,
-      "height": 732,
+      "top": 9715,
+      "height": 365,
       "words": 158,
-      "media": 1,
-      "middle": 0,
+      "media": 0,
+      "middle": 153,
       "heading": null,
       "left": 40,
-      "right": 40,
+      "right": 58,
       "textLeft": 40,
       "textRight": 58,
       "fullBleed": false,
@@ -889,11 +885,11 @@
     "edgeText": [],
     "edges": [
      {
-      "x": 525,
-      "n": 12
+      "x": 40,
+      "n": 11
      },
      {
-      "x": 40,
+      "x": 525,
       "n": 11
      },
      {
@@ -921,7 +917,7 @@
       "n": 1
      }
     ],
-    "leftBlocks": 41,
+    "leftBlocks": 40,
     "bodySize": 19,
     "stage": false,
     "explains": true,
@@ -947,19 +943,19 @@
     0.44,
     0.67,
     0.76,
-    0.71,
+    0.7,
+    0.83,
+    0.63,
     0.73,
-    0.82,
-    0.52,
     0.54,
-    0.43,
-    0.37,
-    0.77
+    0.45,
+    0.39,
+    0.87
    ],
    "motion": {
-    "elements": 34,
+    "elements": 43,
     "css": 9,
-    "transitions": 25,
+    "transitions": 34,
     "scripted": 0,
     "videos": 0,
     "playingVideos": 0
@@ -970,13 +966,13 @@
      "h": 1024
     },
     "page": {
-     "height": 13860,
-     "screens": 13.5,
-     "words": 1108,
+     "height": 13066,
+     "screens": 12.8,
+     "words": 1127,
      "img": 8,
      "video": 0,
      "canvas": 0,
-     "svg": 5,
+     "svg": 7,
      "sections": 10,
      "horizontalOverflow": 0,
      "overflowCulprits": [],
@@ -1215,7 +1211,7 @@
       "align": "left",
       "position": "left",
       "widthRatio": 0.63,
-      "top": 5921,
+      "top": 5609,
       "tag": "h2",
       "kind": "heading"
      },
@@ -1236,7 +1232,7 @@
       "align": "left",
       "position": "left",
       "widthRatio": 0.57,
-      "top": 6570,
+      "top": 6257,
       "tag": "p",
       "kind": "statement"
      },
@@ -1257,7 +1253,7 @@
       "align": "left",
       "position": "left",
       "widthRatio": 0.57,
-      "top": 6655,
+      "top": 6342,
       "tag": "p",
       "kind": "statement"
      },
@@ -1278,7 +1274,7 @@
       "align": "left",
       "position": "left",
       "widthRatio": 0.37,
-      "top": 7286,
+      "top": 6973,
       "tag": "h2",
       "kind": "heading"
      },
@@ -1299,7 +1295,7 @@
       "align": "left",
       "position": "center",
       "widthRatio": 0.94,
-      "top": 8777,
+      "top": 8674,
       "tag": "h2",
       "kind": "heading"
      },
@@ -1320,7 +1316,7 @@
       "align": "left",
       "position": "center",
       "widthRatio": 0.94,
-      "top": 11239,
+      "top": 11110,
       "tag": "h2",
       "kind": "heading"
      },
@@ -1341,7 +1337,7 @@
       "align": "left",
       "position": "center",
       "widthRatio": 0.89,
-      "top": 12155,
+      "top": 11955,
       "tag": "h2",
       "kind": "heading"
      }
@@ -1407,7 +1403,7 @@
       "Features & sensors"
      ],
      "upperShare": 0.01,
-     "centerShare": 0.01,
+     "centerShare": 0.02,
      "smallText": 0
     },
     "eyebrows": [
@@ -1461,7 +1457,7 @@
       },
       {
        "color": "#eeeeee",
-       "top": 4922,
+       "top": 4909,
        "hsl": {
         "h": 0,
         "s": 0,
@@ -1470,7 +1466,7 @@
       },
       {
        "color": "#1f6b3a",
-       "top": 12110,
+       "top": 11910,
        "hsl": {
         "h": 141,
         "s": 0.55,
@@ -1481,11 +1477,11 @@
      "textColors": [
       {
        "color": "#0a0a0a",
-       "share": 0.57
+       "share": 0.54
       },
       {
        "color": "#3a3a3a",
-       "share": 0.17
+       "share": 0.2
       },
       {
        "color": "#5f5f5f",
@@ -1573,10 +1569,10 @@
      "w": 768,
      "h": 1024
     },
-    "pageH": 13860,
+    "pageH": 13066,
     "margins": {
      "left": 22,
-     "right": 22
+     "right": 28
     },
     "sections": [
      {
@@ -1652,7 +1648,7 @@
       "sel": "section#how.how",
       "tag": "section",
       "top": 3572,
-      "height": 2173,
+      "height": 1860,
       "words": 82,
       "media": 2,
       "middle": 0,
@@ -1674,7 +1670,7 @@
      {
       "sel": "section#access.show.mint",
       "tag": "section",
-      "top": 5865,
+      "top": 5553,
       "height": 881,
       "words": 42,
       "media": 0,
@@ -1697,7 +1693,7 @@
      {
       "sel": "section#buildings.buildings",
       "tag": "section",
-      "top": 6746,
+      "top": 6433,
       "height": 1054,
       "words": 77,
       "media": 1,
@@ -1714,18 +1710,18 @@
       "pinned": false
      },
      {
-      "sel": "div.specs__figure.mint",
-      "tag": "div",
-      "top": 7920,
-      "height": 809,
-      "words": 5,
-      "media": 1,
+      "sel": "figure.specs__figure.anatomy",
+      "tag": "figure",
+      "top": 7608,
+      "height": 1019,
+      "words": 39,
+      "media": 5,
       "middle": 0,
       "heading": null,
       "left": 46,
-      "right": 46,
-      "textLeft": 231,
-      "textRight": 201,
+      "right": 179,
+      "textLeft": 274,
+      "textRight": 179,
       "fullBleed": false,
       "footer": false,
       "hero": false,
@@ -1735,9 +1731,9 @@
      {
       "sel": "div.specs__text",
       "tag": "div",
-      "top": 8777,
-      "height": 730,
-      "words": 81,
+      "top": 8674,
+      "height": 703,
+      "words": 79,
       "media": 0,
       "middle": 182,
       "heading": null,
@@ -1754,7 +1750,7 @@
      {
       "sel": "section.quote",
       "tag": "section",
-      "top": 9507,
+      "top": 9377,
       "height": 1612,
       "words": 50,
       "media": 2,
@@ -1773,9 +1769,9 @@
      {
       "sel": "section#faq.faq",
       "tag": "section",
-      "top": 11119,
-      "height": 870,
-      "words": 221,
+      "top": 10990,
+      "height": 800,
+      "words": 183,
       "media": 0,
       "middle": 0,
       "heading": {
@@ -1796,7 +1792,7 @@
      {
       "sel": "section#start.cta",
       "tag": "section",
-      "top": 12110,
+      "top": 11910,
       "height": 506,
       "words": 34,
       "media": 1,
@@ -1819,14 +1815,14 @@
      {
       "sel": "footer.footer",
       "tag": "footer",
-      "top": 12736,
-      "height": 1124,
+      "top": 12536,
+      "height": 530,
       "words": 158,
-      "media": 1,
+      "media": 0,
       "middle": 0,
       "heading": null,
       "left": 22,
-      "right": 22,
+      "right": 28,
       "textLeft": 22,
       "textRight": 28,
       "fullBleed": false,
@@ -1836,12 +1832,7 @@
       "pinned": false
      }
     ],
-    "gaps": [
-     {
-      "top": 4880,
-      "height": 536
-     }
-    ],
+    "gaps": [],
     "h1s": [
      {
       "text": "The mailbox that tells you",
@@ -1854,7 +1845,7 @@
     "edges": [
      {
       "x": 42,
-      "n": 18
+      "n": 17
      },
      {
       "x": 22,
@@ -1869,7 +1860,7 @@
       "n": 1
      }
     ],
-    "leftBlocks": 40,
+    "leftBlocks": 39,
     "bodySize": 18,
     "stage": false,
     "explains": false,
@@ -1891,18 +1882,18 @@
     0.39,
     0.82,
     0.86,
-    0.58,
-    0.73,
+    0.59,
+    0.7,
     0.87,
     0.51,
-    0.61,
-    0.38,
-    0.41
+    0.67,
+    0.47,
+    0.43
    ],
    "motion": {
-    "elements": 34,
+    "elements": 42,
     "css": 9,
-    "transitions": 25,
+    "transitions": 33,
     "scripted": 0,
     "videos": 0,
     "playingVideos": 0
@@ -1913,13 +1904,13 @@
      "h": 844
     },
     "page": {
-     "height": 13166,
-     "screens": 15.6,
-     "words": 1108,
+     "height": 12992,
+     "screens": 15.4,
+     "words": 1127,
      "img": 8,
      "video": 0,
      "canvas": 0,
-     "svg": 5,
+     "svg": 7,
      "sections": 10,
      "horizontalOverflow": 0,
      "overflowCulprits": [],
@@ -2283,7 +2274,7 @@
       "align": "left",
       "position": "center",
       "widthRatio": 0.92,
-      "top": 8454,
+      "top": 8697,
       "tag": "h2",
       "kind": "heading"
      },
@@ -2304,7 +2295,7 @@
       "align": "left",
       "position": "center",
       "widthRatio": 0.78,
-      "top": 9828,
+      "top": 10070,
       "tag": "p",
       "kind": "statement"
      },
@@ -2325,7 +2316,7 @@
       "align": "left",
       "position": "center",
       "widthRatio": 0.92,
-      "top": 10607,
+      "top": 10825,
       "tag": "h2",
       "kind": "heading"
      },
@@ -2346,7 +2337,7 @@
       "align": "left",
       "position": "center",
       "widthRatio": 0.81,
-      "top": 11594,
+      "top": 11742,
       "tag": "h2",
       "kind": "heading"
      }
@@ -2411,7 +2402,7 @@
       "Features & sensors"
      ],
      "upperShare": 0.01,
-     "centerShare": 0.01,
+     "centerShare": 0.02,
      "smallText": 0
     },
     "eyebrows": [
@@ -2464,17 +2455,8 @@
        }
       },
       {
-       "color": "#eeeeee",
-       "top": 5449,
-       "hsl": {
-        "h": 0,
-        "s": 0,
-        "l": 0.93
-       }
-      },
-      {
        "color": "#1f6b3a",
-       "top": 11560,
+       "top": 11708,
        "hsl": {
         "h": 141,
         "s": 0.55,
@@ -2485,11 +2467,11 @@
      "textColors": [
       {
        "color": "#0a0a0a",
-       "share": 0.57
+       "share": 0.54
       },
       {
        "color": "#3a3a3a",
-       "share": 0.17
+       "share": 0.2
       },
       {
        "color": "#5f5f5f",
@@ -2570,10 +2552,10 @@
      "w": 390,
      "h": 844
     },
-    "pageH": 13166,
+    "pageH": 12992,
     "margins": {
      "left": 16,
-     "right": 16
+     "right": 18
     },
     "sections": [
      {
@@ -2734,17 +2716,17 @@
       "pinned": false
      },
      {
-      "sel": "div.specs__figure.mint",
-      "tag": "div",
+      "sel": "figure.specs__figure.anatomy",
+      "tag": "figure",
       "top": 7935,
-      "height": 471,
-      "words": 5,
+      "height": 715,
+      "words": 39,
       "media": 1,
       "middle": 0,
       "heading": null,
       "left": 40,
-      "right": 40,
-      "textLeft": 81,
+      "right": 51,
+      "textLeft": 88,
       "textRight": 51,
       "fullBleed": false,
       "footer": false,
@@ -2755,9 +2737,9 @@
      {
       "sel": "div.specs__text",
       "tag": "div",
-      "top": 8454,
-      "height": 879,
-      "words": 81,
+      "top": 8697,
+      "height": 853,
+      "words": 79,
       "media": 0,
       "middle": 48,
       "heading": null,
@@ -2774,20 +2756,16 @@
      {
       "sel": "section.quote",
       "tag": "section",
-      "top": 9332,
+      "top": 9550,
       "height": 1155,
-      "words": 50,
-      "media": 2,
+      "words": 0,
+      "media": 1,
       "middle": 0,
-      "heading": {
-       "text": "“I want to know if I have mail, without walking ou",
-       "size": 24,
-       "tag": "p"
-      },
+      "heading": null,
       "left": 6,
-      "right": 16,
-      "textLeft": 16,
-      "textRight": 34,
+      "right": 106,
+      "textLeft": null,
+      "textRight": null,
       "fullBleed": false,
       "footer": false,
       "hero": false,
@@ -2797,9 +2775,9 @@
      {
       "sel": "section#faq.faq",
       "tag": "section",
-      "top": 10487,
-      "height": 953,
-      "words": 221,
+      "top": 10705,
+      "height": 883,
+      "words": 183,
       "media": 0,
       "middle": 0,
       "heading": {
@@ -2820,7 +2798,7 @@
      {
       "sel": "section#start.cta",
       "tag": "section",
-      "top": 11560,
+      "top": 11708,
       "height": 506,
       "words": 34,
       "media": 1,
@@ -2843,14 +2821,14 @@
      {
       "sel": "footer.footer",
       "tag": "footer",
-      "top": 12186,
-      "height": 980,
+      "top": 12334,
+      "height": 658,
       "words": 158,
-      "media": 1,
+      "media": 0,
       "middle": 0,
       "heading": null,
       "left": 16,
-      "right": 16,
+      "right": 17,
       "textLeft": 16,
       "textRight": 17,
       "fullBleed": false,
@@ -2864,6 +2842,10 @@
      {
       "top": 6240,
       "height": 264
+     },
+     {
+      "top": 10028,
+      "height": 792
      }
     ],
     "h1s": [
@@ -2878,18 +2860,18 @@
     "edges": [
      {
       "x": 36,
-      "n": 24
+      "n": 23
      },
      {
       "x": 16,
-      "n": 15
+      "n": 14
      },
      {
       "x": 186,
       "n": 1
      }
     ],
-    "leftBlocks": 40,
+    "leftBlocks": 38,
     "bodySize": 17,
     "stage": false,
     "explains": false,
@@ -2902,6 +2884,39 @@
   }
  ],
  "findings": [
+  {
+   "level": "FAIL",
+   "id": "eyebrow",
+   "width": 1440,
+   "message": "1 eyebrow/kicker label(s) above headings: \"Features & sensors\" above \"Everything your mailbox tells you — in r\"",
+   "fix": "Delete them. If the label carried real information, fold it into the headline or the supporting sentence.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "micro-label",
+   "width": 1440,
+   "message": "1 tiny uppercase letter-spaced label(s): \"Features & sensors\"",
+   "fix": "Prefer sentence case at body size.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "outlined-box",
+   "width": 1440,
+   "message": "7 boxes drawn with a 1px outline.",
+   "fix": "Define a surface by its fill (one tone step from the page) or leave the content unboxed.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
   {
    "level": "WARN",
    "id": "size-count",
@@ -2921,11 +2936,11 @@
    "fix": "Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject."
   },
   {
-   "level": "WARN",
+   "level": "FAIL",
    "id": "blank-gap",
-   "width": 768,
-   "message": "A 536px stretch at 4880px holds nothing.",
-   "fix": "Check that it is a deliberate rest (once per page at most); otherwise close it to the normal section gap."
+   "width": 390,
+   "message": "1 stretch(es) of the page hold nothing at all: 792px at 10028px (the screen is 844px tall).",
+   "fix": "Close the gap: a section gap is 120–240px on desktop and 72–112px on a phone. Look for a min-height: 100vh on a short section, an empty grid row, a hidden element still holding its space, or a reveal that never fired. A deliberate rest is a placed picture or colour field, not nothing."
   }
  ],
  "images": [

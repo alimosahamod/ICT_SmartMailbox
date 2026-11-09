@@ -305,19 +305,15 @@ section { scroll-margin-top: 80px; }
   padding: clamp(120px, 14vw, 200px) var(--margin) 0;
   position: relative;
 }
-.how__title { grid-column: 1 / 8; grid-row: 1; max-width: 9ch; align-self: start; font-size: clamp(2.5rem, 1.4rem + 2.6vw, 3.25rem); }
-.how__stages { grid-column: 1 / -1; grid-row: 1; display: grid; grid-template-columns: repeat(12, 1fr); column-gap: 10px; margin: 0; padding: 0; list-style: none; align-items: end; }
+.how__title { grid-column: 1 / -1; grid-row: 1; margin: 0 0 clamp(40px, 5vw, 72px); font-size: clamp(2.5rem, 1.4rem + 2.6vw, 3.25rem); }
+.how__stages { grid-column: 1 / -1; grid-row: 2; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 10px; margin: 0; padding: 0; list-style: none; align-items: start; }
+.stage { min-width: 0; margin: 0; padding: 0; }
 .stage h3 { margin: 22px 0 0; font-size: var(--step-lead); font-weight: 500; letter-spacing: -0.01em; }
 .stage p { margin: 6px 0 0; max-width: 36ch; color: var(--ink-soft); font-size: var(--step-body); }
-.stage__tile { border-radius: 28px; overflow: hidden; display: grid; place-items: center; }
-.stage--1 { grid-column: 1 / 4; }
-.stage--1 .stage__tile { height: 30vh; min-height: 240px; }
+.stage__tile { width: 100%; aspect-ratio: 4 / 3; min-height: 320px; border-radius: 28px; overflow: hidden; display: grid; place-items: center; }
 .stage--1 img { width: 100%; height: 100%; object-fit: cover; }
-.stage--2 { grid-column: 4 / 8; }
-.stage--2 .stage__tile { height: 44vh; min-height: 340px; }
 .stage--2 .module { width: 76%; }
-.stage--3 { grid-column: 8 / 13; }
-.stage--3 .stage__tile { height: 60vh; min-height: 460px; background: var(--surface); }
+.stage--3 .stage__tile { background: var(--surface); }
 
 .phone-mini { width: min(78%, 360px); align-self: end; background: var(--ink); color: var(--paper); border-radius: 44px 44px 0 0; padding: 40px 18px 60px; display: grid; gap: 10px; }
 .stage .phone-mini__time { color: var(--paper); }
@@ -328,12 +324,9 @@ section { scroll-margin-top: 80px; }
 
 @media (max-width: 860px) {
   .how { display: block; }
-  .how__title { font-size: 30px; max-width: none; }
-  .how__stages { display: grid; grid-template-columns: 1fr; row-gap: 40px; margin-top: 32px; }
-  .stage { grid-column: auto !important; }
-  .stage--1 .stage__tile { height: 46vw; min-height: 0; }
-  .stage--2 .stage__tile { height: 62vw; min-height: 0; }
-  .stage--3 .stage__tile { height: 92vw; min-height: 0; }
+  .how__title { font-size: 30px; margin: 0; }
+  .how__stages { display: grid; grid-template-columns: minmax(0, 1fr); row-gap: 40px; margin-top: 32px; }
+  .stage__tile { aspect-ratio: 16 / 9; min-height: 260px; }
   .phone-mini { padding: 24px 14px 30px; }
   .phone-mini__time { font-size: 2.5rem; margin-bottom: 8px; }
 }
@@ -409,15 +402,20 @@ section { scroll-margin-top: 80px; }
 }
 .specs__figure { grid-column: 1 / 6; border-radius: 0 0 var(--slot) var(--slot); padding: clamp(32px, 4vw, 56px) clamp(24px, 3vw, 40px) 80px; position: sticky; top: 24px; }
 .specs__figure { margin: 0; }
-.anatomy { position: relative; }
-.anatomy svg { width: 100%; height: auto; overflow: visible; }
-.anatomy__axis { fill: none; stroke: var(--ink); stroke-opacity: 0.3; stroke-width: 2; stroke-dasharray: 6 8; }
-.anatomy__leads path { fill: none; stroke: var(--ink); stroke-width: 2; }
-.anatomy__leads circle { fill: var(--ink); }
-.anatomy__labels { list-style: none; margin: 0; padding: 0; position: absolute; inset: clamp(32px, 4vw, 56px) clamp(24px, 3vw, 40px) 80px; pointer-events: none; }
-.anatomy__labels li { position: absolute; left: 61%; right: 0; top: calc(var(--y) / 820 * 100%); transform: translateY(-50%); line-height: 1.25; }
-.anatomy__labels b { display: block; font-size: var(--step-body); font-weight: 600; letter-spacing: -0.01em; }
-.anatomy__labels span { display: block; font-size: var(--step-small); color: var(--ink-soft); }
+/* What's in the box: each part is its own row (drawing, leader, label), so nothing can collide. */
+.anatomy { --art: 56%; display: grid; gap: clamp(36px, 4.5vw, 56px); padding-bottom: clamp(64px, 7vw, 96px); }
+.anatomy__parts { list-style: none; margin: 0; padding: 0; display: grid; row-gap: clamp(14px, 2vw, 24px); }
+.anatomy__part { display: grid; grid-template-columns: var(--art) minmax(0, 1fr); column-gap: 12px; align-items: center; }
+.anatomy__art { width: 100%; height: auto; overflow: visible; }
+.anatomy__axis { fill: none; stroke: var(--ink); stroke-opacity: 0.22; stroke-width: 1.5; stroke-dasharray: 4 6; }
+.anatomy__lead { fill: none; stroke: var(--ink); stroke-width: 1.6; }
+.anatomy__node { fill: var(--paper); stroke: var(--ink); stroke-width: 1.6; }
+.anatomy__label { margin: 0; line-height: 1.3; }
+.anatomy__label b { display: block; font-size: 1rem; font-weight: 600; letter-spacing: -0.01em; }
+.anatomy__label span { display: block; margin-top: 2px; font-size: var(--step-small); color: var(--ink-soft); }
+.anatomy__fitted { justify-self: center; width: min(100%, 250px); text-align: center; }
+.anatomy__fitted svg { width: 100%; height: auto; }
+.anatomy__fitted .anatomy__label { margin-top: 14px; }
 .specs__text { grid-column: 7 / 13; }
 .spec-table { width: 100%; border-collapse: collapse; margin-top: 40px; }
 .spec-table th, .spec-table td { text-align: left; vertical-align: top; padding: 18px 0; border-bottom: 1px solid #dcdcdc; }
@@ -426,11 +424,9 @@ section { scroll-margin-top: 80px; }
 
 @media (max-width: 860px) {
   .specs { display: block; }
-  .specs__figure { position: relative; top: auto; padding-bottom: 56px; }
-  .anatomy__labels { bottom: 56px; }
-  .anatomy__labels li { left: 59%; line-height: 1.2; }
-  .anatomy__labels b { font-size: 15px; }
-  .anatomy__labels span { font-size: 13px; }
+  .specs__figure { position: static; }
+  .anatomy { --art: 56%; padding-bottom: 72px; }
+  .anatomy__fitted { width: min(100%, 220px); }
   .specs__text { margin-top: 48px; }
   .spec-table th { width: 38%; }
 }
@@ -583,14 +579,11 @@ section { scroll-margin-top: 80px; }
 @media (prefers-reduced-motion: no-preference) {
   .js .reveal { opacity: 0; transform: translateY(24px); transition: opacity 700ms var(--ease-out), transform 800ms var(--ease-out); transition-delay: var(--d, 0ms); }
   .js .reveal.is-in { opacity: 1; transform: none; }
-  /* What's in the box: the module starts assembled and comes apart into its parts. */
-  .js .anatomy__part { transition: transform 900ms var(--ease-out) 250ms; }
-  .js .anatomy__part--sensor { transform: translateY(100px); }
-  .js .anatomy__part--battery { transform: translateY(-96px); }
-  .js .anatomy__part--bracket { transform: translateY(-250px); }
-  .js .anatomy.is-in .anatomy__part { transform: none; }
-  .js .anatomy__leads, .js .anatomy__labels li, .js .anatomy__axis { opacity: 0; transition: opacity 500ms var(--ease-out) 850ms; }
-  .js .anatomy.is-in .anatomy__leads, .js .anatomy.is-in .anatomy__labels li, .js .anatomy.is-in .anatomy__axis { opacity: 1; }
+  /* What's in the box: the parts arrive one after another, then their leaders draw out to the labels. */
+  .js .anatomy__part, .js .anatomy__fitted { opacity: 0; transform: translateY(18px); transition: opacity 600ms var(--ease-out), transform 700ms var(--ease-out); transition-delay: calc(var(--i) * 90ms + 200ms); }
+  .js .anatomy.is-in .anatomy__part, .js .anatomy.is-in .anatomy__fitted { opacity: 1; transform: none; }
+  .js .anatomy__lead { stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 600ms var(--ease-out); transition-delay: calc(var(--i) * 90ms + 550ms); }
+  .js .anatomy.is-in .anatomy__lead { stroke-dashoffset: 0; }
   .js .hero__title, .js .hero__lede, .js .hero__actions { animation: rise 900ms var(--ease-out) both; }
   .js .hero__lede { animation-delay: 90ms; }
   .js .hero__actions { animation-delay: 180ms; }
