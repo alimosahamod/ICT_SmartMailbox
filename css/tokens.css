@@ -61,6 +61,8 @@ button, input, select { font: inherit; color: inherit; }
 a { color: inherit; }
 
 :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+/* Sections focused by anchor navigation (tabindex="-1") are not interactive: no ring */
+[tabindex="-1"]:focus, [tabindex="-1"]:focus-visible, :target { outline: none; }
 ::selection { background: var(--mint); color: var(--ink); }
 
 .visually-hidden {
@@ -82,11 +84,16 @@ a { color: inherit; }
 .btn:active { transform: scale(0.97); }
 .btn--ink { background: var(--ink); color: var(--paper); }
 .btn--quiet { background: var(--paper); color: var(--ink); }
+.btn--paper { background: var(--paper); color: var(--ink); }
 .btn--small { min-height: 40px; padding: 0 18px; font-size: var(--step-small); }
+.btn--lg { min-height: 60px; padding: 0 30px 0 34px; gap: 14px; font-size: var(--step-body); font-weight: 600; letter-spacing: -0.01em; }
+.btn__arrow { display: inline-block; transition: transform var(--t-hover) var(--ease-out); }
 @media (hover: hover) and (pointer: fine) {
   .btn:hover { background: var(--accent-strong); }
   .btn--ink:hover { background: #2a2a2a; }
   .btn--quiet:hover { background: var(--surface); }
+  .btn--paper:hover { background: var(--mint); }
+  .btn:hover .btn__arrow { transform: translateX(4px); }
 }
 
 @media (prefers-reduced-motion: reduce) {
