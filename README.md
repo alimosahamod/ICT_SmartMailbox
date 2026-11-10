@@ -1,17 +1,30 @@
-# Smart Mailbox – Landing Page
+# Smart Mailbox – Landing Page & Demo
 
 The official landing page and interactive web demo for the **Smart Mailbox** project in the *ICT Business Management* module.
 
 ---
 
-### 🌐 Visit the live website
+### Visit the live website
 Open the published version here:
 
 👉 **[ictsmartmailbox.vercel.app](https://ictsmartmailbox.vercel.app)** 👈
 
+### GitHub repository
+👉 **[github.com/alimosahamod/ICT_SmartMailbox](https://github.com/alimosahamod/ICT_SmartMailbox)**
+
 ---
 
-## 📦 About the project
+## Week 10 documents (Participant Brief & Researcher Guide)
+
+The requested documents are in the [`docs/week10`](docs/week10) folder:
+
+- [Participant Brief – Resident](docs/week10/01_Participant_Brief_Resident.docx)
+- [Participant Brief – Caretaker](docs/week10/01_Participant_Brief_Caretaker.docx)
+- [Researcher Guide](docs/week10/02_Researcher_Guide.docx)
+
+---
+
+## About the project
 
 Smart Mailbox is a weatherproof sensor with a connected app. It sends notifications when letters or packages arrive, gives neighbors time-limited access to the mailbox, and helps building managers record large packages in secure storage rooms.
 
@@ -23,7 +36,7 @@ Smart Mailbox is a weatherproof sensor with a connected app. It sends notificati
 
 ---
 
-## 📁 Project structure
+## Project structure
 
 ```plaintext
 landingpageV2/
@@ -32,7 +45,8 @@ landingpageV2/
 ├── css/             # Stylesheets (tokens.css, landing.css, demo.css)
 ├── js/              # JavaScript files (landing.js, demo.js)
 ├── assets/          # Images, graphics, and icons
-├── docs/            # Project documents and briefings (PDFs)
+├── docs/            # Project documents
+│   └── week10/      # Participant Briefs and Researcher Guide
 └── README.md        # Project documentation
 ```
 
