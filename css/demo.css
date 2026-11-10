@@ -448,3 +448,51 @@ body { background: var(--surface); overflow: hidden; }
   .backbar { display: flex; }
   .push { top: calc(64px + env(safe-area-inset-top)); }
 }
+
+/* ---------- tour: first-visit tips for the demo controls (never inside the app) ---------- */
+.tour {
+  position: fixed; z-index: 60; top: 0; left: 0;
+  width: min(320px, calc(100vw - 24px));
+  padding: 18px 20px 14px; border-radius: 22px;
+  background: var(--ink); color: var(--paper);
+  --from: 0 6px;
+}
+.tour[hidden], .tour-ring[hidden], .tour__skip[hidden], #tour-replay[hidden] { display: none; }
+.tour[data-side="bottom"] { --from: 0 -6px; }
+.tour[data-side="right"] { --from: -6px 0; }
+.tour[data-side="left"] { --from: 6px 0; }
+.tour.is-in { animation: tour-in 280ms var(--ease-out); }
+@keyframes tour-in { from { opacity: 0; translate: var(--from); } }
+
+.tour__arrow { position: absolute; width: 14px; height: 14px; border-radius: 3px; background: var(--ink); transform: rotate(45deg); }
+.tour[data-side="bottom"] .tour__arrow { top: -6px; left: calc(var(--ax, 50%) - 7px); }
+.tour[data-side="top"] .tour__arrow { bottom: -6px; left: calc(var(--ax, 50%) - 7px); }
+.tour[data-side="right"] .tour__arrow { left: -6px; top: calc(var(--ay, 50%) - 7px); }
+.tour[data-side="left"] .tour__arrow { right: -6px; top: calc(var(--ay, 50%) - 7px); }
+
+.tour__title { margin: 0; font-size: 17px; font-weight: 600; letter-spacing: -0.015em; line-height: 1.25; }
+.tour__text { margin: 6px 0 0; font-size: 15px; line-height: 1.45; color: #ececec; }
+.tour__foot { margin-top: 14px; display: flex; align-items: center; gap: 4px; }
+.tour__steps { display: flex; gap: 4px; margin-right: auto; }
+.tour__steps i { width: 10px; height: 6px; border-radius: var(--slot); background: #3a3a3a; transition: width 300ms var(--ease-out), background-color 200ms ease; }
+.tour__steps i.is-past { background: #7d7d7d; }
+.tour__steps i.is-on { width: 24px; background: var(--mint); }
+.tour__skip {
+  min-height: 40px; padding: 0 12px; border: 0; border-radius: var(--slot);
+  background: none; color: #c4c4c4; font-size: 14px; font-weight: 500; cursor: pointer;
+  transition: color var(--t-hover) ease, background-color var(--t-hover) ease, transform var(--t-press) var(--ease-out);
+}
+.tour__skip:active { transform: scale(0.97); }
+.tour .tour__next { background: var(--mint); color: var(--ink); }
+.tour :focus-visible { outline-color: var(--mint); }
+@media (hover: hover) and (pointer: fine) {
+  .tour__skip:hover { color: var(--paper); background: #222; }
+  .tour .tour__next:hover { background: var(--mint-deep); }
+}
+
+.tour-ring {
+  position: fixed; z-index: 59; top: 0; left: 0;
+  border-radius: 26px; outline: 3px solid var(--accent); pointer-events: none;
+  transition: transform 340ms var(--ease-out), width 340ms var(--ease-out), height 340ms var(--ease-out);
+}
+.tour-ring.is-fresh { transition: none; }
